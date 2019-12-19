@@ -1,0 +1,14 @@
+
+public class Client {
+
+	public static void main(String[] args) {
+		ElevatorManager emWithResponseTimeScheduler =
+				new ElevatorManager(2,SchedulingStrategyID.RESPONS_TIME);
+		emWithResponseTimeScheduler.requestElevator(10,Direction.UP);
+		
+		ElevatorManager emWithThroughputScheduler =
+				new ElevatorManager(2,SchedulingStrategyID.RESPONS_TIME);
+		emWithResponseTimeScheduler.requestElevator(10,Direction.UP);
+	}
+
+}

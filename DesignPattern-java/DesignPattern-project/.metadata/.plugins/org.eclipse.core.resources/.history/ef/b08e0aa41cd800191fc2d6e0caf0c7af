@@ -1,0 +1,14 @@
+package strategyEx1;
+
+public class Main {
+	public static void main(String[] args) {
+		Robot atom1 = new Atom("아톰1");
+		atom1.attack();
+		atom1.move();
+		
+		Robot taekwon1 = new TaekwonV("태권브이1");
+		taekwon1.attack();
+		taekwon1.move();
+		taekwon1.game();
+	}
+}

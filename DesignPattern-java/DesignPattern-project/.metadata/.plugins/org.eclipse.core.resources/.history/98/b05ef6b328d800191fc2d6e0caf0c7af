@@ -1,0 +1,33 @@
+package strategyEx1;
+
+public abstract class Robot {
+	private String name;
+	private MovingStrategy movingStrategy;
+	private AttackStrategy attackStrategy;
+	
+	
+	public MovingStrategy getMovingStrategy() {
+		return movingStrategy;
+	}
+	public AttackStrategy getAttackStrategy() {
+		return attackStrategy;
+	}
+	public void setAttackStrategy(AttackStrategy attackStrategy) {
+		this.attackStrategy = attackStrategy;
+	}
+	public void setMovingStrategy(MovingStrategy movingStrategy) {
+		this.movingStrategy = movingStrategy;
+	}
+
+	
+	public abstract void attack();
+	public abstract void move();
+	
+	public Robot(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return this.name;
+	}
+}
+

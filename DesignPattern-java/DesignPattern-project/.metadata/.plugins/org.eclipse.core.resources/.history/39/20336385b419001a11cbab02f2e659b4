@@ -1,0 +1,17 @@
+package ElevatorMotor;
+
+public class LGElevatorFactory extends ElevatorFactory {
+
+	@Override
+	public Motor createMotor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Door createDoor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,23 @@
+package ElevatorMotor;
+
+public class Main {
+
+	public static void main(String[] args) {
+		/*
+		 * Door lgDoor = DoorFactory.createDoor(VendorID.LG); Motor lgMotor =
+		 * MotorFactory.createMotor(VendorID.LG);
+		 * 
+		 * lgMotor.setDoor(lgDoor);
+		 * 
+		 * lgDoor.open(); lgMotor.move(Direction.UP);
+		 */
+		
+		
+		ElevatorFactory factory = null;
+		String vendorName = args[0];
+		
+		if(vendorName.equalsIgnoreCase("LG"))
+			
+	}
+
+}

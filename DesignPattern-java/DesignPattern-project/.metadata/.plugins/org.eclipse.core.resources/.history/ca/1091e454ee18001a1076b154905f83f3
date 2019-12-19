@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ElevatorManager {
+	private List<ElevatorController> controllers;
+	private ThroughputScheduler scheduler;
+	
+	//주어진 수만큼의 ElevatorController를 생성함
+	public ElevatorManager(int controllerCount) {
+		controllers = new ArrayList<ElevatorController>(controllerCount);
+		for(int i=0;i<controllerCount;i++) {
+			ElevatorController controller = new ElevatorController(i);
+			
+		}
+	}
+}

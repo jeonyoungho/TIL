@@ -1,0 +1,6 @@
+
+public class ThroughputScheduler {
+	public int selectedElevator(ElevatorManager manager,int destination,Direction direction) {
+		return 0;
+	}
+}

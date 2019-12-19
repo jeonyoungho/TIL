@@ -1,0 +1,14 @@
+
+public class Client {
+
+	public static void main(String[] args) {
+		CarComponent basicCar = new BasicCar();
+		
+		System.out.println("Car Price : " + basicCar.getPrice());
+		System.out.println("Car Info : " + basicCar.getCarinfo());
+		
+		
+		CarComponent airBag = new 
+	}
+
+}

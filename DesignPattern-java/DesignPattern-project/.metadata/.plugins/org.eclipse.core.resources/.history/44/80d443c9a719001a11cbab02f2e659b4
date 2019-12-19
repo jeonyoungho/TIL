@@ -1,0 +1,9 @@
+
+public class LGMotor extends Motor {
+
+	@Override
+	protected void moveMotor(Direction direction) {
+		
+	}
+
+}

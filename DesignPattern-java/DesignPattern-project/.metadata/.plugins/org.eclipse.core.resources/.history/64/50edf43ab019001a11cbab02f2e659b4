@@ -1,0 +1,26 @@
+
+public abstract class Door {
+	private DoorStatus doorStatus;
+	
+	public Door() {
+		doorStatus = DoorStatus.CLOSED;
+	}
+	
+	public DoorStatus getDoorStatus() {
+		return doorStatus;
+	}
+	
+	public void close() {
+		if(doorStatus == DoorStatus.CLOSED)
+		
+		doClose();
+		
+		doorStatus = DoorStatus.CLOSED;		
+	}
+	
+	protected abstract void doClose();
+	
+	public void open() {
+		doorStatus = DoorStatus.OPENED;
+	}
+}

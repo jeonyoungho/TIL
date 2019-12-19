@@ -1,0 +1,5 @@
+package prac0901;
+
+public interface Observer {
+
+}

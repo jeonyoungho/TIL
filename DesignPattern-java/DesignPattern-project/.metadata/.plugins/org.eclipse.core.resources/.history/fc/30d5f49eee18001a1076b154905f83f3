@@ -1,0 +1,13 @@
+
+public class ElevatorController {
+	private int id;
+	private int curFloor;
+	public ElevatorController(int id) {
+		super();
+		this.id = id;
+		this.curFloor = curFloor;
+	}
+	
+	
+	
+}

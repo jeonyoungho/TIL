@@ -1,0 +1,5 @@
+package strategyEx1;
+
+public interface MovingStrategy {
+	public vodi move();
+}

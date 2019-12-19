@@ -1,0 +1,8 @@
+
+public class moveDoor {
+	private ElevatorPanel p;
+	public moveDoor(ElevatorPanel p ) {
+		this.p = p;
+	}
+	
+}

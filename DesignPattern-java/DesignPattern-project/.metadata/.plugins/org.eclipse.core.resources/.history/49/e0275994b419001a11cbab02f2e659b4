@@ -1,0 +1,16 @@
+package ElevatorMotor;
+
+public class HyundaiElevatorFactory extends ElevatorFactory {
+
+	@Override
+	public Motor createMotor() {
+		return new HyundaiMotor();
+	}
+
+	@Override
+	public Door createDoor() {
+		// TODO Auto-generated method stub
+		return new LGDoor();
+	}
+
+}

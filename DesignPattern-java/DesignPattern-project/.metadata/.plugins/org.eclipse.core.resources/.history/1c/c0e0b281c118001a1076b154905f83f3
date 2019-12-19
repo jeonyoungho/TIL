@@ -1,0 +1,7 @@
+import java.util.ArrayList;
+
+public class Directory {
+	private String name;
+	private int depth = 0;
+	private List<Object> entries = new ArrayList<Object>();
+}

@@ -1,0 +1,16 @@
+
+public class ElevatorControllerWithHyundai extends ElevatorController {
+	private Motor hMotor;
+	public ElevatorControllerWithHyundai(int id, Motor motor) {
+		super(id);
+	}
+
+	@Override
+	protected Motor getMotor() {
+		if(hMotor == null)
+			hMotor = new HyundaiMotor();
+	
+		return hMotor;
+	}
+
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>290</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Stack</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>290</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>ArrayList
+-&gt;친구클래스</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>290</y>
+      <w>290</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>270.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>280</x>
+      <y>130</y>
+      <w>540</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ArrayList클래스를 부모클래스가 아닌 친구클래스로 두는경우
+-&gt; 멤버변수로 두어 친구클래스를 통해 참조만하여 원하는 메소드만사용
+-&gt; 친구클래스의 사용 원하는 메소드만 사용하고 싶을 경우 쓰는방법</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

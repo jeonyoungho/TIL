@@ -1,0 +1,22 @@
+
+public class CarOptionDecorator extends CarComponent {
+
+	private CarComponent carComponent;
+	
+	public CarOptionDecorator(CarComponent carComponent) {
+		this.carComponent = carComponent;
+	}
+
+	@Override
+	public int getPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getCarinfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

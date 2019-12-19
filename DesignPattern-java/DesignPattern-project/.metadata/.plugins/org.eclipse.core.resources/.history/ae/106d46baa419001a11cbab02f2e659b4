@@ -1,0 +1,14 @@
+
+public class ElevatorManagerWithDynamicScheduling extends ElevatorManager {
+
+	public ElevatorManagerWithDynamicScheduling(int controllerCount) {
+		super(controllerCount);
+	}
+	
+	@Override
+	protected ElevatorScheduler getScheduler() {
+		ElevatorScheduler scheduler = ResponseTimeScheduler.getInstance();
+		return scheduler;
+	}
+
+}

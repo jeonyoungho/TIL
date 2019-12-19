@@ -1,0 +1,21 @@
+
+public class AirBagDecorator extends CarOptionDecorator {
+	private int airBagPrice;
+	
+	
+	public AirBagDecorator(CarComponent decoratedCar, int airBagPrice) {
+		super(decoratedCar);
+		this.airBagPrice = airBagPrice;
+	}
+	public int getPrice() {
+		int price = super.getPrice();
+		return airBagPrice;
+	}
+	public String getCarinfo() {
+		return 
+	}
+	
+	private int getAirBagPrice() {
+		return airBagPrice;
+	}
+}

@@ -1,0 +1,6 @@
+package strategyEx1;
+
+public abstract class Robot {
+	private String name;
+	public abstract void attack();
+}

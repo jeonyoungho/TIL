@@ -1,0 +1,9 @@
+package strategyEx1;
+
+public class WallkingStrategy implements MovingStrategy {
+
+	public void move() {
+		System.out.println("Waling");
+	}
+
+}

@@ -1,0 +1,17 @@
+
+public class BasicCar extends CarComponent {
+
+	int price = 0l
+	
+	@Override
+	public int getPrice() {
+		return 10000;
+	}
+
+	@Override
+	public String getCarinfo() {
+		// TODO Auto-generated method stub
+		return "This is Basic Car";
+	}
+
+}

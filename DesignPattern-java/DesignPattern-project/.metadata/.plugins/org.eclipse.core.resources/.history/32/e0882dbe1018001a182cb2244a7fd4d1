@@ -1,0 +1,16 @@
+
+
+public class Clean
+
+import robotCleaner1.CleaningWithRobot;
+import robotCleaner1.RobotCleaner;
+
+ithHansungRobot extends CleaningWithRobot {
+
+	@Override
+	protected RobotCleaner getRobotCleaner() {
+		// TODO Auto-generated method stub
+		return new HansungRobotCleaner();
+	}
+
+}

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>170</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Cumstomer
+-
+-name:string
+-point:integer
+-
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>420</y>
+      <w>280</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>SimpleReportGenerator
+-
+-
+//+generate():string //보고서 내용 생성시키는 기능(대상 : 모든고객)
+/#generateReportHeader()/
+/#generateReportBody()/
+/#generateReportFooter()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>240</y>
+      <w>240</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>120</x>
+      <y>650</y>
+      <w>150</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+Header
+고객수10명
+-
+Body
+홍길동 120점
+우수한	 110점
+...
+-
+Footer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>420</y>
+      <w>280</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>ComplexReportGenerator
+-
+-
+//+generate():string //보고서 내용 생성시키는 기능(대상 : 100점이상의 고객)
+/#generateReportHeader()/
+/#generateReportBody()/
+/#generateReportFooter()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>240</y>
+      <w>230</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>650</x>
+      <y>660</y>
+      <w>260</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+Header
+**고객수10명입니다**
+-
+Body 100점이상의 고객들만 출력
+점수 : 이름
+120점 홍길동
+110점 우수한	 
+...
+-
+Footer
+**점수 합계: 00**</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>460</y>
+      <w>80</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>460</y>
+      <w>110</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>110</y>
+      <w>200</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>/ReportGenerator/
+-
+-
+/+generator():string/
+/#generateReportHeader()/
+/#generateReportBody()/
+/#generateReportFooter()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>190</y>
+      <w>300</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>10.0;50.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>420</y>
+      <w>310</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>MyReportGenerator
+-
+-
+//+generate():string //보고서 내용 생성시키는 기능(대상 : 100점이상의 고객)
+/#generateReportHeader()/ "나의 양식입니다"
+/#generateReportBody()/ 50점이상
+/#generateReportFooter()/
+"최고점 고객은 누구고 최하점 고객은 누구다"</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

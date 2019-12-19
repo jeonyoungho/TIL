@@ -1,0 +1,10 @@
+
+public class ElevatorManagerWithThroughputScheduling extends ElevatorManager {
+
+	@Override
+	protected ElevatorScheduler getScheduler() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

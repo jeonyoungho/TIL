@@ -1,0 +1,5 @@
+
+public abstract class CarComponent {
+	
+	public abstract int getPrice();
+}

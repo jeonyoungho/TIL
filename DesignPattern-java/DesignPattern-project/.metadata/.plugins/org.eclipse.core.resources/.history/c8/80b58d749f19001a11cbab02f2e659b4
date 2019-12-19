@@ -1,0 +1,10 @@
+
+public class SchedulerFactory {
+	public static ElevatorScheduler getScheduler(SchedulingStrategyID strategyID) {
+		ElevatorSchduler scheduler = null;
+		switch(strategyID) {
+		case RESPONS_TIME: //대기 시간 최소화 전략
+			scheduler - new ResponseTimeScheduler();
+		}
+	}
+}

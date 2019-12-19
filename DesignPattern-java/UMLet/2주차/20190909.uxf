@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+// fontsize=23
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>190</y>
+      <w>220</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Printer
+-
+_-instance: Printer_
+
+
+-
+-Printer()
+_+getPrinter():Printer_
++Print(str String): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>170</y>
+      <w>220</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Printer
+-
+
+
+
+-
++Printer()
++Print(str String): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>280</x>
+      <y>430</y>
+      <w>530</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Method // 누구(클래스냐 인스턴스냐)한테 실행에 대한 책임이 있는지로 구분, 누가
+실행하는게 맞는지로 구분 
+1.instance Method -&gt; 인스턴스(객체)에 대해서 이 메소드가 실행
+	object.method();
+2. class(static) Method -&gt; 클래스에 대해서 이 메소드가 실행
+	class이름.method();
+
+
+*생성된 각 개체마다 가지고 있어야하는지 메소드인지 클래스 당 하나만있고
+모든 객체가 참조할 수 있는 메소드 여야하는지 결정</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

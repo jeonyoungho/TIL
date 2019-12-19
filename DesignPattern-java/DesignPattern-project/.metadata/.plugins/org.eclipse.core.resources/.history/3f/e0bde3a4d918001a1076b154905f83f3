@@ -1,0 +1,20 @@
+
+public class CarOptionDecorator extends decoratedCar {
+
+	private decoratedCar decoratedCar;
+	
+	public CarOptionDecorator(decoratedCar decoratedCar) {
+		this.decoratedCar = decoratedCar;
+	}
+
+	@Override
+	public int getPrice() {
+		return decoratedCar.getPrice();
+	}
+
+	@Override
+	public String getCarinfo() {
+		return decoratedCar.getCarinfo();
+	}
+
+}

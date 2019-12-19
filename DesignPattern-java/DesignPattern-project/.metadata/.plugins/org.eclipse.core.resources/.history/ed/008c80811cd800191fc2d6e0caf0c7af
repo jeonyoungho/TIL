@@ -1,0 +1,9 @@
+package strategyEx1;
+
+public class Main {
+	public static void main(String[] args) {
+		Robot atom1 = new Atom("พฦล่1");
+		atom1.attack();
+		atom1.move();
+	}
+}

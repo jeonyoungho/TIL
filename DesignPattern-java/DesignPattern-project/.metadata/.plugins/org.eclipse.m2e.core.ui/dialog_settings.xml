@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="kr.ac.hansung"/>
+			<item value="kr.hansung"/>
+			<item value="hansung.youngho"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="chap10-prac2"/>
+			<item value="chap14-prac1"/>
+			<item value="chap11-1"/>
+			<item value="prac9-2"/>
+			<item value="junyoungho"/>
+			<item value="Macro"/>
+			<item value="chap9-1"/>
+			<item value="chap5-5"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item value="All Catalogs" key="catalog"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\chap14-ComputerDevice"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\prac1101a\src\main\java\prac1101a\MyReportGenerator.java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\prac9-1\src\main\java\Client.java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\Macro"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\youngEx\src\main\java\hansung\youngho\youngEx"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\strategyEx1\src\main\java\strategyEx1\Robot.java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\chap5-4\src\main\java\HorizonalMoveStrategy.java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\Youngho"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\prac8-1\src\main\java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\chap8-1\src\main\java\Client.java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\chap6-2"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\strategyEx1\src\main\java\strategyEx1\Main.java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\song\src\main\java\song\Main.java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\chap6-2\src\main\java\Main.java"/>
+			<item value="C:\Users\jeonyoungho\Desktop\1492034\3학년2학기\설계패턴\강의실습(메이븐)\dpex1\src\main\java\dpex1\Main.java"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

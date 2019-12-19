@@ -1,0 +1,14 @@
+
+public class AirBagDecorator extends CarOptionDecorator {
+	private int airBagPrice;
+	
+	
+	
+	
+	public int getPrice() {
+		return airBagPrice;
+	}
+	public String getCarinfo() {
+		
+	}
+}

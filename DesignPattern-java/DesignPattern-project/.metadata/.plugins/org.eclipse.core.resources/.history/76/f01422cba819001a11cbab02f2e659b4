@@ -1,0 +1,6 @@
+
+public class MotorFactory {
+	public static Motor getMotor() {
+		
+	}
+}
