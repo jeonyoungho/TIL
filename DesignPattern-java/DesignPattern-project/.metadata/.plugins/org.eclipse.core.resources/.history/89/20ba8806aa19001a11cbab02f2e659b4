@@ -1,8 +1,0 @@
-
-public class ElevatorControllerWithHyundai extends ElevatorController {
-
-	public ElevatorControllerWithHyundai(int id, Motor motor) {
-		super(id, motor);
-	}
-
-}

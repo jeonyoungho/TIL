@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author jeonyoungho
- *
- */
-module Youngho {
-}

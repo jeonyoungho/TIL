@@ -1,7 +1,0 @@
-
-public class ElevatorManager {
-	private LIst<ElevatorController> controllers;
-	private ThroughputScheduler scheduler;
-	
-	
-}

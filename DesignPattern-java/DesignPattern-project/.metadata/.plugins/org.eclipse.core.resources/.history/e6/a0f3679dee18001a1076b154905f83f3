@@ -1,7 +1,0 @@
-
-public class ElevatorController {
-	private int id;
-	private int curFloor;
-	
-	
-}

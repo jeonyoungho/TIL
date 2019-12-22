@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;Subject.java&apos; to &apos;chap9-prac1(professor)/src/main/java/prac0901&apos;&#x0D;&#x0A;- Original project: &apos;chap9-1&apos;&#x0D;&#x0A;- Destination element: &apos;chap9-prac1(professor)/src/main/java/prac0901&apos;&#x0D;&#x0A;- Original element: &apos;Subject.java&apos;" description="Copy compilation unit" destination="=chap9-prac1\(professor)/src\/main\/java&lt;prac0901" element1="/src\/main\/java&lt;{Subject.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1575636263582" units="1" version="1.0"/>
-</session>

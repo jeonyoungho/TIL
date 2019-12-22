@@ -1,9 +1,0 @@
-
-public class SchedulerFactory {
-	public static ElevatorScheduler getScheduler(SchedulingStrategyID strategyID) {
-		ElevatorSchduler scheduler = null;
-		switch(strategyID) {
-		
-		}
-	}
-}

@@ -1,5 +1,0 @@
-
-public class AirBagDecorator extends CarOptionDecorator {
-	private int airBagPrice;
-	
-}

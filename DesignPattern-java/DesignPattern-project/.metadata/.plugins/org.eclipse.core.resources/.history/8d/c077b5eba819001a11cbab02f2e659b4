@@ -1,6 +1,0 @@
-
-public class MotorFactory {
-	public static Motor getMotor(MotorVendorID motorVendorID) {
-		
-	}
-}

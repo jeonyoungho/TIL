@@ -1,4 +1,0 @@
-
-public class ResponseTimeScheduler implements ElevatorScheduler{
-
-}
