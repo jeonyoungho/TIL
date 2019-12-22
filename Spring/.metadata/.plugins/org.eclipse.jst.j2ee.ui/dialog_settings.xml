@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="J2EE_EXPORT_OVERWRITE"/>
+	<item value="false" key="J2EE_EXPORT_SOURCE"/>
+	<list key="MRU_RUNTIME_STORE">
+		<item value="Apache Tomcat v9.0"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="C:\yhjeon\YH_workspace\StudentInformation.war"/>
+		<item value="C:\yhjeon\YH_workspace\helloSpringMVC\helloSpringMVC.war"/>
+		<item value="C:\yhjeon\YH_workspace\homeWork1.war"/>
+		<item value="C:\yhjeon\YH_workspace\helloMVC3.war"/>
+		<item value="C:\apache-tomcat-9.0.16\webapps\helloServlet.war"/>
+	</list>
+</section>

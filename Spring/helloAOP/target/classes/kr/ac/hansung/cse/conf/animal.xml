@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="id_dog" class="kr.ac.hansung.cse.Dog">
+		<property name="myName" value="poodle"></property>
+	</bean>
+
+	<bean id="id_cat" class="kr.ac.hansung.cse.Cat">
+		<property name="myName" value="vella"></property><!-- setter메서드를 통해서 값을 바꿔주게 되있음 -->
+	</bean>
+
+	<bean id="id_petOwner" class="kr.ac.hansung.cse.PetOwner">
+		<constructor-arg ref="id_dog"></constructor-arg>
+	</bean>
+
+	<bean id="id_loger" class="kr.ac.hansung.cse.Logger">
+	</bean>
+	
+	<context:annotation-config></context:annotation-config>
+	
+<!-- 	<aop:config>
+		<aop:aspect ref="id_loger" id="id_aspect">
+			
+			<aop:pointcut id="selectSound"
+				expression="execution( void kr.ac.hansung.cse.*.sound() )" />
+			<aop:after method="aboutToSound"
+				pointcut-ref="selectSound" />
+		</aop:aspect>
+	</aop:config> -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
+</beans>

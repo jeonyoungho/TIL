@@ -1,0 +1,10 @@
+package model;
+
+import lombok.Getter;
+
+@Getter
+
+public class Customer {
+	private String id;
+	private String password;
+}

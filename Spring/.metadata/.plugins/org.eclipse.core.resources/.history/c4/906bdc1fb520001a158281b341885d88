@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.takedcourse{
+	text-align: center;
+}
+
+#item{
+	color: red;
+}
+
+#list{
+	border: solid 1px;
+}

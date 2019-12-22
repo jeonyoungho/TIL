@@ -1,0 +1,6 @@
+package kr.ac.hansung.controller;
+
+@RequestMapping("/login")
+public class LoginController {
+
+}
