@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=C\:\\Users\\jeonyoungho\\Desktop\\TIL\\Spring\\JSPBook\\.git;C\:\\Users\\jeonyoungho\\Desktop\\TIL\\Spring\\helloSpringMVC\\.git;C\:\\Users\\jeonyoungho\\Desktop\\TIL\\Spring\\helloServlet\\.git;C\:\\Users\\jeonyoungho\\Desktop\\TIL\\.git;
-GitRepositoriesView.GitDirectories.relative=JSPBook\\.git;helloSpringMVC\\.git;helloServlet\\.git;C\:\\Users\\jeonyoungho\\Desktop\\TIL\\.git;
+GitRepositoriesView.GitDirectories=C\:\\Users\\jeonyoungho\\Desktop\\TIL\\Spring\\JSPBook\\.git;C\:\\Users\\jeonyoungho\\Desktop\\TIL\\Spring\\helloSpringMVC\\.git;C\:\\Users\\jeonyoungho\\Desktop\\TIL\\Spring\\helloServlet\\.git;C\:\\Users\\jeonyoungho\\Desktop\\TIL\\Spring\\helloSpringMVC\\.git\\.git;C\:\\Users\\jeonyoungho\\Desktop\\TIL\\Spring\\.git;
+GitRepositoriesView.GitDirectories.relative=JSPBook\\.git;helloSpringMVC\\.git;helloServlet\\.git;helloSpringMVC\\.git\\.git;.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
