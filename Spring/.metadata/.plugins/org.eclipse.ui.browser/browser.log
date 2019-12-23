@@ -28,3 +28,25 @@
 
 12월 23, 2019 24:09:08.18 NEW SESSION
 12월 23, 2019 24:09:08.18 [16852:16776:1223/000908.185:ERROR:account_tracker.cc(241)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+
+12월 23, 2019 20:25:33.44 NEW SESSION
+12월 23, 2019 20:25:33.44 [15684:3416:1223/202533.444:ERROR:account_tracker.cc(241)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+12월 23, 2019 20:29:48.42 
+12월 23, 2019 20:29:48.42 KLIB_SelfTest return : KLR_OK
+12월 23, 2019 20:29:52.31 [17032:17540:1223/202952.314:ERROR:account_tracker.cc(241)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+12월 23, 2019 20:30:27.51 
+12월 23, 2019 20:30:27.52 KLIB_SelfTest return : KLR_OK
+
+12월 23, 2019 21:07:20.78 NEW SESSION
+12월 23, 2019 21:07:20.78 [18876:5052:1223/210720.782:ERROR:account_tracker.cc(241)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+12월 23, 2019 21:26:23.01 
+12월 23, 2019 21:26:23.01 KLIB_SelfTest return : KLR_OK
+12월 23, 2019 21:27:08.79 [15068:15924:1223/212708.789:ERROR:account_tracker.cc(241)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+12월 23, 2019 21:27:19.76 
+12월 23, 2019 21:27:19.77 KLIB_SelfTest return : KLR_OK
+12월 23, 2019 21:27:52.67 [20964:19756:1223/212752.678:ERROR:account_tracker.cc(241)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+12월 23, 2019 21:31:34.66 
+12월 23, 2019 21:31:34.67 KLIB_SelfTest return : KLR_OK
+12월 23, 2019 21:31:45.13 [10908:21000:1223/213145.131:ERROR:account_tracker.cc(241)] AccessTokenFetched error: Invalid credentials (credentials rejected by client).
+12월 23, 2019 21:45:24.89 
+12월 23, 2019 21:45:24.91 KLIB_SelfTest return : KLR_OK

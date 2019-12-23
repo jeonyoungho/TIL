@@ -1,9 +1,0 @@
-127.0.0.1 - - [11/Jun/2019:13:36:39 +0900] "GET / HTTP/1.1" 404 1115
-0:0:0:0:0:0:0:1 - - [11/Jun/2019:13:36:42 +0900] "GET /JSPBook/ch15/insert01.jsp HTTP/1.1" 200 387
-0:0:0:0:0:0:0:1 - - [11/Jun/2019:13:36:54 +0900] "POST /JSPBook/ch15/insert01_process.jsp HTTP/1.1" 200 185
-0:0:0:0:0:0:0:1 - - [11/Jun/2019:13:38:13 +0900] "GET /JSPBook/ch15/insert02.jsp HTTP/1.1" 200 387
-0:0:0:0:0:0:0:1 - - [11/Jun/2019:13:38:19 +0900] "POST /JSPBook/ch15/insert02_process.jsp HTTP/1.1" 200 235
-0:0:0:0:0:0:0:1 - - [11/Jun/2019:13:40:35 +0900] "GET /JSPBook/ch15/insert01.jsp HTTP/1.1" 200 387
-0:0:0:0:0:0:0:1 - - [11/Jun/2019:13:40:44 +0900] "POST /JSPBook/ch15/insert01_process.jsp HTTP/1.1" 200 234
-127.0.0.1 - - [11/Jun/2019:16:51:37 +0900] "GET / HTTP/1.1" 404 1115
-0:0:0:0:0:0:0:1 - - [11/Jun/2019:16:51:39 +0900] "GET /JSPBook/test.jsp HTTP/1.1" 200 140

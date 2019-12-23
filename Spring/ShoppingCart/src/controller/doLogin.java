@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +21,7 @@ public class doLogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String customerId = request.getParameter("customerId");//request객체를 통해 customerId를 읽어 들여 String 로컬변수 생성 후 할당
-		String customerPw = request.getParameter("customerPw");//request객체를 통해 customerPw를 읽어 들여 String 로컬변수 생성 후 할당
+//		String customerPw = request.getParameter("customerPw");//request객체를 통해 customerPw를 읽어 들여 String 로컬변수 생성 후 할당
 		CustomerService cs = new CustomerService();//CustomerService 객체 생성
 
 		Customer customer = cs.findCustomer(customerId);/*CustomerService객체를 통해 저장된 customer객체를 로컬변수 customer

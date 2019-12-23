@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="javaee"/>
 			<item value="takedcourse"/>
 			<item value="offer"/>
 			<item value="lombok"/>
@@ -15,7 +16,6 @@
 			<item value="UTF"/>
 			<item value="connectionTimeout"/>
 			<item value="Connector"/>
-			<item value="master"/>
 		</list>
 		<list key="replacehistory">
 			<item value="course"/>

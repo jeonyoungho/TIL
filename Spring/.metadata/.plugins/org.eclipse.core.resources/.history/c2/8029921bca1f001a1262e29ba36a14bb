@@ -1,6 +1,0 @@
-@charset "UTF-8";
-
-.formtable{
-	width:400px;
-	border:1px solid blue;
-}

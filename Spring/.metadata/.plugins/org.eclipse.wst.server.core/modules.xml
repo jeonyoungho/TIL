@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <modules>
-  <module moduleId="org.eclipse.jst.jee.server:helloMVC" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:helloMVC" serverId="Pivotal tc Server Developer Edition v4.0"/>
   <module moduleId="org.eclipse.jst.jee.server:helloServlet" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:helloSpring" serverId="Tomcat v9.0 Server at localhost"/>
 </modules>
