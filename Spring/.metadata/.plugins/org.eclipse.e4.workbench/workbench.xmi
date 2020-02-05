@@ -227,21 +227,15 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_Ap1CvyGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ui.editorss" selectedElement="_Ap1CwCGMEeqqSMpSoUEm8Q">
-      <children xsi:type="basic:PartStack" xmi:id="_Ap1CwCGMEeqqSMpSoUEm8Q" elementId="PartStack@504e19b7" selectedElement="_3b9u0CWFEeq8fLlITODzsw">
+      <children xsi:type="basic:PartStack" xmi:id="_Ap1CwCGMEeqqSMpSoUEm8Q" elementId="PartStack@504e19b7" selectedElement="_-PreUCWFEeq8fLlITODzsw">
         <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_3b9u0CWFEeq8fLlITODzsw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="web.xml" iconURI="platform:/plugin/org.eclipse.wst.xml.ui/icons/xmldoc.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart&quot; name=&quot;web.xml&quot; partName=&quot;web.xml&quot; title=&quot;web.xml&quot; tooltip=&quot;helloSpringMVC/src/main/webapp/WEB-INF/web.xml&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/helloSpringMVC/src/main/webapp/WEB-INF/web.xml&quot;/>&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
-        </children>
         <children xsi:type="basic:Part" xmi:id="_-PreUCWFEeq8fLlITODzsw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="helloSpringMVC/pom.xml" iconURI="platform:/plugin/org.eclipse.m2e.editor/icons/editor-pom.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.m2e.editor.MavenPomEditor&quot; name=&quot;pom.xml&quot; partName=&quot;helloSpringMVC/pom.xml&quot; title=&quot;helloSpringMVC/pom.xml&quot; tooltip=&quot;helloSpringMVC/pom.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/helloSpringMVC/pom.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.m2e.editor.MavenPomEditor&quot; name=&quot;pom.xml&quot; partName=&quot;helloSpringMVC/pom.xml&quot; title=&quot;helloSpringMVC/pom.xml&quot; tooltip=&quot;helloSpringMVC/pom.xml&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/helloSpringMVC/pom.xml&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.m2e.editor.MavenPomEditor</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -702,7 +696,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ap1DvCGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_H3Mj4DO4EeqAvq1V6KlVEg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_Ap3f5CGMEeqqSMpSoUEm8Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_S--T4EfgEeqZNdcAwk2rew" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_Ap3f5CGMEeqqSMpSoUEm8Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ap1DySGMEeqqSMpSoUEm8Q" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -715,7 +709,7 @@
         <tags>toolbarSeparator</tags>
         <children xsi:type="menu:ToolBarSeparator" xmi:id="_Ap1D0CGMEeqqSMpSoUEm8Q" elementId="additions" toBeRendered="false"/>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_I3s-oDO4EeqAvq1V6KlVEg">
+      <children xsi:type="menu:ToolBar" xmi:id="_I3s-oDO4EeqAvq1V6KlVEg" visible="false">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ap1EFSGMEeqqSMpSoUEm8Q" visible="false">
@@ -727,7 +721,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_Ap1EFyGMEeqqSMpSoUEm8Q" elementId="org.eclipse.jdt.ui.JavaElementCreationActionSet">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_Ap1EGiGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
+      <children xsi:type="menu:ToolBar" xmi:id="_Ap1EGiGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ui.edit.text.actionSet.presentation" visible="false">
         <tags>Draggable</tags>
         <children xsi:type="menu:HandledToolItem" xmi:id="_Ap1EGyGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ui.genericeditor.togglehighlight" visible="false" iconURI="platform:/plugin/org.eclipse.ui.genericeditor/icons/full/etool16/mark_occurrences.png" selected="true" type="Check" command="_Ap3gJSGMEeqqSMpSoUEm8Q">
           <persistedState key="IIdentifier" value="org.eclipse.ui.genericeditor/org.eclipse.ui.genericeditor.togglehighlight"/>
@@ -775,7 +769,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ap1ESSGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_H3QOQDO4EeqAvq1V6KlVEg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_Ap3fhyGMEeqqSMpSoUEm8Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_S_B-QUfgEeqZNdcAwk2rew" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_Ap3fhyGMEeqqSMpSoUEm8Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Ieje0DO4EeqAvq1V6KlVEg" elementId="org.eclipse.jdt.ui.PropertiesFileEditor" visible="false">
         <tags>Draggable</tags>
@@ -1247,7 +1241,7 @@
     <bindings xmi:id="_HbrslzO4EeqAvq1V6KlVEg" keySequence="ALT+COMMAND+CTRL+D Q" command="_Ap26dCGMEeqqSMpSoUEm8Q">
       <tags>platform:cocoa</tags>
     </bindings>
-    <bindings xmi:id="_HckdYTO4EeqAvq1V6KlVEg" keySequence="COMMAND+CTRL+F" command="_Hcj2UjO4EeqAvq1V6KlVEg"/>
+    <bindings xmi:id="_SNRKIEfgEeqZNdcAwk2rew" keySequence="COMMAND+CTRL+F" command="_Hcj2UjO4EeqAvq1V6KlVEg"/>
   </bindingTables>
   <bindingTables xmi:id="_Ap1pSSGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ant.ui.AntEditorScope" bindingContext="_Ap1qqyGMEeqqSMpSoUEm8Q">
     <bindings xmi:id="_Ap1pSiGMEeqqSMpSoUEm8Q" keySequence="F3" command="_Ap24uyGMEeqqSMpSoUEm8Q"/>
@@ -1724,7 +1718,7 @@
     </bindings>
   </bindingTables>
   <bindingTables xmi:id="_HclEcjO4EeqAvq1V6KlVEg" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_Ap1qyiGMEeqqSMpSoUEm8Q">
-    <bindings xmi:id="_HclEczO4EeqAvq1V6KlVEg" keySequence="M1+W" command="_HclEcDO4EeqAvq1V6KlVEg"/>
+    <bindings xmi:id="_SNRxMEfgEeqZNdcAwk2rew" keySequence="M1+W" command="_HclEcDO4EeqAvq1V6KlVEg"/>
   </bindingTables>
   <rootContext xmi:id="_Ap1qjiGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_Ap1qjyGMEeqqSMpSoUEm8Q" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
