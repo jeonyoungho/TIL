@@ -8,4 +8,8 @@
 
 5. Junit 테스트 설정
 ※//pom.xml의 junit과 spring-test의 <scope>test</scope>를 지워야 import됨
+<img width="482" alt="sprnig-test" src="https://user-images.githubusercontent.com/44339530/74830030-99730900-5355-11ea-87ac-6788a01c8651.png">
+<img width="330" alt="junit" src="https://user-images.githubusercontent.com/44339530/74830034-9b3ccc80-5355-11ea-9776-5d96baf9cbee.png">
+<img width="1099" alt="xml-junittest" src="https://user-images.githubusercontent.com/44339530/74830038-9bd56300-5355-11ea-9024-b9ee8ee7c92d.png">
+<img width="1051" alt="java-junittest" src="https://user-images.githubusercontent.com/44339530/74830043-9d9f2680-5355-11ea-8143-8af7314921c2.png">
 
