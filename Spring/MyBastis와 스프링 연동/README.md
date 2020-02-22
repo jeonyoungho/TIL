@@ -11,33 +11,7 @@
 1. 라이브러리 추가
 ·spring-jdbc/spring-tx : 스프링에서 DB처리와 트랜잭션 처리(해당 라이브러리들은 MyBatis와 무관하게 보이지만 추가하지 않은 경우에 에러발생)
 ·mybatis/mybatis-spring : MyBatis와 스프링 연동용 라이브러리
-
-<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-<dependency>
-    <groupId>org.mybatis</groupId>
-    <artifactId>mybatis</artifactId>
-    <version>3.4.6</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
-<dependency>
-    <groupId>org.mybatis</groupId>
-    <artifactId>mybatis-spring</artifactId>
-    <version>1.3.2</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-tx</artifactId>
-    <version>${org.springframework-version}</version>
-</dependency>
-
-<dependency>
-	<groupId>org.springframework</groupId>
-	<artifactId>spring-jdbc</artifactId>
-	<version>${org.springframework-version}</version>
-</dependency>
+<img width="681" alt="2" src="https://user-images.githubusercontent.com/44339530/75095233-1ad8ce80-55d6-11ea-891f-c03e4d8111d1.png"><br>
 
 2. root-context.xml 에 SQLSessionFactory Bean등록
 MyBatis에서 가장 핵심적인 객체로 SQLSession과 SQLSessionFactory가 있다.
@@ -94,12 +68,7 @@ RootConfig.java에 다음 추가
 · MyBatis는 내부적으로 JDBC의 PreparedStatement를 이용해서 SQL을 처리함 따라서 SQL에 전달되는 파라미터는 '?'로 치환되어서 처리됨. 복잡한 SQL의 경우 '?'로 나오는 값이 제대로 되었는지 확인하기가 쉽지 않고 실행된 SQL의 내용을 정확히 확인하기는 어려움. 이런 문제를 해결하기 위해 SQL을 변환해서 PreparedStatementdㅔ 사용된 '?'가 어떤 값으로 처리되었는지 확인하는 기능을 추가해야함. 
 
 1. SQL로그를 제대로 보기 위해선 log4jdbc-log4j2 라이브러리를 추가해야함
-<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4 -->
-<dependency>
-    <groupId>org.bgee.log4jdbc-log4j2</groupId>
-    <artifactId>log4jdbc-log4j2-jdbc4</artifactId>
-    <version>1.16</version>
-</dependency>
+<img width="723" alt="스크린샷 2020-02-23 오전 12 50 36" src="https://user-images.githubusercontent.com/44339530/75095286-8f137200-55d6-11ea-9d6e-1f31a1b03c70.png"><br>
 
 2. 로그 설정 파일을 추가해줘야함 (src/main/resources 밑에 log4jdbc-log4j2.properties파일을 추가)
 <img width="844" alt="properties" src="https://user-images.githubusercontent.com/44339530/75094192-69816b00-55cc-11ea-86ae-b520386011af.png">
@@ -112,25 +81,16 @@ RootConfig.java에 다음 추가
 
 · JDBC와 관련된 로그들이 출력됨
 
-- 로그의 레벨 설정
+- 로그의 레벨 설정<br>
 · 테스트를 실행하면 상당히 많은 양의 로그가 출력되기 때문에 불편하다.이런 상황에서는 로그 레벨을 이용해서 조금 수정해줄 필요가 있음.
 
-· 테스트 코드가 실행될 때의 로그와 관련 설정은 src/test/resources밑에 log4j.xml을 이용함.(src/main/resources 아닌src/test/resources 란 걸 주의)
+· 테스트 코드가 실행될 때의 로그와 관련 설정은 src/test/resources밑에 log4j.xml을 이용함.(src/main/resources 아닌src/test/resources 란 걸 주의)<br>
 <img width="302" alt="1" src="https://user-images.githubusercontent.com/44339530/75095061-7c983900-55d4-11ea-9882-62f24ecc120b.png">
 
 · 테스트코드가 실행될때 'INFO...',메세지는 log4j.xml의 마지막 부분에 있는 설정에 영향을 받기 때문
 <img width="362" alt="2" src="https://user-images.githubusercontent.com/44339530/75095063-7d30cf80-55d4-11ea-99e3-8d10b62596a5.png">
 
 · 만일 log4jdbc에서 출력되는 로그를 조절하고 싶다면 추가적인 <logger>를 지정해서 처리함.
-	<logger name="jdbc.audit">
-		<level value="warn" />
-	</logger>
-	<logger name="jdbc.resulteset">
-		<level value="warn" />
-	</logger>
-	<logger name="jdbc.connection">
-		<level value="warn" />
-	</logger>
 <img width="890" alt="3" src="https://user-images.githubusercontent.com/44339530/75095057-77d38500-55d4-11ea-8b74-b523d909b7b5.png">
 
 · 기본 설정의 로그는 info 레벨이기 때문에 warn과 같이 좀더 높은 레벨의 로그만 기록하게 수정하면 테스트 코드를 실행할 때 이전에 비해 로그양이 줄어드는것을 볼 수 있음.(더 자세한내용 참고https://logging.apache.org/log4j/2.x/manual/customloglevels.html)
