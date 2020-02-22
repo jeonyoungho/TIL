@@ -1,6 +1,6 @@
 - HikariCP를 사용한 DataSource 설정
 
-1. pom.xml에 HikariCP를 추가
+1. pom.xml에 HikariCP를 추가<br>
 · pom.xml
 <img width="844" alt="hikariDatasource-pom xml추가" src="https://user-images.githubusercontent.com/44339530/75091857-4eefc780-55b5-11ea-8d17-44c4209d4715.png">
 
