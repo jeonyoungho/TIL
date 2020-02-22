@@ -15,7 +15,7 @@
 
 2. root-context.xml 에 SQLSessionFactory Bean등록<br>
 · MyBatis에서 가장 핵심적인 객체로 SQLSession과 SQLSessionFactory가 있다.<br>
-· SQLSessionFactory에서 생성된 SQLSession을 통해 Connection을 생성하거나 원하는 SQL을 전달하고, 결과를 리턴 받는 구조로 흘러감<br>
+· SQLSessionFactory에서 생성된 SQLSession을 통해 Connection을 생성하거나 원하는 SQL을 전달하고, 결과를 리턴 받는 구조로 흘러감
 
 · xml을 이용한 설정<br>
 <img width="626" alt="sqlsessionFactory-bean등록" src="https://user-images.githubusercontent.com/44339530/75093659-3ee0e380-55c7-11ea-9be1-a8984dd1a81b.png"><br>
