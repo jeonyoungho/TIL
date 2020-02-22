@@ -50,28 +50,21 @@
 ※XML매핑 사용시 <mapper>태그의 namespace속성 값을 신경써야함.MyBatis는 Mapper인터페이스와 XML을 인터페이스의 이름과 namespace속성값을 가지고 판단함.위같이 orgzeorck.mapper.TimeMapper 인터페이스가 존재하고,XML의&lt;mapper namespace="orgzeorck.mapper.TimeMapper"&gt;와
 동일한 이름이 존재하면 ,이를 병합해서 처리함. 따라서 위의 경우 메서드 선언은 인터페이스에 존재하고 SQL에 대한 처리는 XML을 이용하는 방식이라고 볼수있음.<br>
 
-※&lt;select&gt; 태그의 id 속성의 값은 메서드의 이름과 동일하게 맞춰야함.&lt;select&gt;태그의 경우resultType속성을 가지는데 이 값은 인터페이스에 선언된 메서드의 리턴타입과 동일하게 작성
-<br>
+※&lt;select&gt; 태그의 id 속성의 값은 메서드의 이름과 동일하게 맞춰야함.&lt;select&gt;태그의 경우resultType속성을 가지는데 이 값은 인터페이스에 선언된 메서드의 리턴타입과 동일하게 작성<br><br>
 5. 최종적인 확인을 위한 테스트  TimeMapperTests 클래스이용<br>
-<img width="826" alt="JUnitTestResult" src="https://user-images.githubusercontent.com/44339530/75093934-b1eb5980-55c9-11ea-96f4-1bcd4cf62cb7.png"><br>
-
+<img width="826" alt="JUnitTestResult" src="https://user-images.githubusercontent.com/44339530/75093934-b1eb5980-55c9-11ea-96f4-1bcd4cf62cb7.png">
 · 결과는 동일
 
 - log4jdbc-log4j2 설정<br>
-· MyBatis는 내부적으로 JDBC의 PreparedStatement를 이용해서 SQL을 처리함 따라서 SQL에 전달되는 파라미터는 '?'로 치환되어서 처리됨. 복잡한 SQL의 경우 '?'로 나오는 값이 제대로 되었는지 확인하기가 쉽지 않고 실행된 SQL의 내용을 정확히 확인하기는 어려움. 이런 문제를 해결하기 위해 SQL을 변환해서 PreparedStatementdㅔ 사용된 '?'가 어떤 값으로 처리되었는지 확인하는 기능을 추가해야함. <br>
-
+· MyBatis는 내부적으로 JDBC의 PreparedStatement를 이용해서 SQL을 처리함 따라서 SQL에 전달되는 파라미터는 '?'로 치환되어서 처리됨. 복잡한 SQL의 경우 '?'로 나오는 값이 제대로 되었는지 확인하기가 쉽지 않고 실행된 SQL의 내용을 정확히 확인하기는 어려움. 이런 문제를 해결하기 위해 SQL을 변환해서 PreparedStatement에 사용된 '?'가 어떤 값으로 처리되었는지 확인하는 기능을 추가해야함. <br>
 1. SQL로그를 제대로 보기 위해선 log4jdbc-log4j2 라이브러리를 추가해야함<br>
 <img width="723" alt="스크린샷 2020-02-23 오전 12 50 36" src="https://user-images.githubusercontent.com/44339530/75095286-8f137200-55d6-11ea-9d6e-1f31a1b03c70.png"><br>
-
 2. 로그 설정 파일을 추가해줘야함 (src/main/resources 밑에 log4jdbc-log4j2.properties파일을 추가)
 <img width="844" alt="properties" src="https://user-images.githubusercontent.com/44339530/75094192-69816b00-55cc-11ea-86ae-b520386011af.png"><br>
-
 3. JDBC 연결 정보 (JDBC드라이버와 URL정보)를 수정
 <img width="1307" alt="jdbc정보수정" src="https://user-images.githubusercontent.com/44339530/75094190-65554d80-55cc-11ea-8581-939fdd1822b6.png"><br>
-
 4. 테스트
 <img width="648" alt="JUnit-log4jdbc-result" src="https://user-images.githubusercontent.com/44339530/75094429-54a5d700-55ce-11ea-8e51-f1e85d4d8a01.png">
-
 · JDBC와 관련된 로그들이 출력됨
 
 - 로그의 레벨 설정
