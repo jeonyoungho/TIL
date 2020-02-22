@@ -13,7 +13,7 @@
 ·mybatis/mybatis-spring : MyBatis와 스프링 연동용 라이브러리
 
 <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-'<dependency>
+'<'dependency>
     <groupId>org.mybatis</groupId>
     <artifactId>mybatis</artifactId>
     <version>3.4.6</version>
