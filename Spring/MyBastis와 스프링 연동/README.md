@@ -19,10 +19,11 @@
 · xml을 이용한 설정<br>
 <img width="626" alt="sqlsessionFactory-bean등록" src="https://user-images.githubusercontent.com/44339530/75093659-3ee0e380-55c7-11ea-9be1-a8984dd1a81b.png"><br>
 · Java를 이용한 설정<br>
-<img width="895" alt="RootConfig" src="https://user-images.githubusercontent.com/44339530/75093660-3ee0e380-55c7-11ea-8f63-0ad839648d0c.png"><br><br>
+<img width="895" alt="RootConfig" src="https://user-images.githubusercontent.com/44339530/75093660-3ee0e380-55c7-11ea-8f63-0ad839648d0c.png"><br>
 
 3. JUnit Test<br>
 <img width="1367" alt="JunitTest" src="https://user-images.githubusercontent.com/44339530/75093661-40121080-55c7-11ea-96b2-e005f874f56d.png"><br>
+
 - 스프링과의 연동 처리<br>
 · MyBatis의 Mapper객체를 통해 SQL을 어떻게 처리할 것인지를 별도의 설정을 분리해 주고, 자동으로 처리되는 방식을 이용한다. 즉 SQL과 그에 대한 처리를 지정하는 역할<br>
 
