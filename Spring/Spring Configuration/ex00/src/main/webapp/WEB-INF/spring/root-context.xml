@@ -4,9 +4,27 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	
+
+<!-- 	<context:property-placeholder
+		location="/WEB-INF/props/jdbc.properties" /> -->
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/csemall?characterEncoding=UTF-8 &amp;serverTimezone=Asia/Seoul"/>
+		<property name="username" value="root" />
+		<property name="password" value="*dydgh1092" />
+	</bean>
+
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
 	
-	<context:component-scan base-package="org.zerock.sample"></context:component-scan>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<context:component-scan
+		base-package="org.zerock.sample"></context:component-scan>
 </beans>
