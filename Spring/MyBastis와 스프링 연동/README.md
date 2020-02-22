@@ -44,7 +44,7 @@
 동일한 이름이 존재하면 ,이를 병합해서 처리함. 따라서 위의 경우 메서드 선언은 인터페이스에 존재하고 SQL에 대한 처리는 XML을 이용하는 방식이라고 볼수있음.<br><br>
 ※&lt;select&gt; 태그의 id 속성의 값은 메서드의 이름과 동일하게 맞춰야함.&lt;select&gt;태그의 경우resultType속성을 가지는데 이 값은 인터페이스에 선언된 메서드의 리턴타입과 동일하게 작성<br><br>
 5. 최종적인 확인을 위한 테스트  TimeMapperTests 클래스이용
-<img width="844" alt="JUnitTestResult" src="https://user-images.githubusercontent.com/44339530/75093934-b1eb5980-55c9-11ea-96f4-1bcd4cf62cb7.png"><br>
+<img width="844" alt="JUnitTestResult" src="https://user-images.githubusercontent.com/44339530/75093934-b1eb5980-55c9-11ea-96f4-1bcd4cf62cb7.png">
 · 결과는 동일
 
 <h2> log4jdbc-log4j2 설정</h2>
