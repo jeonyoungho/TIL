@@ -5,6 +5,7 @@
 <h2> mybatis-spring이라는 라이브러리를 통해서 쉽게 연동 가능 </h2>
 
 <h2> Architecture </h2>
+
 ![architecture](https://user-images.githubusercontent.com/44339530/75094048-b6fcd880-55ca-11ea-873e-ef786a3cfc42.png)
 
 <h2> MyBatis설정 </h2>
@@ -26,7 +27,6 @@
 <img width="844" alt="JunitTest" src="https://user-images.githubusercontent.com/44339530/75093661-40121080-55c7-11ea-96b2-e005f874f56d.png"><br><br>
 
 <h2> 스프링과의 연동 처리</h2>
-
 · MyBatis의 Mapper객체를 통해 SQL을 어떻게 처리할 것인지를 별도의 설정을 분리해 주고, 자동으로 처리되는 방식을 이용한다. 즉 SQL과 그에 대한 처리를 지정하는 역할
 
 1. TimeMapper 인터페이스 작성<br>
