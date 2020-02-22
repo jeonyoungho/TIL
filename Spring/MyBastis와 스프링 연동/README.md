@@ -75,7 +75,7 @@
 <img width="844" alt="JUnit-log4jdbc-result" src="https://user-images.githubusercontent.com/44339530/75094429-54a5d700-55ce-11ea-8e51-f1e85d4d8a01.png"><br>
 · JDBC와 관련된 로그들이 출력됨
 
-- 로그의 레벨 설정<br>
+<h2>로그의 레벨 설정</h2>
 · 테스트를 실행하면 상당히 많은 양의 로그가 출력되기 때문에 불편하다.이런 상황에서는 로그 레벨을 이용해서 조금 수정해줄 필요가 있음.<br>
 · 테스트 코드가 실행될 때의 로그와 관련 설정은 src/test/resources밑에 log4j.xml을 이용함.(src/main/resources 아닌src/test/resources 란 걸 주의)<br>
 <img width="844" alt="1" src="https://user-images.githubusercontent.com/44339530/75095061-7c983900-55d4-11ea-9882-62f24ecc120b.png"><br>
