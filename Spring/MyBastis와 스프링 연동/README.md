@@ -1,4 +1,4 @@
-- MyBatis와 전통적인 JDBC프로그램의 비교
+<h2> MyBatis와 전통적인 JDBC프로그램의 비교 </h2>
 ![MyBatis와 전통적인 JDBC프로그램의 비교](https://user-images.githubusercontent.com/44339530/75093707-7b144400-55c7-11ea-8cf1-e6526c98c691.png)
 
 - mybatis-spring이라는 라이브러리를 통해서 쉽게 연동 가능
@@ -6,7 +6,7 @@
 - Architecture
 ![architecture](https://user-images.githubusercontent.com/44339530/75094048-b6fcd880-55ca-11ea-873e-ef786a3cfc42.png)
 
-- MyBatis설정
+<h2> MyBatis설정 </h2>
 1. 라이브러리 추가<br>
 · spring-jdbc/spring-tx : 스프링에서 DB처리와 트랜잭션 처리(해당 라이브러리들은 MyBatis와 무관하게 보이지만 추가하지 않은 경우에 에러발생)<br>
 · mybatis/mybatis-spring : MyBatis와 스프링 연동용 라이브러리<br>
@@ -23,8 +23,9 @@
 3. JUnit Test<br>
 <img width="844" alt="JunitTest" src="https://user-images.githubusercontent.com/44339530/75093661-40121080-55c7-11ea-96b2-e005f874f56d.png"><br><br>
 
-- 스프링과의 연동 처리<br>
-· MyBatis의 Mapper객체를 통해 SQL을 어떻게 처리할 것인지를 별도의 설정을 분리해 주고, 자동으로 처리되는 방식을 이용한다. 즉 SQL과 그에 대한 처리를 지정하는 역할<br>
+<h2> 스프링과의 연동 처리</h2>
+· MyBatis의 Mapper객체를 통해 SQL을 어떻게 처리할 것인지를 별도의 설정을 분리해 주고, 자동으로 처리되는 방식을 이용한다. 즉 SQL과 그에 대한 처리를 지정하는 역할
+
 1. TimeMapper 인터페이스 작성<br>
 <img width="844" alt="Mapper인터페이스작성" src="https://user-images.githubusercontent.com/44339530/75093662-40aaa700-55c7-11ea-9b6e-2835115d6b33.png"><br><br>
 
@@ -54,14 +55,18 @@
 <img width="844" alt="JUnitTestResult" src="https://user-images.githubusercontent.com/44339530/75093934-b1eb5980-55c9-11ea-96f4-1bcd4cf62cb7.png"><br>
 · 결과는 동일
 
-- log4jdbc-log4j2 설정<br>
+<h2> log4jdbc-log4j2 설정</h2>
 · MyBatis는 내부적으로 JDBC의 PreparedStatement를 이용해서 SQL을 처리함 따라서 SQL에 전달되는 파라미터는 '?'로 치환되어서 처리됨. 복잡한 SQL의 경우 '?'로 나오는 값이 제대로 되었는지 확인하기가 쉽지 않고 실행된 SQL의 내용을 정확히 확인하기는 어려움. 이런 문제를 해결하기 위해 SQL을 변환해서 PreparedStatement에 사용된 '?'가 어떤 값으로 처리되었는지 확인하는 기능을 추가해야함. <br>
+
 1. SQL로그를 제대로 보기 위해선 log4jdbc-log4j2 라이브러리를 추가해야함<br>
 <img width="844" alt="스크린샷 2020-02-23 오전 12 50 36" src="https://user-images.githubusercontent.com/44339530/75095286-8f137200-55d6-11ea-9d6e-1f31a1b03c70.png"><br>
+
 2. 로그 설정 파일을 추가해줘야함 (src/main/resources 밑에 log4jdbc-log4j2.properties파일을 추가)
 <img width="844" alt="properties" src="https://user-images.githubusercontent.com/44339530/75094192-69816b00-55cc-11ea-86ae-b520386011af.png"><br>
+
 3. JDBC 연결 정보 (JDBC드라이버와 URL정보)를 수정
 <img width="844" alt="jdbc정보수정" src="https://user-images.githubusercontent.com/44339530/75094190-65554d80-55cc-11ea-8581-939fdd1822b6.png"><br>
+
 4. 테스트
 <img width="844" alt="JUnit-log4jdbc-result" src="https://user-images.githubusercontent.com/44339530/75094429-54a5d700-55ce-11ea-8e51-f1e85d4d8a01.png"><br>
 · JDBC와 관련된 로그들이 출력됨
