@@ -6,7 +6,6 @@
 - WAS의 종속적이지 않은 개발 환경<br>
 
 <h2> Java Configuration </h2>
-
 1. web.xml 및 spring디렉토리(servlet-context.xml , root-context.xml)삭제
 2. pom.xml에 mavenC-war-plugin 추가 및 스프링 버전, 컴파일 관련 버전 수정 후 Update Project<img width="844" alt="maven-war-plugin 추가" src="https://user-images.githubusercontent.com/44339530/74820272-18137a80-5345-11ea-83dc-df22819976c3.png">
 3. config package 생성 후 RootConfig , WebConfig 클래스 추가<br>
