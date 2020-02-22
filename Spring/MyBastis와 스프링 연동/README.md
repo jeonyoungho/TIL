@@ -63,7 +63,7 @@
 3. JDBC 연결 정보 (JDBC드라이버와 URL정보)를 수정
 <img width="844" alt="jdbc정보수정" src="https://user-images.githubusercontent.com/44339530/75094190-65554d80-55cc-11ea-8581-939fdd1822b6.png"><br>
 4. 테스트
-<img width="844" alt="JUnit-log4jdbc-result" src="https://user-images.githubusercontent.com/44339530/75094429-54a5d700-55ce-11ea-8e51-f1e85d4d8a01.png">
+<img width="844" alt="JUnit-log4jdbc-result" src="https://user-images.githubusercontent.com/44339530/75094429-54a5d700-55ce-11ea-8e51-f1e85d4d8a01.png"><br>
 · JDBC와 관련된 로그들이 출력됨
 
 - 로그의 레벨 설정
