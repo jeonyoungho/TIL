@@ -9,12 +9,10 @@
 ![architecture](https://user-images.githubusercontent.com/44339530/75094048-b6fcd880-55ca-11ea-873e-ef786a3cfc42.png)
 
 <h2> MyBatis설정 </h2>
-
 1. 라이브러리 추가<br>
 · spring-jdbc/spring-tx : 스프링에서 DB처리와 트랜잭션 처리(해당 라이브러리들은 MyBatis와 무관하게 보이지만 추가하지 않은 경우에 에러발생)<br>
 · mybatis/mybatis-spring : MyBatis와 스프링 연동용 라이브러리<br>
 <img width="844" alt="2" src="https://user-images.githubusercontent.com/44339530/75095233-1ad8ce80-55d6-11ea-891f-c03e4d8111d1.png"><br><br>
-
 2. root-context.xml 에 SQLSessionFactory Bean등록<br>
 · MyBatis에서 가장 핵심적인 객체로 SQLSession과 SQLSessionFactory가 있다.<br>
 · SQLSessionFactory에서 생성된 SQLSession을 통해 Connection을 생성하거나 원하는 SQL을 전달하고, 결과를 리턴 받는 구조로 흘러감<br>
@@ -22,7 +20,6 @@
 <img width="844" alt="sqlsessionFactory-bean등록" src="https://user-images.githubusercontent.com/44339530/75093659-3ee0e380-55c7-11ea-9be1-a8984dd1a81b.png"><br>
 · Java를 이용한 설정<br>
 <img width="844" alt="RootConfig" src="https://user-images.githubusercontent.com/44339530/75093660-3ee0e380-55c7-11ea-8f63-0ad839648d0c.png"><br><br>
-
 3. JUnit Test<br>
 <img width="844" alt="JunitTest" src="https://user-images.githubusercontent.com/44339530/75093661-40121080-55c7-11ea-96b2-e005f874f56d.png"><br><br>
 
@@ -59,7 +56,7 @@
 · 결과는 동일
 
 <h2> log4jdbc-log4j2 설정</h2>
-· MyBatis는 내부적으로 JDBC의 PreparedStatement를 이용해서 SQL을 처리함 따라서 SQL에 전달되는 파라미터는 '?'로 치환되어서 처리됨. 복잡한 SQL의 경우 '?'로 나오는 값이 제대로 되었는지 확인하기가 쉽지 않고 실행된 SQL의 내용을 정확히 확인하기는 어려움. 이런 문제를 해결하기 위해 SQL을 변환해서 PreparedStatement에 사용된 '?'가 어떤 값으로 처리되었는지 확인하는 기능을 추가해야함. <br>1. SQL로그를 제대로 보기 위해선 log4jdbc-log4j2 라이브러리를 추가해야함<br>
+· MyBatis는 내부적으로 JDBC의 PreparedStatement를 이용해서 SQL을 처리함 따라서 SQL에 전달되는 파라미터는 '?'로 치환되어서 처리됨. 복잡한 SQL의 경우 '?'로 나오는 값이 제대로 되었는지 확인하기가 쉽지 않고 실행된 SQL의 내용을 정확히 확인하기는 어려움. 이런 문제를 해결하기 위해 SQL을 변환해서 PreparedStatement에 사용된 '?'가 어떤 값으로 처리되었는지 확인하는 기능을 추가해야함.<br><br>1. SQL로그를 제대로 보기 위해선 log4jdbc-log4j2 라이브러리를 추가해야함<br>
 <img width="844" alt="스크린샷 2020-02-23 오전 12 50 36" src="https://user-images.githubusercontent.com/44339530/75095286-8f137200-55d6-11ea-9d6e-1f31a1b03c70.png"><br>
 2. 로그 설정 파일을 추가해줘야함 (src/main/resources 밑에 log4jdbc-log4j2.properties파일을 추가)
 <img width="844" alt="properties" src="https://user-images.githubusercontent.com/44339530/75094192-69816b00-55cc-11ea-86ae-b520386011af.png"><br>
