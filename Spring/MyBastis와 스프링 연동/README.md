@@ -6,7 +6,7 @@
 - Architecture
 ![architecture](https://user-images.githubusercontent.com/44339530/75094048-b6fcd880-55ca-11ea-873e-ef786a3cfc42.png)
 
-- MyBatis설정<br>
+- MyBatis설정
 1. 라이브러리 추가<br>
 · spring-jdbc/spring-tx : 스프링에서 DB처리와 트랜잭션 처리(해당 라이브러리들은 MyBatis와 무관하게 보이지만 추가하지 않은 경우에 에러발생)<br>
 · mybatis/mybatis-spring : MyBatis와 스프링 연동용 라이브러리<br>
