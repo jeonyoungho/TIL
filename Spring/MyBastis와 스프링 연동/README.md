@@ -59,7 +59,6 @@
 · 결과는 동일
 
 <h2> log4jdbc-log4j2 설정</h2>
-
 · MyBatis는 내부적으로 JDBC의 PreparedStatement를 이용해서 SQL을 처리함 따라서 SQL에 전달되는 파라미터는 '?'로 치환되어서 처리됨. 복잡한 SQL의 경우 '?'로 나오는 값이 제대로 되었는지 확인하기가 쉽지 않고 실행된 SQL의 내용을 정확히 확인하기는 어려움. 이런 문제를 해결하기 위해 SQL을 변환해서 PreparedStatement에 사용된 '?'가 어떤 값으로 처리되었는지 확인하는 기능을 추가해야함. <br>1. SQL로그를 제대로 보기 위해선 log4jdbc-log4j2 라이브러리를 추가해야함<br>
 <img width="844" alt="스크린샷 2020-02-23 오전 12 50 36" src="https://user-images.githubusercontent.com/44339530/75095286-8f137200-55d6-11ea-9d6e-1f31a1b03c70.png"><br>
 2. 로그 설정 파일을 추가해줘야함 (src/main/resources 밑에 log4jdbc-log4j2.properties파일을 추가)
