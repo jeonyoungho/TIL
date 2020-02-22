@@ -24,7 +24,7 @@
 <img width="1367" alt="JunitTest" src="https://user-images.githubusercontent.com/44339530/75093661-40121080-55c7-11ea-96b2-e005f874f56d.png"><br><br>
 
 - 스프링과의 연동 처리<br>
-· MyBatis의 Mapper객체를 통해 SQL을 어떻게 처리할 것인지를 별도의 설정을 분리해 주고, 자동으로 처리되는 방식을 이용한다. 즉 SQL과 그에 대한 처리를 지정하는 역할<br><br>
+· MyBatis의 Mapper객체를 통해 SQL을 어떻게 처리할 것인지를 별도의 설정을 분리해 주고, 자동으로 처리되는 방식을 이용한다. 즉 SQL과 그에 대한 처리를 지정하는 역할<br>
 1. TimeMapper 인터페이스 작성<br>
 <img width="1013" alt="Mapper인터페이스작성" src="https://user-images.githubusercontent.com/44339530/75093662-40aaa700-55c7-11ea-9b6e-2835115d6b33.png"><br><br>
 
@@ -50,7 +50,7 @@
 동일한 이름이 존재하면 ,이를 병합해서 처리함. 따라서 위의 경우 메서드 선언은 인터페이스에 존재하고 SQL에 대한 처리는 XML을 이용하는 방식이라고 볼수있음.<br>
 ※&lt;select&gt; 태그의 id 속성의 값은 메서드의 이름과 동일하게 맞춰야함.&lt;select&gt;태그의 경우resultType속성을 가지는데 이 값은 인터페이스에 선언된 메서드의 리턴타입과 동일하게 작성<br><br>
 
-5. 최종적인 확인을 위한 테스트  TimeMapperTests 클래스이용<br>
+5. 최종적인 확인을 위한 테스트  TimeMapperTests 클래스이용
 <img width="826" alt="JUnitTestResult" src="https://user-images.githubusercontent.com/44339530/75093934-b1eb5980-55c9-11ea-96f4-1bcd4cf62cb7.png">
 · 결과는 동일
 
