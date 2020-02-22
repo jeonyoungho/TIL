@@ -32,14 +32,14 @@
 3. Mapper테스트<br>
 · MyBatis-Spring은  Mapper 인터페이스를 이용해서 실제 SQL 처리가 되는 클래스를 자동으로 생성한다.<br>
 · 따라서 개발자들은 인터페이스와 SQL문을 작성하는 방식으로 모든 JDBC처리를 끝낼 수 있다.
-<img width="844" alt="JunitTest-TimeMapper" src="https://user-images.githubusercontent.com/44339530/75093663-40aaa700-55c7-11ea-92d7-1688e863928a.png"><br>
+<img width="844" alt="JunitTest-TimeMapper" src="https://user-images.githubusercontent.com/44339530/75093663-40aaa700-55c7-11ea-92d7-1688e863928a.png">
 ·인터페이스만 만들어 주었는데 내부적으로 적당한 클래스가 만들어진다.<br><br>
 4. XML매퍼와 같이 쓰기<br>
 · MyBatis를 이용해서 SQL을 처리할 때 어노테이션을 이용하는 방식이 압도적으로 편리하짐나 SQL이 길어지거나 복잡한 경우 XML을 이용하는 방식이 더 선호된다. 다행히도 MyBatis-Spring의 경우 Mapper인터페이스와 XML을 동시에 이용가능하다.<br>
 ·TimeMapper인터페이스에 다음 메소드 추가<br>
 <img width="844" alt="TimeMapper" src="https://user-images.githubusercontent.com/44339530/75094431-58d1f480-55ce-11ea-879d-0a0819e8d1f8.png"><br>
 ·sources/main/resources 밑에 TimeMapper.xml작성<br>
-<img width="844" alt="timemapper xml" src="https://user-images.githubusercontent.com/44339530/75094430-57a0c780-55ce-11ea-817e-ac1b59c3d5b0.png"><br><br>
+<img width="844" alt="timemapper xml" src="https://user-images.githubusercontent.com/44339530/75094430-57a0c780-55ce-11ea-817e-ac1b59c3d5b0.png"><br>
 ※XML매핑 사용시 <mapper>태그의 namespace속성 값을 신경써야함.MyBatis는 Mapper인터페이스와 XML을 인터페이스의 이름과 namespace속성값을 가지고 판단함.위같이 orgzeorck.mapper.TimeMapper 인터페이스가 존재하고,XML의&lt;mapper namespace="orgzeorck.mapper.TimeMapper"&gt;와
 동일한 이름이 존재하면 ,이를 병합해서 처리함. 따라서 위의 경우 메서드 선언은 인터페이스에 존재하고 SQL에 대한 처리는 XML을 이용하는 방식이라고 볼수있음.<br><br>
 ※&lt;select&gt; 태그의 id 속성의 값은 메서드의 이름과 동일하게 맞춰야함.&lt;select&gt;태그의 경우resultType속성을 가지는데 이 값은 인터페이스에 선언된 메서드의 리턴타입과 동일하게 작성<br><br>
