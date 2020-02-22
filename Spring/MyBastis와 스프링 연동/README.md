@@ -66,17 +66,13 @@
 <img width="844" alt="JUnit-log4jdbc-result" src="https://user-images.githubusercontent.com/44339530/75094429-54a5d700-55ce-11ea-8e51-f1e85d4d8a01.png"><br>
 · JDBC와 관련된 로그들이 출력됨
 
-- 로그의 레벨 설정
-· 테스트를 실행하면 상당히 많은 양의 로그가 출력되기 때문에 불편하다.이런 상황에서는 로그 레벨을 이용해서 조금 수정해줄 필요가 있음.
-
+- 로그의 레벨 설정<br>
+· 테스트를 실행하면 상당히 많은 양의 로그가 출력되기 때문에 불편하다.이런 상황에서는 로그 레벨을 이용해서 조금 수정해줄 필요가 있음.<br>
 · 테스트 코드가 실행될 때의 로그와 관련 설정은 src/test/resources밑에 log4j.xml을 이용함.(src/main/resources 아닌src/test/resources 란 걸 주의)<br>
 <img width="844" alt="1" src="https://user-images.githubusercontent.com/44339530/75095061-7c983900-55d4-11ea-9882-62f24ecc120b.png"><br>
-
 · 테스트코드가 실행될때 'INFO...',메세지는 log4j.xml의 마지막 부분에 있는 설정에 영향을 받기 때문
 <img width="844" alt="2" src="https://user-images.githubusercontent.com/44339530/75095063-7d30cf80-55d4-11ea-99e3-8d10b62596a5.png"><br>
-
 · 만일 log4jdbc에서 출력되는 로그를 조절하고 싶다면 추가적인 <logger>를 지정해서 처리함.
 <img width="844" alt="3" src="https://user-images.githubusercontent.com/44339530/75095057-77d38500-55d4-11ea-8b74-b523d909b7b5.png"><br>
-
-· 기본 설정의 로그는 info 레벨이기 때문에 warn과 같이 좀더 높은 레벨의 로그만 기록하게 수정하면 테스트 코드를 실행할 때 이전에 비해 로그양이 줄어드는것을 볼 수 있음.(더 자세한내용 참고https://logging.apache.org/log4j/2.x/manual/customloglevels.html)
-<img width="844" alt="스크린샷 2020-02-23 오전 12 39 09" src="https://user-images.githubusercontent.com/44339530/75095098-ee708280-55d4-11ea-8e94-04e943167d27.png">
+· 기본 설정의 로그는 info 레벨이기 때문에 warn과 같이 좀더 높은 레벨의 로그만 기록하게 수정하면 테스트 코드를 실행할 때 이전에 비해 로그양이 줄어드는것을 볼 수 있음.(더 자세한내용 참고https://logging.apache.org/log4j/2.x/manual/customloglevels.html)<br>
+<img width="844" alt="스크린샷 2020-02-23 오전 12 39 09" src="https://user-images.githubusercontent.com/44339530/75095098-ee708280-55d4-11ea-8e94-04e943167d27.png"><br>
