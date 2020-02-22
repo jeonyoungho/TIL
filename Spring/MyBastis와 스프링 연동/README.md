@@ -10,17 +10,17 @@
 
 1. 라이브러리 추가<br>
 · spring-jdbc/spring-tx : 스프링에서 DB처리와 트랜잭션 처리(해당 라이브러리들은 MyBatis와 무관하게 보이지만 추가하지 않은 경우에 에러발생)<br>
-· mybatis/mybatis-spring : MyBatis와 스프링 연동용 라이브러리<br>
+· mybatis/mybatis-spring : MyBatis와 스프링 연동용 라이브러리<br><br>
 <img width="681" alt="2" src="https://user-images.githubusercontent.com/44339530/75095233-1ad8ce80-55d6-11ea-891f-c03e4d8111d1.png"><br>
 
 2. root-context.xml 에 SQLSessionFactory Bean등록<br>
-MyBatis에서 가장 핵심적인 객체로 SQLSession과 SQLSessionFactory가 있다.<br>
-SQLSessionFactory에서 생성된 SQLSession을 통해 Connection을 생성하거나 원하는 SQL을 전달하고, 결과를 리턴 받는 구조로 흘러감<br>
+· MyBatis에서 가장 핵심적인 객체로 SQLSession과 SQLSessionFactory가 있다.<br>
+· SQLSessionFactory에서 생성된 SQLSession을 통해 Connection을 생성하거나 원하는 SQL을 전달하고, 결과를 리턴 받는 구조로 흘러감<br>
 
 · xml을 이용한 설정<br>
 <img width="626" alt="sqlsessionFactory-bean등록" src="https://user-images.githubusercontent.com/44339530/75093659-3ee0e380-55c7-11ea-9be1-a8984dd1a81b.png"><br>
 · Java를 이용한 설정<br>
-<img width="895" alt="RootConfig" src="https://user-images.githubusercontent.com/44339530/75093660-3ee0e380-55c7-11ea-8f63-0ad839648d0c.png"><br>
+<img width="895" alt="RootConfig" src="https://user-images.githubusercontent.com/44339530/75093660-3ee0e380-55c7-11ea-8f63-0ad839648d0c.png"><br><br>
 3. JUnit Test<br>
 <img width="1367" alt="JunitTest" src="https://user-images.githubusercontent.com/44339530/75093661-40121080-55c7-11ea-96b2-e005f874f56d.png"><br>
 
