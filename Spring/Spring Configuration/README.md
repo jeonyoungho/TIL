@@ -1,9 +1,9 @@
 <h2> 스프링의 주요 특징 </h2>
-- POJO 기반의 구성
-- 의존성 주입을 통한 객체 간의 관계 구성
-- AOP(Aspect-Oriented-Programming) 지원
-- 편리한 MVC 구조
-- WAS의 종속적이지 안흥ㄴ 개발 환경
+- POJO 기반의 구성<br>
+- 의존성 주입을 통한 객체 간의 관계 구성<br>
+- AOP(Aspect-Oriented-Programming) 지원<br>
+- 편리한 MVC 구조<br>
+- WAS의 종속적이지 않은 개발 환경<br>
 
 <h2> Java Configuration </h2>
 
