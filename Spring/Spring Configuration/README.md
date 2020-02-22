@@ -13,10 +13,7 @@
 · Java 설정을 이용하는 경우 xml대신 설정 파일을 직접 작성해야만한다.
 · @Configuration이라는 어노테이션을 이용해 해당 클래스의 인스턴스를 이용해서 설정 파일을 명시
 · Webconfig 클래스는 3개의 추상 메서드를 오버라이드 (getRootConfigClasses(), getServletConfigClasses(), getServletMappings()) 하도록 작성된다.
-· getRootConfigClasses() 는 root-context.xml을 대신하는 클래스를 지정
-<img width="257" alt="config 패키지생성" src="https://user-images.githubusercontent.com/44339530/74820285-1e095b80-5345-11ea-9696-ec302d1b4db5.png">
-<img width="738" alt="RootConfig" src="https://user-images.githubusercontent.com/44339530/74820288-1ea1f200-5345-11ea-9bf3-fec10b0c44a5.png">
-<img width="600" alt="Webconfig" src="https://user-images.githubusercontent.com/44339530/74820292-1f3a8880-5345-11ea-8269-297d0d610365.png">
+· getRootConfigClasses() 는 root-context.xml을 대신하는 클래스를 지정<img width="257" alt="config 패키지생성" src="https://user-images.githubusercontent.com/44339530/74820285-1e095b80-5345-11ea-9696-ec302d1b4db5.png"><img width="738" alt="RootConfig" src="https://user-images.githubusercontent.com/44339530/74820288-1ea1f200-5345-11ea-9bf3-fec10b0c44a5.png"><img width="600" alt="Webconfig" src="https://user-images.githubusercontent.com/44339530/74820292-1f3a8880-5345-11ea-8269-297d0d610365.png">
 
 
 
