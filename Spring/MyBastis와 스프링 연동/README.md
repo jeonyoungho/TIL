@@ -24,10 +24,10 @@
 <img width="844" alt="JunitTest" src="https://user-images.githubusercontent.com/44339530/75093661-40121080-55c7-11ea-96b2-e005f874f56d.png"><br><br>
 
 <h2> 스프링과의 연동 처리</h2>
-· MyBatis의 Mapper객체를 통해 SQL을 어떻게 처리할 것인지를 별도의 설정을 분리해 주고, 자동으로 처리되는 방식을 이용한다. 즉 SQL과 그에 대한 처리를 지정하는 역할
+· MyBatis의 Mapper객체를 통해 SQL을 어떻게 처리할 것인지를 별도의 설정을 분리해 주고, 자동으로 처리되는 방식을 이용한다. 즉 SQL과 그에 대한 처리를 지정하는 역할<br>
 1. TimeMapper 인터페이스 작성<br>
 <img width="844" alt="Mapper인터페이스작성" src="https://user-images.githubusercontent.com/44339530/75093662-40aaa700-55c7-11ea-9b6e-2835115d6b33.png"><br><br>
-2. MyBatis가 동작할때 Mapper를 인식할 수 있도록 추가적인 설정<br>
+2. MyBatis가 동작할때 Mapper를 인식할 수 있도록 추가적인 설정<br><br>
 · xml을 이용한 설정 - root-context.xml에 다음 태그 추가<br>
 <mybatis:scan base-package="org.zerock.mapper"/><br>
 · Java를 이용한 설정 - RootConfig.java에 다음 어노테이션 추가<br>
