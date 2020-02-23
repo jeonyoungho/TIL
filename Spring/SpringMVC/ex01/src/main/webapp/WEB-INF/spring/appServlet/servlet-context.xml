@@ -21,6 +21,19 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 업로드하는 파일의 이름이 한글일 경우 깨지는 문제를 처리 -->
+		<beans:property name="defaultEncoding" value="utf-8"></beans:property>
+		<!-- 한 번의 Request로 전달될 수 있는 최대의 크1024 * 1024 * 10 bytes 10MB -->
+		<beans:property name="maxUploadSize" value="104857560"></beans:property>
+		<!-- 하나의 파일 최대 크기 1024 * 1024 * 2 bytes 2MB -->
+		<beans:property name="maxUploadSizePerFile" value="2097152"></beans:property>
+		<!--업로드 임시 디렉토리 , 절대 경로를 이용하려면 URI형태로 제공해야 함 -->
+		<beans:property name="uploadTempDir" value="file:/Users/jeon-yongho/Desktop"></beans:property>
+		<!-- 메모리상에서 유지하는 최대의 크기 -->
+		<beans:property name="maxInMemorySize" value="10485756"></beans:property>
+	</beans:bean>
+	
 	<context:component-scan base-package="org.zerock.controller" />
 	<context:component-scan base-package="org.zerock.exception" />
 	

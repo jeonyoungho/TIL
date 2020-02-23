@@ -104,5 +104,23 @@
 · web.xml에 설정한 throwExceptionIfNoHandlerFound를 설정하기 위해서는 서블릿 3.0이상을 이용해야만 하고 WebConfig클래스를 수정해야함<br>
 <img width="844" alt="webconfig" src="https://user-images.githubusercontent.com/44339530/75112660-29cc8900-5689-11ea-9604-99ecff7ef465.png"><br>
 
+<h2> 파일 업로드 처리 </h2>
+· Servlet 3.0 이후 에는 기본적으로 업로드되는 파일을 처리할 수 있는 기능이 추가되어 있으므로 더 이상 추가적인 라이브러리가 필요로 하지 않음<br>
+· 그러나 'Spring Legacy Project'로 생성되는 프로젝트의 경우 Servlet 2.5를 기준으로 생성되기 때문에 일일이 조금 신경을 써줘야함<br>
 
-
+1.pom.xml에 라이브러리 추가<br>
+<img width="699" alt="Commons-fileupload" src="https://user-images.githubusercontent.com/44339530/75113539-386b6e00-5692-11ea-9e39-e9c088287f65.png"><br>
+2.servlet-context.xml 설정<br>
+·id를 반드시 'multipartResolver'로 정확하게 지정해줘야함<br>
+<img width="887" alt="servlet-context" src="https://user-images.githubusercontent.com/44339530/75113538-36a1aa80-5692-11ea-9983-004c5e24ea67.png"><br>
+3.컨트롤러에 파일을 업로드할 화면을 처리하는 메소드 추가<br>
+<img width="459" alt="exupload" src="https://user-images.githubusercontent.com/44339530/75113536-36091400-5692-11ea-9c9b-01b26611e053.png"><br>
+4.파일을 전달받을 exUpload.jsp 작성<br>
+<img width="917" alt="upload페이지" src="https://user-images.githubusercontent.com/44339530/75113541-39040480-5692-11ea-88a8-961b2438d04e.png"><br>
+5.컨트롤러에 전달받은 파일을 Log로 출력하는 메소드 추가<br>
+<img width="631" alt="exuploadPost" src="https://user-images.githubusercontent.com/44339530/75113540-386b6e00-5692-11ea-8eb8-6413344f56a9.png"><br>
+6.Result - 파일 전송 page<br>
+<img width="449" alt="result파일전송화면" src="https://user-images.githubusercontent.com/44339530/75113611-c6dfef80-5692-11ea-9749-064d66f8d71f.png">
+<br>
+7.Result - 콘솔 Log 화면<br>
+<img width="597" alt="result로그" src="https://user-images.githubusercontent.com/44339530/75113535-330e2380-5692-11ea-8aeb-4dedc61bc511.png"><br>
