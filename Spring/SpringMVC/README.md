@@ -123,4 +123,9 @@
 <img width="449" alt="result파일전송화면" src="https://user-images.githubusercontent.com/44339530/75113611-c6dfef80-5692-11ea-9749-064d66f8d71f.png">
 <br>
 7.Result - 콘솔 Log 화면<br>
-<img width="597" alt="result로그" src="https://user-images.githubusercontent.com/44339530/75113535-330e2380-5692-11ea-8aeb-4dedc61bc511.png"><br>
+<img width="597" alt="result로그" src="https://user-images.githubusercontent.com/44339530/75113535-330e2380-5692-11ea-8aeb-4dedc61bc511.png"><br><br>
+
+&lt; Java를 이용한 설정 &gt;<br>
+1.ServletConfig.class에 CommonsMultiPartResolver Bean등록<br>
+<img width="1078" alt="ServletConfig" src="https://user-images.githubusercontent.com/44339530/75113791-0d821980-5694-11ea-8931-d4a8dd64fd6a.png"><br>
+
