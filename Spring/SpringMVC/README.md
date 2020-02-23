@@ -15,8 +15,6 @@
 6.실행결과<br>
 <img width="844" alt="스크린샷 2020-02-23 오후 7 12 32" src="https://user-images.githubusercontent.com/44339530/75110347-76f03100-5670-11ea-8b4a-b26500e77f86.png"><br>
 
-
-
 <h2> Spring MVC Controller </h2>
 · 스프링MVC의 Controller는 기본적으로 Java Beans 규칙에 맞는 객체는 다시 화면으로 객체를 전달한다. 반면에 기본 자료형의 경우는 파라미터로 선언하더라도 기본적으로 화면까지 전달되지 않는다.<br>
 1.SampleDTO.class<br>
@@ -37,10 +35,10 @@
 
 <h2> RedirectAttributes - 일회성으로 데이터를 전달하는 용도로 사용 </h2>
 
-<h2> Controller의 리턴 타입 </h2>
-· string - jsp를 이용하는 경우에는 jsp파일의 경로와 파일이름을 나타내기 위해서 사용<br>
+<h2> Controller의 리턴 타입 </h2>    
+① string - jsp를 이용하는 경우에는 jsp파일의 경로와 파일이름을 나타내기 위해서 사용<br>
 
-· void - 호출하는 URL과 동일한 이름의 jsp를 의미<br>
+② void - 호출하는 URL과 동일한 이름의 jsp를 의미<br>
 1.SampleController메소드추가
 <img width="844" alt="ex05" src="https://user-images.githubusercontent.com/44339530/75111390-7c537880-567c-11ea-85cb-2e5a67ab33ab.png"><br>
 2.실행결과<br>
@@ -49,7 +47,7 @@
 --> servlet-context.xml의 설정과 같이 맞물려 URL경로를 View로 처리하기 때문<br>
 <img width="844" alt="스크린샷 2020-02-23 오후 8 41 26" src="https://user-images.githubusercontent.com/44339530/75111415-e3712d00-567c-11ea-9e4a-ffeea23d244b.png"><br>
 
-· VO,DTO 타입 - 주로 JSON 타입의 데이터를 만들어서 반환하는 용도로 사용<br>
+③ VO,DTO 타입 - 주로 JSON 타입의 데이터를 만들어서 반환하는 용도로 사용<br>
 1.pom.xml에 jackson-databind 라이브러리 추가<br>
 <img width="844" alt="스크린샷 2020-02-23 오후 8 32 37" src="https://user-images.githubusercontent.com/44339530/75111298-a48ea780-567b-11ea-906e-5599e25469c3.png"><br>
 2.SampleController에 메서드 추가<br>
@@ -57,13 +55,13 @@
 3.spring mvc는 자동으로 브라우저에 JSON타입으로 객체를 변환해서 전달함<br>
 <img width="844" alt="스크린샷 2020-02-23 오후 8 36 27" src="https://user-images.githubusercontent.com/44339530/75111352-2f6fa200-567c-11ea-9ded-7d5605d88283.png"><br>
 
-·ResponseEntity - response 할 때 Http  헤더 정보와 내용을 가공하는 용도로 사용<br>
+④ ResponseEntity - response 할 때 Http  헤더 정보와 내용을 가공하는 용도로 사용<br>
 1.SampleController에 메서드 추가<br>
 <img width="844" alt="ex07" src="https://user-images.githubusercontent.com/44339530/75111517-21bb1c00-567e-11ea-9f82-c25653af85b1.png"><br>
 2.실행결과 - ResponseEntity는 HttpHeaders객체를 같이 전달하고 원하는 HTTP헤더 메시지를 가공할 수 있음<br>
 <img width="844" alt="스크린샷 2020-02-23 오후 8 50 23" src="https://user-images.githubusercontent.com/44339530/75111516-2089ef00-567e-11ea-8348-82487ed6c964.png"><br>
-· Model, ModelAndView - Model로 데이터를 반환하거나 화면까지 같이 지정하는 경우에 사용(최근엔 사용X)<br>
-· HttpHeaders - 응답에 내용 없이 Http 헤더 메시지만 전달하는 용도로 사용<br>
+<div>⑤ Model, ModelAndView - Model로 데이터를 반환하거나 화면까지 같이 지정하는 경우에 사용(최근엔 사용X)<br></div>
+⑥ HttpHeaders - 응답에 내용 없이 Http 헤더 메시지만 전달하는 용도로 사용<br>
 
 
 
