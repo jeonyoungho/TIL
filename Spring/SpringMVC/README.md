@@ -63,6 +63,46 @@
 ⑤ Model, ModelAndView - Model로 데이터를 반환하거나 화면까지 같이 지정하는 경우에 사용(최근엔 사용X)<br>
 ⑥ HttpHeaders - 응답에 내용 없이 Http 헤더 메시지만 전달하는 용도로 사용<br>
 
+<h2> Controller의 Exception처리 </h2>
+· 두 가지 방법 존재<br>
+
+① ExceptionHandler와 @ControllerAdvice를 이용한 처리<br>
+· @ControllerAdvice - AOP를 이용하는 방식<br>
+· Controller를 작성할 때 메서드의 모든 예외사항을 전부 핸들링해야 한다면 중복적이고 많은 양의 코드를 작성해야 하지만, AOP방식을 이용하면 공통적인 예외사항에 대해선 @ControllerAdvice를 이용해서 분리하는 방식<br>
+<div>xml을 이용한 설정</div>
+1.org.zerock.exception이라는 패키지 생성 후 CommonExceptionAdvice클래스를 생성(@ControllerAdvice어노테이션을 적용하지만 예외 처리를 목적으로 하는 클래스이므로 별도의 로직을 처리하진 않음)<br>
+<img width="845" alt="CommonException클래스" src="https://user-images.githubusercontent.com/44339530/75112020-30580200-5683-11ea-8be0-a277897393a0.png">
+<br>
+2.servlet-context.xml에 component-scan추가<br>
+<img width="572" alt="servlet-context에 스캔추가" src="https://user-images.githubusercontent.com/44339530/75112018-2c2be480-5683-11ea-8786-f7f649855a08.png"><br>
+3.error.jsp생성<br>
+<img width="980" alt="error_page" src="https://user-images.githubusercontent.com/44339530/75112078-bc6a2980-5683-11ea-8920-15466dd932f1.png"><br>
+4.실행결과<br>
+<img width="1029" alt="result" src="https://user-images.githubusercontent.com/44339530/75112074-b7a57580-5683-11ea-8c3a-cf97f7326f1d.png"><br>
+
+<div>Java를 이용한 설정</div>
+1.ServletConfig설정<br>
+<img width="729" alt="ServletConfig" src="https://user-images.githubusercontent.com/44339530/75112395-bd508a80-5686-11ea-9dd4-039203cbd2f3.png"><br>
+
+② ResponseEntity를 이용하는 예외메시지 구성
+
+<h2> 404에러 페이지 처리하기 </h2>
+· WAS의 구동 중 가장 흔한 에러와 관련된 HTTP상태 코드는 '404'와 '500'
+· 500 메시지는 'Internal Server Error'이므로 @ExceptionHandler를 이용해서 처리되지만, 잘못된 URL을 호출할 때 보이는 404 에러 메시지의 경우는 조금 다르게 처리하는게 좋음
+
+<div>xml을 이용한 설정</div>
+1.스프링 MVC의 모든 요청은 DispatcherServletdㅡㄹ 이용해서 처리되므로 404에러도 같이 처리할 수 있도록 web.xml수정<br>
+<img width="844" alt="webxml수정" src="https://user-images.githubusercontent.com/44339530/75112552-5502a880-5688-11ea-8bc9-a344dd0b8f4c.png"><br>
+2.CommonExceptionAdvice클래스에 404Exception을 처리 할 메소드 추가<br>
+<img width="844" alt="메소드추가" src="https://user-images.githubusercontent.com/44339530/75112553-5633d580-5688-11ea-9d7e-8d5a08633001.png"><br>
+3.custom404페이지 생성<br>
+<img width="844" alt="custom404" src="https://user-images.githubusercontent.com/44339530/75112555-57650280-5688-11ea-8c7f-f24492e2ab75.png"><br>
+4.브라우저에서 존재하지 않는 URL호출('/sample/..'로 시작하는 URL의 경우 SampleController가 무조건 처리하므로 이를 제외한 경로로 테스트진행)<br>
+<img width="844" alt="nopage" src="https://user-images.githubusercontent.com/44339530/75112551-5207b800-5688-11ea-8ee5-594292b19c92.png"><br>
+
+<div>Java를 이용한 설정</div>
+· web.xml에 설정한 throwExceptionIfNoHandlerFound를 설정하기 위해서는 서블릿 3.0이상을 이용해야만 하고 WebConfig클래스를 수정해야함<br>
+<img width="844" alt="webconfig" src="https://user-images.githubusercontent.com/44339530/75112660-29cc8900-5689-11ea-9604-99ecff7ef465.png"><br>
 
 
 
