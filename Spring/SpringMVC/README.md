@@ -60,7 +60,7 @@
 <img width="844" alt="ex07" src="https://user-images.githubusercontent.com/44339530/75111517-21bb1c00-567e-11ea-9f82-c25653af85b1.png"><br>
 2.실행결과 - ResponseEntity는 HttpHeaders객체를 같이 전달하고 원하는 HTTP헤더 메시지를 가공할 수 있음<br>
 <img width="844" alt="스크린샷 2020-02-23 오후 8 50 23" src="https://user-images.githubusercontent.com/44339530/75111516-2089ef00-567e-11ea-8348-82487ed6c964.png"><br>
-<h1>⑤ Model, ModelAndView - Model로 데이터를 반환하거나 화면까지 같이 지정하는 경우에 사용(최근엔 사용X)</h1>
+⑤ Model, ModelAndView - Model로 데이터를 반환하거나 화면까지 같이 지정하는 경우에 사용(최근엔 사용X)<br>
 ⑥ HttpHeaders - 응답에 내용 없이 Http 헤더 메시지만 전달하는 용도로 사용<br>
 
 
