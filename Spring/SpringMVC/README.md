@@ -106,8 +106,9 @@
 
 <h2> 파일 업로드 처리 </h2>
 · Servlet 3.0 이후 에는 기본적으로 업로드되는 파일을 처리할 수 있는 기능이 추가되어 있으므로 더 이상 추가적인 라이브러리가 필요로 하지 않음<br>
-· 그러나 'Spring Legacy Project'로 생성되는 프로젝트의 경우 Servlet 2.5를 기준으로 생성되기 때문에 일일이 조금 신경을 써줘야함<br>
+· 그러나 'Spring Legacy Project'로 생성되는 프로젝트의 경우 Servlet 2.5를 기준으로 생성되기 때문에 일일이 조금 신경을 써줘야함<br><br>
 
+&lt; xml을 이용한 설정 &gt;<br>
 1.pom.xml에 라이브러리 추가<br>
 <img width="699" alt="Commons-fileupload" src="https://user-images.githubusercontent.com/44339530/75113539-386b6e00-5692-11ea-9e39-e9c088287f65.png"><br>
 2.servlet-context.xml 설정<br>
