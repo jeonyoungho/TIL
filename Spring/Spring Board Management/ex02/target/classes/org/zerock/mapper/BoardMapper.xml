@@ -4,11 +4,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.BoardMapper">
 
+	<select id="getListWithPaging"
+		resultType="org.zerock.domain.BoardVO">
+		<![CDATA[
+SELECT c.bno,c.title,c.content,c.writer,c.regdate,c.updatedate
+from
+(
+	select  
+		 bno, title, content, writer, regdate, updatedate
+	from
+		tbl_board 
+	where  bno <= #{pageNum} * #{amount}
+)c			
+where c.bno > (#{pageNum} -1) * #{amount}
+		]]>
+	</select>
+
 
 	<select id="getList" resultType="org.zerock.domain.BoardVO">
-  <![CDATA[
-  select * from tbl_board where bno>0
-  ]]>
+		<!-- 쿼리문에 문자열 비교연산자나 부등호를 처리할 때가있습니다 그러면 < 와 같은 기호를 괄호인지 아니면 비교연산자 인지 확인이 
+			되지않아 이외에도 특수문자 사용하는데 제한이있습니다 -->
+  	<![CDATA[
+  		select * from tbl_board where bno>0
+  	]]>
 	</select>
 
 	<insert id="insert">
@@ -26,16 +44,19 @@
 	</insert>
 
 	<select id="read" resultType="org.zerock.domain.BoardVO">
-		select * from tbl_board where bno = #{bno}
+		select * from tbl_board where bno =
+		#{bno}
 	</select>
-	
+
 	<delete id="delete">
 		delete from tbl_board where bno = #{bno}
 	</delete>
-	
+
 	<update id="update">
-	update tbl_board set title = #{title}, content = #{content}, 
-	writer = #{writer}, updateDate = CURRENT_TIMESTAMP where bno = #{bno}
+		update tbl_board set title = #{title}, content =
+		#{content},
+		writer = #{writer}, updateDate = CURRENT_TIMESTAMP where
+		bno = #{bno}
 	</update>
 
 </mapper>
