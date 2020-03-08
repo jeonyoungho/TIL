@@ -43,7 +43,7 @@ RHEL AMI의 경우 사용자 이름은 ec2-user 또는 root
 SUSE AMI의 경우 사용자 이름은 ec2-user 또는 root
 Ubuntu AMI의 경우 사용자 이름은 ubuntu
 
-참고자료
+※ 참고자료
 https://rumor1993.tistory.com/29
 
 <h1> jdk 설치 </h1>
@@ -98,5 +98,42 @@ sudo systemctl enable tomcat
 10.변경 사항 반영을 위한 톰캣 재실행
 <img width="459" alt="스크린샷 2020-03-06 오후 5 12 38" src="https://user-images.githubusercontent.com/44339530/76064794-b8b49c00-5fcd-11ea-8f02-5c905999284b.png">
 
-참고자료
+※ 참고자료
 https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-centos-7
+
+<h2> mysql 설치 </h2>
+1.Yum repository설치
+<img width="548" alt="스크린샷 2020-02-11 오전 1 38 36" src="https://user-images.githubusercontent.com/44339530/76160247-c9027d80-616b-11ea-869b-79249aa7d2f6.png">
+
+2.Yum repository에는 다양한 mysql버전들이 있기에 mysql repo파일의 모든 레포지들을 비활성화 시켜야한다.
+<img width="543" alt="스크린샷 2020-02-11 오전 1 39 23" src="https://user-images.githubusercontent.com/44339530/76160286-36161300-616c-11ea-9ff4-4137d933aac4.png">
+
+3.mysql community server설치
+<img width="541" alt="스크린샷 2020-02-11 오전 1 39 47" src="https://user-images.githubusercontent.com/44339530/76160295-4e862d80-616c-11ea-8817-fd5cdf520273.png">
+
+4.mysql systemd를 사용한 서비스시작 및 상태확인
+<img width="517" alt="스크린샷 2020-02-11 오전 1 41 11" src="https://user-images.githubusercontent.com/44339530/76160321-80978f80-616c-11ea-97f3-b6c9e29f4384.png"><br>
+<img width="536" alt="스크린샷 2020-02-11 오전 1 41 31" src="https://user-images.githubusercontent.com/44339530/76160341-a886f300-616c-11ea-9bcb-f824307439a8.png">
+
+5.mysql default root password 확인
+<img width="571" alt="스크린샷 2020-03-08 오후 6 45 07" src="https://user-images.githubusercontent.com/44339530/76160364-fb60aa80-616c-11ea-8f32-c5e8be0401ee.png">
+
+6.secure mysql server를 위한 command 실행
+<img width="539" alt="스크린샷 2020-02-11 오전 1 45 42" src="https://user-images.githubusercontent.com/44339530/76160385-424ea000-616d-11ea-8c77-d49d1dcf954d.png">
+
+7.root password 변경
+<img width="539" alt="스크린샷 2020-02-11 오전 1 45 42" src="https://user-images.githubusercontent.com/44339530/76160452-c012ab80-616d-11ea-8645-0ea51df34a2c.png"><br>
+<img width="544" alt="스크린샷 2020-02-11 오전 1 46 12" src="https://user-images.githubusercontent.com/44339530/76160467-db7db680-616d-11ea-8df2-c3a1683cd531.png">
+
+8.mysql server 재시작
+<img width="539" alt="스크린샷 2020-02-11 오전 1 46 44" src="https://user-images.githubusercontent.com/44339530/76160493-f51efe00-616d-11ea-94c0-aeffba10ac42.png">
+
+9.mysql 자동활성화
+<img width="534" alt="스크린샷 2020-02-11 오전 1 47 04" src="https://user-images.githubusercontent.com/44339530/76160518-27c8f680-616e-11ea-942a-68012296a98f.png">
+
+10.mysql 접속
+<img width="544" alt="스크린샷 2020-02-11 오전 1 47 35" src="https://user-images.githubusercontent.com/44339530/76160525-3fa07a80-616e-11ea-8ede-adc6b43a26ce.png">
+
+※ 참고자료
+https://tecadmin.net/install-mysql-8-on-centos/
+
