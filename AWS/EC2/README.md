@@ -1,8 +1,8 @@
 <h1> ec2 접속 </h1>
-1.키 파일의 접근권한 변경
+1.키 파일의 접근권한 변경<br>
 $ chmod 400 ~/Desktop/AWSkey/keyfile.pem
 
-2.맥 터미널을 이용한 접속
+2.맥 터미널을 이용한 접속<br>
 $ ssh -i ~/Desktop/AWSkey/keyfile.pem ec2-user@[서버 아이피 또는 도메인]
 
 <h1> ec2 시간대 변경 </h1>
