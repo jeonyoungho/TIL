@@ -7,7 +7,7 @@ $ ssh -i ~/Desktop/AWSkey/keyfile.pem ec2-user@[서버 아이피 또는 도메�
 
 <h1> ec2 시간대 변경 </h1>
 1.기본 시간대 설정은 UTC로 설정되있는데 이거를 한국표준시간대로 변경해줘야함
-<img width="559" alt="스크린샷 2020-03-06 오후 3 45 47" src="https://user-images.githubusercontent.com/44339530/76059218-9583ef80-5fc1-11ea-9aa7-53550a9dfb2c.png">
+<img width="559" alt="스크린샷 2020-03-06 오후 3 45 47" src="https://user-images.githubusercontent.com/44339530/76059218-9583ef80-5fc1-11ea-9aa7-53550a9dfb2c.png"><br>
 
 2.적용 가능한 시간대 확인
 <img width="574" alt="스크린샷 2020-02-11 오전 2 27 31" src="https://user-images.githubusercontent.com/44339530/76059311-e0056c00-5fc1-11ea-9aac-9370359397e3.png">
