@@ -1,7 +1,7 @@
 <h1> ec2 접속 </h1>
 1.키 파일의 접근권한 변경<br>
 $ chmod 400 ~/Desktop/AWSkey/keyfile.pem<br>
-
+<br>
 2.맥 터미널을 이용한 접속<br>
 $ ssh -i ~/Desktop/AWSkey/keyfile.pem ec2-user@[서버 아이피 또는 도메인]<br>
 
