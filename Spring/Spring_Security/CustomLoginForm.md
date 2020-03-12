@@ -22,6 +22,7 @@
 <img width="844" alt="5-" src="https://user-images.githubusercontent.com/44339530/76519830-113fd980-64a5-11ea-913c-162e408f5453.png"><br>
 
 ※만약 csrf 토큰을 안 보낼시 서버가 승인을 거부하게됨(forbidden)<br>
+<img width="421" alt="스크린샷 2020-03-12 오후 9 07 45" src="https://user-images.githubusercontent.com/44339530/76520076-8ca18b00-64a5-11ea-8116-0807b2436b8f.png"><br>
 
 5.Login Error 설정
 -error시 /login?error로 리다이렉트가 이뤄지는데 이때 error param으로 check해서 수행됨<br>
