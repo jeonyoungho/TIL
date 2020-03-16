@@ -73,7 +73,8 @@ Ubuntu AMI의 경우 사용자 이름은 ubuntu<br>
 
 5.톰캣을 서비스로 만들기 위한 Systemd Unit File생성
 <img width="844" alt="스크린샷 2020-03-06 오후 4 57 08" src="https://user-images.githubusercontent.com/44339530/76063692-9457c000-5fcb-11ea-8ff9-08e4e34930be.png"><br>
-<img width="844" alt="스크린샷 2020-03-06 오후 4 57 28" src="https://user-images.githubusercontent.com/44339530/76063697-96218380-5fcb-11ea-8008-056a73ccf2db.png"><br>
+<img width="633" alt="스크린샷 2020-03-16 오후 5 23 19" src="https://user-images.githubusercontent.com/44339530/76736823-edcda500-67aa-11ea-96ad-822a29b59554.png">
+<br>
 
 6.톰캣unit file을 로드시키기위해 reload수행
 <img width="844" alt="스크린샷 2020-03-06 오후 4 58 51" src="https://user-images.githubusercontent.com/44339530/76063816-c832e580-5fcb-11ea-8e2a-dcae96d0c43f.png"><br>
