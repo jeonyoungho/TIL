@@ -1,4 +1,4 @@
-<h1>부트스트랩 설치</h1>
+<h1>bootstrap설치</h1>
 https://getbootstrap.com/<br>
 
 1.Download버튼 클릭<br>
