@@ -1,4 +1,4 @@
-<h1>BootStrap</h1>
+<h1>BootStrap개요</h1>
 https://getbootstrap.com/<br>
  
 <h1>BootStrap의 두 가지 특징</h1> 
