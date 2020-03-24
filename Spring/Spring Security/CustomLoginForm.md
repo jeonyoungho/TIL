@@ -1,4 +1,4 @@
-1.security-context.xml에서 security탭에서 form-login추가<br>
+ 1.security-context.xml에서 security탭에서 form-login추가<br>
 -login-page -> 로그인이 필요한 경우에 /login으로 리다이렉트가 이뤄짐<br>
 -authentication-failure-url -> 인증 실패시 /login?error로 리다이렉트가 이뤄짐<br>
 <img width="844" alt="1-" src="https://user-images.githubusercontent.com/44339530/76519816-0a18cb80-64a5-11ea-999c-bc121d003291.png"><br>

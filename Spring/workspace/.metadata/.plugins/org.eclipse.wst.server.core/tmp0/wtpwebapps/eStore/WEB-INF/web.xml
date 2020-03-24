@@ -6,7 +6,11 @@
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+		<param-value>
+			/WEB-INF/spring/appServlet/dao-context.xml
+			/WEB-INF/spring/appServlet/service-context.xml
+			<!-- 나중에 war파일로 패키징하게 되면 webapp이 root가 됨 -->
+		</param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->

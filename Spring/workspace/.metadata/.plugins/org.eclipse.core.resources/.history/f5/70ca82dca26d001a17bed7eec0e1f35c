@@ -1,0 +1,11 @@
+package kr.ac.hansung.cse.model;
+
+public class Product {
+	private int id;
+	private String name;
+	private String category;
+	private int price;
+	private String manufacture;
+	private String unitInStock;
+	private String description;
+}

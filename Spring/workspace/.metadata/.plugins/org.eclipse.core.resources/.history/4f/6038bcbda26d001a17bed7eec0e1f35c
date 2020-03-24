@@ -1,0 +1,6 @@
+package kr.ac.hansung.cse.model;
+
+public class Product {
+	private int id;
+	private String name;
+}
