@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions> 
+  <definition name="base" template="/WEB-INF/tiles/layout.jsp"> <!--definition이 하나의 웹페이지를 나타낸다 -->
+    <put-attribute name="title" value="eStore Page" />
+    <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+  </definition>
+
+</tiles-definitions>

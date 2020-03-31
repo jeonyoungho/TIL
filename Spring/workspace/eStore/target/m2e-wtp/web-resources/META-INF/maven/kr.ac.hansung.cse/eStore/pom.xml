@@ -16,8 +16,15 @@
 	</properties>
 	<dependencies>
 
+		<!-- Apache Tiles -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>3.0.8</version>
+		</dependency>
 
-		<!-- MySQL  -->
+		<!-- MySQL -->
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -145,7 +152,7 @@
 			<version>1.18.10</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
