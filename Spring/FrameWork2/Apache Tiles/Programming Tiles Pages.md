@@ -31,5 +31,6 @@
 8.home.jsp , product.jsp작성<br>
 
 9.테스트<br>
-
+<img width="844" alt="스크린샷 2020-03-31 오후 5 50 40" src="https://user-images.githubusercontent.com/44339530/78006567-23ac8500-7378-11ea-8d9b-b756a4828943.png"><br>
+<img width="844" alt="스크린샷 2020-03-31 오후 5 50 55" src="https://user-images.githubusercontent.com/44339530/78006593-2c9d5680-7378-11ea-8762-38f5bb45969f.png"><br>
 
