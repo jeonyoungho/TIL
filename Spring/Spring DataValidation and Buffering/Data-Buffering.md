@@ -12,7 +12,7 @@
 
 4.TIP)
 -View에서 Model에 있는 객체를 가져와서 Buffering 시켜주는 구조<br>
-<img width="844" alt="스크린샷 2020-04-06 오후 5 52 52" src="https://user-images.githubusercontent.com/44339530/78540644-70d49f00-782f-11ea-921c-47315e796068.png"><br>
+<img width="844" alt="스크린샷 2020-04-06 오후 5 57 26" src="https://user-images.githubusercontent.com/44339530/78541118-16880e00-7830-11ea-875b-b8dfb7779941.png"><br>
 
 -따라서 form을 보여주는 컨트롤러에서 빈 객체를 모델에 남아서 넘겨줘야함<br>
 
