@@ -23,6 +23,22 @@ public class ProductDao {
 		jdbcTemplate = new JdbcTemplate(dataSource);//dataSource를 인자로 한 JdbcTemplate객체를 생성	
 	}
 	
+	//C
+	public boolean addProduct(Product product) {
+
+		int id = product.getId();
+		String name = product.getName();
+		String category = product.getCategory();
+		int price = product.getPrice();
+		String manufacturer = product.getManufacturer();
+		int unitInStock = product.getUnitInStock();
+		String description = product.getDescription();
+		
+		String sqlStatement = "insert into product (id,name,category,price,manufacturer,unitInStock,description) values(?, ?, ?, ?, ?, ?, ?)";
+		return (jdbcTemplate.update(sqlStatement, new Object[] {id, name, category, price, manufacturer, unitInStock, description }) == 1); //update된 레코드갯수가 리턴됨
+	}
+	
+	//R
 	public List<Product> getProducts(){
 		String sqlStatement = "select * from product";
 		
@@ -35,7 +51,7 @@ public class ProductDao {
 					product.setName(rs.getString("name"));
 					product.setCategory(rs.getString("category"));
 					product.setPrice(rs.getInt("price"));
-					product.setManufacturer(rs.getString("menufacturer"));
+					product.setManufacturer(rs.getString("manufacturer"));
 					product.setUnitInStock(rs.getInt("unitInStock"));
 					product.setDescription(rs.getString("description"));
 					
@@ -44,6 +60,58 @@ public class ProductDao {
 		});
 	}
 	
+	public Product getProductById(int id) {
+		String sqlStatement = "select * from product where id = ?";
+		
+		//객체 하나 query시 queryForObject
+		return jdbcTemplate.queryForObject(sqlStatement,new Object[] {id}, new RowMapper<Product>(){ //anonymous class,레코드를 객체로 매핑해주는 부분
+				@Override
+				public Product mapRow(ResultSet rs, int rowNum) throws SQLException {//RowMapper인터페이스의 구현해야될 메서드
+					Product product = new Product();
+					
+					product.setId(rs.getInt("id"));
+					product.setName(rs.getString("name"));
+					product.setCategory(rs.getString("category"));
+					product.setPrice(rs.getInt("price"));
+					product.setManufacturer(rs.getString("manufacturer"));
+					product.setUnitInStock(rs.getInt("unitInStock"));
+					product.setDescription(rs.getString("description"));
+					
+					return product;
+				}
+		});
+		
+		
+	}
+	
+	
+	//U
+	public boolean updateProduct(Product product) {
+		int id = product.getId();
+		String name = product.getName();
+		String category = product.getCategory();
+		int price = product.getPrice();
+		String manufacturer = product.getManufacturer();
+		int unitInStock = product.getUnitInStock();
+		String description = product.getDescription();
+		
+		String sqlStatement = "update product set name=?, category=?, price=? ,manufacturer=?, unitInStock=?, description=? where id=?";
+		return (jdbcTemplate.update(sqlStatement, new Object[] {name, category, price, manufacturer, unitInStock, description, id}) == 1); //update된 레코드갯수가 리턴됨
+	}
+	
+	
+	//D
+	public boolean deleteProduct(int id) {
+		String sqlStatement = "delete from product where id=?";
+		
+		return (jdbcTemplate.update(sqlStatement, new Object[]{id}) == 1 );
+	
+	}
+
+
+
+
+
 	
 	
 	
