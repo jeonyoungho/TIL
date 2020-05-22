@@ -58,10 +58,29 @@ $ tail -f /opt/tomcat/logs/catalina.out <br>
 3.Web.xml (Limiting SSL Usage)<br>
 -한 사이트로 htp, https 모두로 접근 할 수 있는건 바람직하지 않다<br>
 -이에 대해서 Https만 제공하기 위해 설정이 필요함<br>
+3-1)Web.xml에 다음과 같이 설정<br>
+<img width="844" alt="스크린샷 2020-05-22 오후 8 54 13" src="https://user-images.githubusercontent.com/44339530/82665264-6569f580-9c6e-11ea-9845-f68db65a159a.png"><br>
 
+<img width="844" alt="스크린샷 2020-05-22 오후 8 58 50" src="https://user-images.githubusercontent.com/44339530/82665578-0bb5fb00-9c6f-11ea-9450-8aea8c19fd20.png"><br>
+
+3-2)Tomcat 재시작<br>
+
+-다음과 같이 HTTP 8080으로 접속해도 HTTPS 8443포트로 Redirection이 일어남<br>
+<img width="844" alt="스크린샷 2020-05-22 오후 9 01 16" src="https://user-images.githubusercontent.com/44339530/82665731-62233980-9c6f-11ea-8e36-0db711771f40.png"><Br>
+
+<img width="844" alt="스크린샷 2020-05-22 오후 9 03 04" src="https://user-images.githubusercontent.com/44339530/82665878-a4e51180-9c6f-11ea-905b-9c4c8609c09e.png"><br>
+
+-conf/server.xml에 다음과 같이 Redirection을 설정하였기 때문에 Redirection이 일어남<br>
+<img width="844" alt="스크린샷 2020-05-22 오후 9 04 14" src="https://user-images.githubusercontent.com/44339530/82665947-cba34800-9c6f-11ea-9a61-d760e924c395.png">
 
 ※ 참고
 <img width="844" alt="스크린샷 2020-05-22 오후 8 51 16" src="https://user-images.githubusercontent.com/44339530/82665072-fbe9e700-9c6d-11ea-99a4-1f5f3d5aef19.png"><br>
+
+
+※ http로 구현시 password 메시지가 노출이 될 수 있기에 최근의 대부분 사이트들은 ssl을 사용하는 https로 연결함<br>
+※ CA에서 정식으로 인증서만 발급받아서 설정해주면 됨<br>
+
+<img width="474" alt="스크린샷 2020-05-22 오후 8 59 15" src="https://user-images.githubusercontent.com/44339530/82665604-1bcdda80-9c6f-11ea-8fa6-b4526c6110cd.png">
 
 
 
