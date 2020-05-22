@@ -26,11 +26,7 @@
 
 <img width="844" alt="스크린샷 2020-05-22 오후 8 17 04" src="https://user-images.githubusercontent.com/44339530/82662655-356c2380-9c69-11ea-98cd-a27856fe00ce.png"><br>
 
-<img width="844" alt="스크린샷 2020-05-22 오후 7 19 37" src="https://user-images.githubusercontent.com/44339530/82657961-2e411780-9c61-11ea-8cf7-374466f89df2.png">
-
 <img width="844" alt="스크린샷 2020-05-22 오후 7 21 08" src="https://user-images.githubusercontent.com/44339530/82658084-647e9700-9c61-11ea-9137-308cbab7dca4.png"><br>
-
-<img width="844" alt="스크린샷 2020-05-22 오후 7 50 18" src="https://user-images.githubusercontent.com/44339530/82660509-78c49300-9c65-11ea-97b5-767df7da6e56.png">
 
 -이렇게 설정해주면 tomcat이 keystore를 접근해서 서버인증서를 가져 오게 됨<br>
 
@@ -48,6 +44,11 @@ $ tail -f /opt/tomcat/logs/catalina.out <br>
 -AWS 보안 그룹에서 8443포트 번호 열어주기<br>
 <img width="844" alt="스크린샷 2020-05-22 오후 7 31 08" src="https://user-images.githubusercontent.com/44339530/82658913-cab7e980-9c62-11ea-8781-d728da7ca160.png"><br>
 
+2-3)8443포트로 HTTPS를 이용한 접속<br>
+![KakaoTalk_Photo_2020-05-22-20-42-00](https://user-images.githubusercontent.com/44339530/82664504-cee90480-9c6c-11ea-9483-d0cd6713f8fb.jpeg)<br>
+![KakaoTalk_Photo_2020-05-22-20-42-05](https://user-images.githubusercontent.com/44339530/82664510-d1e3f500-9c6c-11ea-9063-01727dc5ae16.jpeg)<br>
+![KakaoTalk_Photo_2020-05-22-20-42-10](https://user-images.githubusercontent.com/44339530/82664513-d27c8b80-9c6c-11ea-9c29-033dec978bca.jpeg)<br>
 
-<img width="844" alt="스크린샷 2020-05-22 오후 7 21 58" src="https://user-images.githubusercontent.com/44339530/82658171-82e49280-9c61-11ea-8a17-05bdfd59aed9.png">
+
+<img width="844" alt="스크린샷 2020-05-22 오후 7 21 58" src="https://user-images.githubusercontent.com/44339530/82658171-82e49280-9c61-11ea-8a17-05bdfd59aed9.png"><br>
 
