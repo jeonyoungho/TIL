@@ -25,7 +25,7 @@ public class AES {
 	        byte[] encrypted = cipher.doFinal(value.getBytes());
 	        //doFinal에서 실제로 암호화 작업이 이뤄짐, plain text를 bytes로 바꿔서 실제로 암호화 수행 
 	        return enc.encodeToString(encrypted);
-	        //암호문을 Base64인코딩으로해서 리
+	        //암호문을 Base64인코딩으로해서 리턴
 	        //Base64 : binary를 텍스트로 인코딩하는 Scheme 
 	        
 	    } catch (Exception ex) {

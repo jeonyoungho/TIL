@@ -2,10 +2,10 @@
 <section name="Workbench">
 	<item key="org.eclipse.jdt.ui.lastextjar" value="/usr/local/apache-tomcat-9.0.30/lib"/>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
-		<item key="DIALOG_WIDTH" value="531"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-		<item key="DIALOG_HEIGHT" value="690"/>
-		<item key="DIALOG_X_ORIGIN" value="461"/>
+		<item key="DIALOG_WIDTH" value="555"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+		<item key="DIALOG_HEIGHT" value="613"/>
+		<item key="DIALOG_X_ORIGIN" value="155"/>
 		<item key="DIALOG_Y_ORIGIN" value="6"/>
 	</section>
 	<section name="SourceActionDialog.constructors">
@@ -69,12 +69,12 @@
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.dialogs.FilteredTypesSelectionDialog">
 		<item key="ShowStatusLine" value="true"/>
-		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History/&gt;"/>
 		<item key="WorkingSet" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;"/>
 		<section name="DialogBoundsSettings">
-			<item key="DIALOG_WIDTH" value="600"/>
-			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="295"/>
+			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+			<item key="DIALOG_HEIGHT" value="426"/>
 			<item key="DIALOG_X_ORIGIN" value="6"/>
 			<item key="DIALOG_Y_ORIGIN" value="6"/>
 		</section>
@@ -98,10 +98,10 @@
 		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;"/>
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
-		<item key="DIALOG_WIDTH" value="543"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-		<item key="DIALOG_HEIGHT" value="708"/>
-		<item key="DIALOG_X_ORIGIN" value="455"/>
+		<item key="DIALOG_WIDTH" value="555"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+		<item key="DIALOG_HEIGHT" value="634"/>
+		<item key="DIALOG_X_ORIGIN" value="155"/>
 		<item key="DIALOG_Y_ORIGIN" value="6"/>
 	</section>
 	<section name="DialogBounds_GenerateToStringDialog">

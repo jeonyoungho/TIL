@@ -16,6 +16,24 @@
 	</properties>
 	<dependencies>
 
+		<!-- Hibernate -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.4.10.Final</version>
+		</dependency>
+
+
+		<!-- Spring -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+
 		<!-- Hibernate Validation -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
 		<dependency>
@@ -99,7 +117,8 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.2.3</version>
-			<scope>runtime</scope><!-- compile, rumtime, test, proviede , runtime / 디폴트는 compile -->
+			<scope>runtime</scope><!-- compile, rumtime, test, proviede , runtime 
+				/ 디폴트는 compile -->
 		</dependency>
 
 		<!-- @Inject -->

@@ -1,0 +1,4 @@
+4257 [http-nio-8080-exec-2] DEBUG k.a.h.cse.controller.HomeController - debug lelve : Welcome home! The client locale is ko_KR 
+4257 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
+4258 [http-nio-8080-exec-2] WARN  k.a.h.cse.controller.HomeController - warn lelve : Welcome home! The client locale is ko_KR 
+4258 [http-nio-8080-exec-2] ERROR k.a.h.cse.controller.HomeController - error lelve : Welcome home! The client locale is ko_KR 

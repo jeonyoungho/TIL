@@ -4,12 +4,16 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="kr.ac.hansung"/>
+			<item value="kr.ac.hansung.cse"/>
 			<item value="hansung.youngho"/>
 			<item value="asdf.asd"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="hibernateHomework1"/>
+			<item value="testHibernate"/>
 			<item value="macroProg"/>
 			<item value="youngho"/>
 		</list>
@@ -66,6 +70,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/Users/jeon-yongho/Desktop/TIL/Spring/workspace/eStore/src/main/java/kr/ac/hansung/cse/service"/>
 			<item value="C:\yhjeon\YH_workspace\helloMVC3\pom.xml"/>
 		</list>
 		<list key="projectNameTemplate">

@@ -8,14 +8,14 @@
 		<item key="wrap" value="true"/>
 		<item key="wholeword" value="false"/>
 		<list key="findhistory">
-			<item value="Logging"/>
+			<item value="logbakc"/>
 			<item value="lombok"/>
+			<item value="Logging"/>
 			<item value="inject"/>
 			<item value="jstl"/>
 			<item value="servlet-api"/>
 			<item value="javaee"/>
 			<item value="takedcourse"/>
-			<item value="offer"/>
 		</list>
 		<list key="replacehistory">
 			<item value="course"/>

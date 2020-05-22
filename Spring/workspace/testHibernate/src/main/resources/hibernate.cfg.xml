@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 참고자 https://dzone.com/articles/hibernate-5-xml-configuration-example -->
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+	
+		<!-- JDBC Database connection settings -->
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/testdb?useSSL=false&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Seoul</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">*dydgh1092</property>
+		
+		<!-- JDBC connection pool settings ... using built-in test pool -->
+		<!-- <property name="connection.pool_size">1</property> -->
+		
+		<!-- Select our SQL dialect(방언, 사투리) -->
+		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		
+		<!-- Echo the SQL to stdout 콘솔에서 하이버네이트가 생성하는 sql문을 출력할지 말지 여부-->
+		<property name="show_sql">true</property>
+		
+		<!-- Set the current session context -->
+		<!-- <property name="current_session_context_class">thread</property> -->
+		
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">create</property>
+		<!-- 이미 존재시 제거하고 항상 새롭게 만들기 위해 create 입력, 나중엔 update줘야함-->
+		
+		<!-- dbcp connection pool configuration -->
+		<!-- <property name="hibernate.dbcp.initialSize">5</property>
+		<property name="hibernate.dbcp.maxTotal">20</property>
+		<property name="hibernate.dbcp.maxIdle">10</property>
+		<property name="hibernate.dbcp.minIdle">5</property>
+		<property name="hibernate.dbcp.maxWaitMillis">-1</property> -->
+		
+		<mapping class="testHibernate.Product" />
+		<mapping class="testHibernate.Category"/>
+	</session-factory>
+</hibernate-configuration>
