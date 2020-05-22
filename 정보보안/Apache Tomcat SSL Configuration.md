@@ -16,7 +16,7 @@
 1-3)확인<br>
 <img width="844" alt="스크린샷 2020-05-22 오후 7 12 20" src="https://user-images.githubusercontent.com/44339530/82657340-29c82f00-9c60-11ea-9dd6-fa7355bad3e2.png"><br>
 
-*JKS : Java에서 사용되는 KeyStore format<br>
+※ JKS : Java에서 사용되는 KeyStore format<br>
 
 2.Configuring Tomcat to use SSL<br>
 
@@ -43,12 +43,26 @@ $ tail -f /opt/tomcat/logs/catalina.out <br>
 
 -AWS 보안 그룹에서 8443포트 번호 열어주기<br>
 <img width="844" alt="스크린샷 2020-05-22 오후 7 31 08" src="https://user-images.githubusercontent.com/44339530/82658913-cab7e980-9c62-11ea-8781-d728da7ca160.png"><br>
+<img width="844" alt="스크린샷 2020-05-22 오후 8 48 33" src="https://user-images.githubusercontent.com/44339530/82664852-9b5aaa00-9c6d-11ea-82b0-871da86ae2c4.png"><br>
 
 2-3)8443포트로 HTTPS를 이용한 접속<br>
-![KakaoTalk_Photo_2020-05-22-20-42-00](https://user-images.githubusercontent.com/44339530/82664504-cee90480-9c6c-11ea-9483-d0cd6713f8fb.jpeg)<br>
-![KakaoTalk_Photo_2020-05-22-20-42-05](https://user-images.githubusercontent.com/44339530/82664510-d1e3f500-9c6c-11ea-9063-01727dc5ae16.jpeg)<br>
-![KakaoTalk_Photo_2020-05-22-20-42-10](https://user-images.githubusercontent.com/44339530/82664513-d27c8b80-9c6c-11ea-9c29-033dec978bca.jpeg)<br>
-
+<img width="844" alt="스크린샷 2020-05-22 오후 8 44 38" src="https://user-images.githubusercontent.com/44339530/82664622-0f488280-9c6d-11ea-9a04-5530d84a07f8.png"><br>
+<img width="844" alt="스크린샷 2020-05-22 오후 8 45 10" src="https://user-images.githubusercontent.com/44339530/82664656-21c2bc00-9c6d-11ea-94dc-9be60647cdeb.png"><br>
 
 <img width="844" alt="스크린샷 2020-05-22 오후 7 21 58" src="https://user-images.githubusercontent.com/44339530/82658171-82e49280-9c61-11ea-8a17-05bdfd59aed9.png"><br>
+
+※ 나중에 인증기관에서 정식으로 발급 받아야함!!!<br>
+※ Mac OS로 인하여 크롬 자체에서 안전한 페이지로 이동하는 것 조차 차단시킴<br>
+<img width="775" alt="스크린샷 2020-05-22 오후 8 46 41" src="https://user-images.githubusercontent.com/44339530/82664741-5898d200-9c6d-11ea-97db-f75466675b17.png"><br>
+
+3.Web.xml (Limiting SSL Usage)<br>
+-한 사이트로 htp, https 모두로 접근 할 수 있는건 바람직하지 않다<br>
+-이에 대해서 Https만 제공하기 위해 설정이 필요함<br>
+
+
+※ 참고
+<img width="844" alt="스크린샷 2020-05-22 오후 8 51 16" src="https://user-images.githubusercontent.com/44339530/82665072-fbe9e700-9c6d-11ea-99a4-1f5f3d5aef19.png"><br>
+
+
+
 
