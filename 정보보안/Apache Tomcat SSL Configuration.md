@@ -24,7 +24,7 @@
 
 <img width="844" alt="스크린샷 2020-05-22 오후 7 20 25" src="https://user-images.githubusercontent.com/44339530/82658012-4a44b900-9c61-11ea-90c4-dca6af9eed9c.png"><br>
 
-<img width="844" alt="스크린샷 2020-05-22 오후 7 16 46" src="https://user-images.githubusercontent.com/44339530/82657717-c8549000-9c60-11ea-9453-c4fa59362cbe.png"><br>
+<img width="844" alt="스크린샷 2020-05-22 오후 8 17 04" src="https://user-images.githubusercontent.com/44339530/82662655-356c2380-9c69-11ea-98cd-a27856fe00ce.png"><br>
 
 <img width="844" alt="스크린샷 2020-05-22 오후 7 19 37" src="https://user-images.githubusercontent.com/44339530/82657961-2e411780-9c61-11ea-8cf7-374466f89df2.png">
 
