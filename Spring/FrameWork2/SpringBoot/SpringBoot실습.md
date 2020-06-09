@@ -68,6 +68,33 @@ mvnw spring-boot:run<br>
 <img width="844" alt="스크린샷 2020-06-09 오후 9 39 34" src="https://user-images.githubusercontent.com/44339530/84148276-b6b11c00-aa99-11ea-9c3e-374e4d8db78d.png"><br>
 <img width="844" alt="스크린샷 2020-06-09 오후 9 40 45" src="https://user-images.githubusercontent.com/44339530/84148381-e102d980-aa99-11ea-8b84-26bd118944b3.png"><br>
 
+9.JPA<br>
+<img width="844" alt="스크린샷 2020-06-09 오후 9 51 04" src="https://user-images.githubusercontent.com/44339530/84149370-528f5780-aa9b-11ea-95b9-1b13e8c82b78.png"><br>
+<img width="844" alt="스크린샷 2020-06-09 오후 9 53 40" src="https://user-images.githubusercontent.com/44339530/84149596-af8b0d80-aa9b-11ea-9715-c0ea1e7fa551.png"><br>
+
+-CrudRepository라는 인터페이스에 클래스이름과 primary key타입만 만들어주면 DAO를 전부 다 제공해준다.<br>
+-제공된 CrudRepository만 넣어주면 자동적으로 다 만들어주고 추가적인 메소드만 넣어주면 된다.<br>
+
+<img width="844" alt="스크린샷 2020-06-09 오후 9 56 24" src="https://user-images.githubusercontent.com/44339530/84149855-114b7780-aa9c-11ea-838b-80e15c933e87.png"><br>
+-Spring Data JPA는 아래 세 인터페이스를 포함한다.<br>
+1.CrudRepository -> Crud관련 기능<br>
+2.PagingAndSortingRepository -> 레코드가 많을 경우엔 페이지 단위로 나누고 정렬해주는 기능<br>
+3.JpaRepository -> 추가적인 기능들을 몇 가지 더 제공<br>
+
+-Spring data Jpa 사용 안할 경우<br>
+<img width="844" alt="스크린샷 2020-06-09 오후 9 58 28" src="https://user-images.githubusercontent.com/44339530/84150098-5a033080-aa9c-11ea-93f4-837f611f9a2c.png">
+
+-Spring data Jpa 사용 할 경우<br>
+<img width="844" alt="스크린샷 2020-06-09 오후 9 59 01" src="https://user-images.githubusercontent.com/44339530/84150152-6dae9700-aa9c-11ea-9a98-e35ae95f0642.png">
+
+-아래와 같이 추가적인 메소드를 제공해 줄 수 있다.<br>
+-메소드 이름을 통해서 자동적으로 로직이 수행되도록 되어있다.<br>
+<img width="844" alt="스크린샷 2020-06-09 오후 10 01 06" src="https://user-images.githubusercontent.com/44339530/84150358-b8c8aa00-aa9c-11ea-809a-e7adee29c9f0.png"><br>
+
+-이와 같이 Spring data JPA를 통해서 클래스이름과 키의 타입만 적어주면 자동적으로 스프링에 의해 코드가 만들어진다.<br>
+
+
+
 
 
 
