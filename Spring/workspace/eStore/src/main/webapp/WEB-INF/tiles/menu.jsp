@@ -21,6 +21,9 @@
 
 				<li class="nav-item"><a class="nav-link" href="<c:url value="/admin"/>">Admin</a>
 				</li>
+				
+				<li class="nav-item"><a class="nav-link" href="<c:url value="/cart"/>">Cart</a>
+				</li>
 			
 			</ul>
 			

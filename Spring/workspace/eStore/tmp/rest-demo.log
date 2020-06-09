@@ -1,20 +1,2 @@
-17:50:57.154 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-17:50:57.164 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-17:56:54.786 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-17:56:54.788 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-17:57:40.267 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-17:57:40.268 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-18:05:00.298 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-18:05:00.305 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-18:09:08.148 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-18:09:08.156 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-18:12:24.434 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-18:12:24.435 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-18:14:45.620 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-18:14:45.622 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-18:19:52.508 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-18:19:52.509 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-18:30:09.775 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-18:30:09.777 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
-18:41:59.530 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
-18:41:59.531 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 
+17:18:14.354 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
+17:18:14.365 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 0:0:0:0:0:0:0:1 

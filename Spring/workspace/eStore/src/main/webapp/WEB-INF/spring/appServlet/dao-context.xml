@@ -46,7 +46,7 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
 				<!-- DataBase 명시 -->
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<!-- 기존에 있으면 삭제하고 새로 생성, update주면 덧붙이게됨 -->
 				<prop key="hibernate.show_sql">true</prop>
 				<!-- console로 sql문 보기 -->

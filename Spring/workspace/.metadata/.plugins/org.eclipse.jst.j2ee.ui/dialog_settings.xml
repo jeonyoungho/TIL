@@ -6,6 +6,7 @@
 		<item value="Apache Tomcat v9.0"/>
 	</list>
 	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="/usr/local/apache-tomcat-9.0.30/webapps/eStore.war"/>
 		<item value="C:\yhjeon\YH_workspace\StudentInformation.war"/>
 		<item value="C:\yhjeon\YH_workspace\helloSpringMVC\helloSpringMVC.war"/>
 		<item value="C:\yhjeon\YH_workspace\homeWork1.war"/>

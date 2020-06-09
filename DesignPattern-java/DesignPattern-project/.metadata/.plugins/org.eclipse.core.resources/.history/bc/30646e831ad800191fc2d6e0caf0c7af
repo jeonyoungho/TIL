@@ -1,5 +1,0 @@
-package strategyEx1;
-
-public abstract class Robot {
-
-}

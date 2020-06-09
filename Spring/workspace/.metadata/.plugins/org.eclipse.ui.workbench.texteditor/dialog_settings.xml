@@ -8,6 +8,7 @@
 		<item key="wrap" value="true"/>
 		<item key="wholeword" value="false"/>
 		<list key="findhistory">
+			<item value="addPro"/>
 			<item value="logbakc"/>
 			<item value="lombok"/>
 			<item value="Logging"/>
@@ -15,7 +16,6 @@
 			<item value="jstl"/>
 			<item value="servlet-api"/>
 			<item value="javaee"/>
-			<item value="takedcourse"/>
 		</list>
 		<list key="replacehistory">
 			<item value="course"/>
