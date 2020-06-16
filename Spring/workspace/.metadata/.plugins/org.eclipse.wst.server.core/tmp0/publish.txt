@@ -1,3 +1,2 @@
 #Tomcat publish data
-#Thu Jun 04 17:17:59 KST 2020
-org.eclipse.jst.jee.server\:/binary\:/Users/jeon-yongho/.m2/repository/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE.jar=WEB-INF/lib/spring-web-5.1.5.RELEASE.jar
+#Thu Jun 11 10:01:51 KST 2020

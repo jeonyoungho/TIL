@@ -1,0 +1,2 @@
+9830 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
+9831 [http-nio-8080-exec-2] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStoreHomework2/, Client IP : 0:0:0:0:0:0:0:1 

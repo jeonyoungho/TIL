@@ -1,0 +1,4 @@
+40593 [http-nio-8080-exec-9] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
+40593 [http-nio-8080-exec-8] INFO  k.a.h.cse.controller.HomeController - info lelve : Welcome home! The client locale is ko_KR 
+40595 [http-nio-8080-exec-9] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/;jsessionid=6175C24053EC0641F3CC789EEBE567E5/, Client IP : 127.0.0.1 
+40595 [http-nio-8080-exec-8] INFO  k.a.h.cse.controller.HomeController - Request URL : http://localhost:8080/eStore/, Client IP : 127.0.0.1 
