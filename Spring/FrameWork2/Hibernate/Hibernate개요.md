@@ -21,7 +21,10 @@
 1. SessionFactory -> session을 만들어서 DB와 실제 커뮤니케이션  
 2. hibernate.cfg.xml -> 하이버네이트에 대한 설정파일  
 3. *.hbm.xml class mappings -> 객체와 테이블 사이에 대한 매핑 정보  
-  
+
+### Hibernate 라이브러리 추가  
+<img width="844" alt="스크린샷 2020-06-29 오후 1 58 17" src="https://user-images.githubusercontent.com/44339530/85974506-975e3c80-ba10-11ea-9d04-a2be2c687769.png"><br>
+
 ### - Hibernate 동작 원리  
   
 <img width="844" alt="스크린샷 2020-06-29 오전 11 59 15" src="https://user-images.githubusercontent.com/44339530/85968385-f5365880-b9ff-11ea-95c7-8a98aeea4ddc.png">  
