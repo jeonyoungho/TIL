@@ -127,6 +127,7 @@ public class DicServer extends JFrame{
 				BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 				
 				while(true) {
+					
 					String engText = in.readLine(); // 클라로 부터 한 라인 전송 받기
 					String korText = dic.get(engText);
 					

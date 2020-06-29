@@ -19,8 +19,8 @@ public class ServerEx {
 			listener = new ServerSocket(9999); // 9999번 포트와 바인딩한다, 애플리케이션이 9999번 포트를 사용하겠다 하고 요청
 			System.out.println("연결을 기다리고 있습니다....");
 			socket = listener.accept(); // 클라이언트로부터 리턴하지 않고 접속을 기다리고 있음, blocking call
-			// 소켓에 연결 된 inputstream, outputstream을 통해 주고 받고 한다
 			
+			// 소켓에 연결 된 inputstream, outputstream을 통해 주고 받고 한다
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream())); //inputstream은 바이트배열 단위이므로 문자열로 처리해줄 InputStreamReader생성
 			out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())); //outputstream은 바이트배열 단위이므로 문자열로 처리해줄 OutputStreamWriter생성
 			// 소켓으로부터 직접사용하려면 바이트 단위이므로 굉장히 불편함

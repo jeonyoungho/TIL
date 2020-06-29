@@ -76,7 +76,7 @@ public class MyFrame extends JFrame {
 
 	}
 
-	public static void main1(String[] args) {
+	public static void main(String[] args) {
 //		try {   
 //		    UIManager.setLookAndFeel("javax.swing.plaf.mac.MacLookAndFeel");   
 //		} catch(Exception e) { }  

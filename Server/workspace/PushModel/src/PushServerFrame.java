@@ -143,6 +143,7 @@ public class PushServerFrame extends JFrame{
 		
 		public void increaseDeliveredCount() {
 			deliveredCount++;
+			System.out.println("deCount -> " + deliveredCount);
 			deliveredCountLabel.setText(Integer.toString(deliveredCount));
 		}
 		
@@ -167,13 +168,17 @@ public class PushServerFrame extends JFrame{
 		}
 		
 		synchronized public void put() {
+			System.out.println("first");
 			if(deliveredCount != threadCount) { //아직 이전 데이터의 전송이 완료되지 않았다.
 				try {
+					System.out.println("second");
 					this.wait();
 				} catch (InterruptedException e) {
 					handleError(e.getMessage());
 				}
+				System.out.println("third");
 			}
+			System.out.println("fourth");
 			
 			clearDeliveredCount();
 			this.notifyAll();

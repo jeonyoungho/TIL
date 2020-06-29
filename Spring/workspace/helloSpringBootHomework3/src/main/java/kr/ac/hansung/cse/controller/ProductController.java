@@ -47,9 +47,10 @@ public class ProductController {
 		Optional<Product> productData = repository.findById(id);
 		
 		if(productData.isEmpty()) {
-			return new ResponseEntity<>(productData.get(),HttpStatus.OK);
-		}else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}else {
+			return new ResponseEntity<>(productData.get(),HttpStatus.OK);
+			
 		}
 	}
 	
@@ -63,8 +64,9 @@ public class ProductController {
 		}
 	}
 	
-	@GetMapping(value="products/category/{category}")
+	@GetMapping(value="/products/category/{category}")
 	public ResponseEntity<List<Product>> findByCategory(@PathVariable("category") String category){
+		
 		try {
 			List<Product> products = repository.findByCategory(category);
 			
