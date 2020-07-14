@@ -34,6 +34,6 @@ public class Category {
 	
 	// maapedBy 실제로 Product의 category필드를 참조해서 이필드를 채우게 된다
 	// 둘다 또는 어느쪽에 Cascade를 줘도 상관없다 , category를 가지고 작업을 하기에 product는 삭제
-	// category를 저장 또는 삭제하면 products도 저장 또는 삭제
+	// category를 저장 또는 삭제하면 product객체들도 저장 또는 삭제
 	
 }

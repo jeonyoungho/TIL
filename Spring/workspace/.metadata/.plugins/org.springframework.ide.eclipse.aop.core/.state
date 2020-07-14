@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="helloRest"/>
 <aop-project name="helloSpringBoot"/>
 <aop-project name="eStore"/>
+<aop-project name="eStoreHomework2"/>
 <aop-project name="helloSpringBootHomework3"/>
 </aop-reference-model>
