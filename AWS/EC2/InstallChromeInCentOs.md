@@ -31,4 +31,4 @@ sudo mv /usr/local/bin/chromedriver<br>
 <h2> unzip 설치 </h2>
 rpm -qa | grep unzip<br>
 yum list unzip<br>
-sudo yum install unzip<br>
+sudo mv ~/Downloads/chromedriver /usr/local/bin/<br>
