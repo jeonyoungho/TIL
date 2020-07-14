@@ -14,7 +14,6 @@ gpgkey=https://dl-ssl.google.com/linux/<br>linux_signing_key.pub<br>
 
 2.설치<br>
 <img width="844" alt="스크린샷 2020-05-07 오후 4 40 08" src="https://user-images.githubusercontent.com/44339530/81267420-6b15e780-9081-11ea-8e44-c81545489a18.png"><br>
--><br>
 sudo yum install google-chrome-stable<br>
 
 3.확인<br>
