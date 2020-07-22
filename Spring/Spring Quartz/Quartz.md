@@ -6,7 +6,7 @@
 <b>1.Dependency추가</b><br>
 <img width="544" alt="스크린샷 2020-07-22 오후 5 49 54" src="https://user-images.githubusercontent.com/44339530/88155964-c2206700-cc43-11ea-9dd6-31c94d3e7fbb.png"><br>
 <img width="653" alt="스크린샷 2020-07-22 오후 5 51 14" src="https://user-images.githubusercontent.com/44339530/88156124-f1cf6f00-cc43-11ea-9235-563dd08dc698.png"><br>
-<b>※ spring-context-support는 QuartzJobBean을 상속받기 위해 추가해줘야함</b><br>
+<b>※ spring-context-support는 QuartzJobBean을 상속받기 위해 추가해줘야함</b><br><br>
 
 <b>2.Quartz설정 파일 추가(quartz-context.xml)</b><br>
 <img width="906" alt="스크린샷 2020-07-22 오후 5 53 27" src="https://user-images.githubusercontent.com/44339530/88156339-41ae3600-cc44-11ea-90cf-e3cda32eee6d.png"><br>
