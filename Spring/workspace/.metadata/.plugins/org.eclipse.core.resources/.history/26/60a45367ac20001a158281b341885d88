@@ -1,7 +1,0 @@
-@charset "UTF-8";
-.menulist {
-	width: 300px;
-	border: 1px solid blue;
-	text-align: right;
-}
-.
