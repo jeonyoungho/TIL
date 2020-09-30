@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.MemberMapper">
+
+	<resultMap type="org.zerock.security.domain.MemberVO" id="memberMap">
+		<id property="userId" column="user_id"/>
+		<result property="userPw" column="user_pw"/>
+		<result property="enabled" column="enabled"/>
+		<collection property="authList" resultMap="authMap">
+		</collection>
+	</resultMap>
+	
+	<resultMap type="org.zerock.security.domain.AuthVO" id="authMap">
+		<result property="userId" column="user_id"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+	
+	<insert id="insertMember">
+		insert into tbl_member( user_id, user_pw, enabled)
+		values( #{userId}, #{userPw}, #{enabled}) 
+	</insert>
+	
+	<insert id="insertAuth">
+		insert into tbl_member_auth( user_id, auth)
+		values( #{userId}, #{auth} ) 
+	</insert>
+	
+	<select id="getMember" resultMap="memberMap">
+	  select 
+	  	mem.user_id, mem.user_pw, mem.enabled, auth.auth
+	  from
+	  	tbl_member mem LEFT OUTER JOIN tbl_member_auth auth on mem.user_id = auth.user_id
+	  where mem.user_id = #{userId}
+	</select>
+	
+	<delete id="removeMember">
+		delete from tbl_member
+		where user_id = #{userId}
+	</delete>	
+	
+</mapper>
