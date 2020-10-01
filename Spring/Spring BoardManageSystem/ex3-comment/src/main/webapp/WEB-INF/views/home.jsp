@@ -5,6 +5,11 @@
 	<title>Home</title>
 </head>
 <body>
+
+<script type="text/javascript">
+	self.location="/board/list";
+</script>
+
 <h1>
 	Hello world!  
 </h1>
