@@ -1,0 +1,1 @@
+<h1>전략 패턴(strategy pattern)</h1>
