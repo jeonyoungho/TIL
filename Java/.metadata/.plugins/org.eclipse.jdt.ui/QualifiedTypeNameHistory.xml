@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.hornetq.jms.server.impl.JMSServerManagerImpl"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="CustomMessage"/>
+<fullyQualifiedTypeName name="javax.jms.ObjectMessage"/>
+<fullyQualifiedTypeName name="org.hornetq.core.config.impl.FileConfiguration"/>
+<fullyQualifiedTypeName name="javax.jms.Session"/>
+</qualifiedTypeNameHistroy>
