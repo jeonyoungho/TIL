@@ -11,6 +11,7 @@
 @XmlElementWrapper - 다른 XML 요소들을 감싸는 역할을 합니다. List 같은 컬렉션 객체들을 XML 변환할 때 사용할 수 있습니다.
 
 참고
+https://zgundam.tistory.com/17
 https://tychejin.tistory.com/135
 https://m.blog.naver.com/PostView.nhn?blogId=hummer98&logNo=10113833356&proxyReferer=https:%2F%2Fwww.google.com%2F
 https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api/2.3.1
