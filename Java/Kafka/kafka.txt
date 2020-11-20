@@ -1,0 +1,27 @@
+## kafka
+
+- kafka command
+
+1) zookeeper시작
+bin\windows\zookeeper-server-start.bat config/zookeeper.properties
+
+2) kafka server 시작
+bin\windows\kafka-server-start.bat config/server.properties
+
+ ../../config/
+3) consumer시작
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic topic1
+<option>
+--from-beginning: 쌓여있던 모든 메시지를 가져옴
+
+4) producer 시작
+bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic topic1
+
+- kafka log4j configuration for java
+https://alwaysemmyhope.com/ko/java/460988-how-to-enable-kafka-logging-with-log4j-java-log4j-apache-kafka-slf4j.html
+
+- 참고
+https://victorydntmd.tistory.com/344?category=798367
+https://team-platform.tistory.com/13
+http://junil-hwang.com/blog/kafka-java/
+https://oboki.net/workspace/bigdata/kafka/kafka-producer-consumer-sample/
