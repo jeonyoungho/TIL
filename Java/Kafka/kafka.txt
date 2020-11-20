@@ -1,7 +1,91 @@
 ## kafka
 
-- kafka command
+- 하나의 Consumer Group은 하나의 Topic을 Subscribe
+- 하나의 Consumer는 하나의 Partion을 subscribe
+- 만약 Consumer Group이 없고 두 개의 Consumer가 하나의 Partion에 동시에 접근한다면 어떤 Consumer가 몇 번의 offset을 소비해야하는지 알 수가 없게 된다. 
+- 그리고 Consumer Group이 어떤 Consumer가 해당 partion의 몇 번 offset을 소비해야하는지에 대한 정보들을 다 가지고 있기 때문에 Consumer하나가 다운 되어도 다른 Consumer가 해당 파티션의 메시지를 소비할 수 있도록 한다. (고가용성 확보)
+- Partition과 Consumer의 개수
+Partition은 하나의 Consumer만 접근이 가능
+반대로 Consumer는 여러 개의 Partition을 소비할 수 있음.
+대량의 메시지가 Kafka에 쓰여진다고 가정.
 
+(1) Partition 1개 / Consumer 인스턴스 1
+메시지가 대량으로 막 생산되고 있는데, 처리할 수 있는 Consumer가 1개 밖에 없으니 그래서 Consumer를 늘리기로 함.
+
+(2) Partition 1개 / Consumer 인스턴스 4개
+Consumer를 4개로 늘렸지만, Consumer Group에서 Partition은 하나의 Consumer 밖에 접근을 못하는 구조
+즉, Consumer를 늘리나 마나인 상황이라 그래서 이번에는 Partition을 늘림
+
+(3) Partition 4개 / Consumer 인스턴스 4개
+Consumer는 하나의 Partition에 접근할 수 있으므로, Partition과 Consumer는 1:1 구성
+이상적인 상황
+
+(4) Partition 4개 / Consumer 인스턴스 3개
+잘 운영이 되다가, 갑자기 Consumer 하나가 죽어버려도 문제는 없음
+Consumer Group에서 offset이 공유되고 있으므로 Consumer가 하나 죽더라도 다른 Consumer가 해당 Partition에 접근하면 됨
+
+(5) Partition 3개 / Consumer 인스턴스 3개
+메시지가 잘 처리되고 있고, 상황을 보니 Partition을 3개로 줄여도 될 것 같지만 Partition은 한 번 늘리면 줄일수가 없음
+
+위 상황의 결론은 Partition의 개수 >= Consumer 인스턴스의 갯수를 유지하는 것이 좋음( Consumer > Partition은 불가능 )
+하나의 Partition에 하나의 Consumer가 담당하는 것이 좋지만 딱 맞출수는 없으므로, Consumer 수가 모자라도 상관은 없음.
+주의할 점은 한 번 Partition을 늘리면 다시 줄일 수 없기 때문에, 처리량을 잘 고려하여 Partition과 Consumer의 개수를 선택해야 할 것. 
+
+- Consumer Design (Kafka의 이점)
+Kafka와 마찬가지로 대표적인 메시징 시스템인 RabbitMQ, ActiveMQ 역시 분산 큐 시스템(Distributed Queue System)
+분산이니까 성능이 다 빠를것 같은데.. 왜 유독 Kafka가 빠르다고 할까?
+
+성능이 좋으려면 Consumer가 최대의 효율을 내야 함
+분산처리가 된다한들, 소비자가 메시지를 처리못하면 전체적인 성능이 느려지게됨
+즉, 메시지를 소비하는 방식에 대한 차이가 성능의 차이를 보이는 것 같습니다.
+
+
+Kafka는 Single Consumer가 아닌, Multi Consumer를 염두에 두고 설계되었기 때문에 Consumer를 잘 살펴볼 필요가 있음
+
+<RabbitMQ와 Kafka의 Consumer Design의 비교>
+1)RabbitMQ
+· Message Broker가 Consumer에게 메시지를 push하는 방식
+· Broker는 Consumer의 처리여부에 관계없이 push를 하므로, 메시지 소비 속도보다 생산 속도가 빠를 경우 Consumer에 부하를 주게됨
+· RabbitMQ는 DRAM을 사용하므로 buffer를 사용하지만, DRAM을 다 사용하면 disk에 저장, 따라서 batch 같이 큰 작업에서는 disk로 메시지를 읽어올 경우 지연이 발생
+
+2)Kafka
+· Consumer가 Broker로부터 메시지를 pull하는 방식
+· Consumer가 처리할 수 있을 때 메시지를 가져오므로 자원을 효율적으로 사용
+· Kafka는 애초에 메시지를 disk에 저장하고, 이미 처리한 과거의 offset으로 자유롭게 움직일 수 있으므로 batch 작업에서 자원의 낭비라던지 지연이 발생하지 않음
+· 메시지를 쌓아두었다가 처리하는 batch Consumer 구현도 가능
+
+항상 trade off가 있듯이, pull 방식에도 단점은 있음
+데이터가 없음에도 정기적인 polling으로 인해 자원을 낭비하는 문제인데요, 이러한 단점을 보완하기 위해 실제 데이터가 도착할 때까지 long poll 대기를 할 수 있는 parameter를 지원합니다.
+(kafka공식문서 참고 https://kafka.apache.org/documentation/#design_pull)
+
+- Replication
+· Topic을 생성할 때, --replication-factor 옵션을 부여하면 복제본(replication)을 생성
+· Replication이란 Zookeeper가 leader가 되는 Partition을 정하고, Partition을 각 broker마다 복제를 하는 것, 이때  leader를 복제하는 partition을 follower라 칭함
+
+· leader: 메시지를 생산하고 소비하는 작업은 모두 leader broker에서 이뤄짐
+· follower: 나머지 follower들은 leader를 복제만 수행
+
+· 이는 고가용성을 위한것이며, 혹시 leader가 죽었을 경우 follower 중 하나가 leader가 되어야 하기 때문에, follower는 leader와 싱크를 맞추고 있는 것 ( In-Sync Replica, ISR )
+
+· 예를 들어, 3대의 Broker Server에 대하여, topic-1에 4개의 Partition이 존재할 때, --replication-factor=2 로 설정한다고 가정 ( Zookeeper가 Partition을 골고루 분배합니다. )
+Partition1에 메시지를 쓰는 상황일 때, leader partition이 존재하는 Broker2에서 메시지가 생산
+그리고 follower인 Broker3에 존재하는 Partition은 leader를 복제합니다. ( ISR )
+만약 leader가 되는 Broker가 다운이 되면, follower가 leader로 선출됩니다.
+예시는 follower가 1개지만 여러 개의 follower가 있다면, Zookeeper가 leader를 알아서 선출
+
+- 메시지 보존기간
+· 클러스터는 쓰여진 메시지를 보존기간동안 유지
+· 보존 기간 정책은 log.retention.hours 설정을 통해 가능하며, 기본값은 7일
+· 예를 들어, 보존 정책이 2일이면, 2일 뒤에는 공간 확보를 위해 해당 메시지를 폐기
+· 데이터 크기에 상관없이 카프카의 성능은 일정하기 때문에 장기간 저장해도 문제는 없으므로, 보존기간을 짧게 잡을 필요는 없음
+· 즉, Consumer가 메세지를 소비한다고 해서 메시지가 없어지는게 아니라 보존기간이 지나야 사라짐, 그래서 Consumer가 과거의 offset에 대한 접근을 할 수 있는것
+
+- Partition이 1개이냐, 2개 이상이냐에 따른 메시지 순서 보장에 대한 자료
+https://www.popit.kr/kafka-%EC%9A%B4%EC%98%81%EC%9E%90%EA%B0%80-%EB%A7%90%ED%95%98%EB%8A%94-%EC%B2%98%EC%9D%8C-%EC%A0%91%ED%95%98%EB%8A%94-kafka/
+
+
+
+- kafka command
 1) zookeeper시작
 bin\windows\zookeeper-server-start.bat config/zookeeper.properties
 
@@ -25,3 +109,5 @@ https://victorydntmd.tistory.com/344?category=798367
 https://team-platform.tistory.com/13
 http://junil-hwang.com/blog/kafka-java/
 https://oboki.net/workspace/bigdata/kafka/kafka-producer-consumer-sample/
+
+

@@ -5,7 +5,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
 public class MyKafkaProducer {
-	public static void main2(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		System.out.println("--start--");
 		Properties configs = new Properties();
 		configs.put("bootstrap.servers", "localhost:9092"); // kafka host 및 server 설정

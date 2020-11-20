@@ -6,7 +6,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 public class MyKafkaConsumer {
-	public static void main(String[] args) {
+	public static void main2(String[] args) {
 		Properties configs = new Properties();
 		// 환경 변수 설정
 		configs.put("bootstrap.servers", "localhost:9092"); // kafka server host 및 port

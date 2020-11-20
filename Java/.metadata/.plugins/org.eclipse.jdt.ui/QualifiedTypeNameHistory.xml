@@ -6,4 +6,11 @@
 <fullyQualifiedTypeName name="javax.jms.ObjectMessage"/>
 <fullyQualifiedTypeName name="org.hornetq.core.config.impl.FileConfiguration"/>
 <fullyQualifiedTypeName name="javax.jms.Session"/>
+<fullyQualifiedTypeName name="org.apache.kafka.clients.producer.ProducerConfig"/>
+<fullyQualifiedTypeName name="org.apache.kafka.common.serialization.StringSerializer"/>
+<fullyQualifiedTypeName name="org.apache.kafka.clients.producer.ProducerRecord"/>
+<fullyQualifiedTypeName name="org.apache.kafka.clients.producer.KafkaProducer"/>
+<fullyQualifiedTypeName name="org.apache.kafka.clients.consumer.KafkaConsumer"/>
+<fullyQualifiedTypeName name="org.apache.kafka.clients.consumer.ConsumerRecords"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
 </qualifiedTypeNameHistroy>
