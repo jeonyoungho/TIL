@@ -14,3 +14,8 @@
 
 ※참고
 https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose#%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%EC%9D%B4%EB%9D%BC%EB%8A%94-%EC%96%B4%EB%A0%A4%EC%9B%80
+https://akageun.github.io/2019/09/10/docker-compose-local-kafka.html
+https://blog.voidmainvoid.net/325
+https://twowinsh87.github.io/etc/2019/09/28/etc-kafka2019-2/
+https://log-laboratory.tistory.com/226
+https://data-newbie.tistory.com/241
