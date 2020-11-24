@@ -5,7 +5,252 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2020-11-20T04:43:52Z</updated>
+  <updated>2020-11-23T15:39:00Z</updated>
+  <entry>
+    <title>Spring Native for GraalVM 0.8.3 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2020/11/23/spring-native-for-graalvm-0-8-3-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>S?bastien Deleuze</name>
+    </author>
+    <id>tag:spring.io,2020-11-23:4275</id>
+    <updated>2020-11-23T15:39:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of everyone that has contributed, I am pleased to announce that &lt;a href="https://github.com/spring-projects-experimental/spring-graalvm-native/releases/tag/0.8.3"&gt;Spring Native for GraalVM 0.8.3&lt;/a&gt; has been released and is available from &lt;a href="https://repo.spring.io/milestone"&gt;Spring milestone repository&lt;/a&gt;, check the updated &lt;a href="https://repo.spring.io/milestone/org/springframework/experimental/spring-graalvm-native-docs/0.8.3/spring-graalvm-native-docs-0.8.3.zip!/reference/index.html"&gt;reference documentation&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Native for GraalVM provides an incubating support for compiling Spring applications to native executables using the &lt;a href="https://www.graalvm.org/reference-manual/native-image/"&gt;native-image&lt;/a&gt; compiler, in order to provide a native deployment option designed to be packaged in lightweight containers. In practice, the target is to support your Spring application (typically a Spring Boot one), unmodified, on this new platform.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="whats-new-in-0-8-3"&gt;&lt;a class="anchor" href="#whats-new-in-0-8-3"&gt;&lt;/a&gt;What¡¯s new in 0.8.3&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="spring-boot-2-4-0-baseline"&gt;&lt;a class="anchor" href="#spring-boot-2-4-0-baseline"&gt;&lt;/a&gt;Spring Boot 2.4.0 baseline&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;0.8.3 is now based on &lt;a href="https://spring.io/blog/2020/11/12/spring-boot-2-4-0-available-now"&gt;Spring Boot 2.4.0&lt;/a&gt; and the first release based on a stable version of Spring Boot.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="graalvm-20-3-0-support"&gt;&lt;a class="anchor" href="#graalvm-20-3-0-support"&gt;&lt;/a&gt;GraalVM 20.3.0 support&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;0.8.3 is designed for &lt;a href="https://www.graalvm.org/release-notes/20_3/"&gt;GraalVM 20.3.0&lt;/a&gt; that has just been released.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="springbootapplication-and-configuration-with-default-attributes"&gt;&lt;a class="anchor" href="#springbootapplication-and-configuration-with-default-attributes"&gt;&lt;/a&gt;@SpringBootApplication and @Configuration with default attributes&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Until now, in order to compile Spring applications to native, you had to use &lt;code&gt;@SpringBootApplication(proxyBeanMethods = false)&lt;/code&gt; and &lt;code&gt;@Configuration(proxyBeanMethods = false)&lt;/code&gt; since CGLIB proxies created by &lt;code&gt;proxyBeanMethods = true&lt;/code&gt; (previous default behavior) are not supported in native.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As of Spring Native 0.8.3, &lt;code&gt;@SpringBootApplication&lt;/code&gt; and &lt;code&gt;@Configuration&lt;/code&gt; do not create CGLIB proxies anymore, so they are native compliant out of the box. We have also added a verification mechanism that checks that your application and libraries do not use cross &lt;code&gt;@Bean&lt;/code&gt; invocations (only supported with CGLIB proxies) and throw an error if such pattern is detected. You can switch off this verification if needed with &lt;code&gt;-Dspring.native.verify=false&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="improved-compatibility"&gt;&lt;a class="anchor" href="#improved-compatibility"&gt;&lt;/a&gt;Improved compatibility&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As usual, we are working to improve gradually the scope and the quality of our native support, see the &lt;a href="https://github.com/spring-projects-experimental/spring-graalvm-native/milestone/10?closed=1"&gt;detailed changelog&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="whats-next"&gt;&lt;a class="anchor" href="#whats-next"&gt;&lt;/a&gt;What&amp;#8217;s next&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Our next &lt;a href="https://github.com/spring-projects-experimental/spring-graalvm-native/milestone/6"&gt;0.9.0 milestone&lt;/a&gt; expected early 2021 will be an important one since it will materialize the beginning of our beta support on a subset of Spring Boot starters like Spring MVC, WebFlux, Data (JPA, JDBC, Elastic Search, Neo4j, MongoDB, Redis, R2DBC), Security, Batch, Function, etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We are going to do several big refactorings to gradually transform the project into modules that could be integrated later in Spring top level projects. As part of this process, we are going to introduce a set of &lt;a href="https://github.com/spring-projects-experimental/spring-graalvm-native/issues?q=is%3Aissue+is%3Aopen+label%3A%22type%3A+build-time-transformation%22"&gt;build time transformations&lt;/a&gt; that will be done on your application in order to bring Spring Native to the next level in term of robustness and efficiency.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In parallel, we also collaborate with the GraalVM team on JUnit 5 native testing and helping JVM libraries to support native compilation out of the box in a maintainable way. We will share more on that effort early next year.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Data 2020.0 - New and Noteworthy in Spring Data Neo4j 6.0</title>
+    <link rel="alternate" href="https://spring.io/blog/2020/11/20/spring-data-2020-0-new-and-noteworthy-in-spring-data-neo4j-6-0" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Christoph Strobl</name>
+    </author>
+    <id>tag:spring.io,2020-11-05:4255</id>
+    <updated>2020-11-20T10:54:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data Neo4j is a Spring Data community project that is maintained and developed by Neo4j, Inc. On behalf of the team working on the module at Neo4j, we are happy to share their insights about recent changes and new features shipped with the &lt;a href="https://spring.io/blog/2020/11/06/spring-data-2020-0-new-and-noteworthy-a-general-overview"&gt;2020.0.0 release&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Neo4j users who use Spring Boot 2.3 require special attention because the configuration infrastructure for Spring Data Neo4j 6.0 has changed in an incompatible way.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;That said, not only has the configurational infrastructure changed, but the whole project changed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The module has some history and went through several major changes.
+For about four years now, it followed the Spring Data JPA principle: Using Spring Data as a thin layer to orchestrate an underlying object mapper.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With Neo4j, that mapper is called Neo4j-OGM.
+While Neo4j-OGM is quite flexible, it comes with a price.
+It not only abstracts over our query language like any object mapper would do, but it also abstracts over the transport.
+It can be used to bring up Neo4j embedded, use HTTP or our own Bolt protocol.
+Last but not least, it re-creates many abstracts of the graph on the client side.
+That is, it creates a local graph model during mapping and builds objects by iterating from that model, instead of working in a record-oriented way.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With that many abstractions in place, various things became increasingly hard:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Supporting the reactive programming paradigm in such a way that it is more than a fake reactive layer on top&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Supporting immutable objects&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Providing a composable stack&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Making it easy to use Cypher and custom queries - with or without mapping&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The new Spring Data Neo4j 6.0 major release addresses all of this.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We started that endeavor around March of 2019, very much inspired by the great work of the Spring Data Team around Spring Data JDBC.
+SDN 6 started as a side project named SDN/RX.
+With SDN/RX, we gathered feedback from customers and early adaptors, among them JHipster users.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Eventually, it became SDN 6, and we announced it during Spring One 2020:&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/A7LRNS0Dnr4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Slides: &lt;a href="https://speakerdeck.com/michaelsimons/spring-up-your-graph" class="bare"&gt;https://speakerdeck.com/michaelsimons/spring-up-your-graph&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;What is in it for you:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Full support for reactive programming, from the mapping layer up to the database (Neo4j required).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Compatibility with a wide range of the Neo4j Java Driver versions: From 4.0 to 4.2 and future versions, thus supporting Neo4j 3.5 to 4.2 (not yet released).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JDK 8 baseline in accordance with Spring Framework and Spring Data, but it also runs great in JDK 15, including using the Records-preview as domain classes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Speaking of records, the mapping is record-oriented, so pipelined and mapped data can be retrieved fully immutable. This applies to Kotlin-Data classes, to Java 15 records,
+and, of course, to "data" classes with withers, either manually created or through Lombok.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For the first time with Spring Data Neo4j, support for &lt;code&gt;findByExample&lt;/code&gt;-based methods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction of our new &lt;a href="https://github.com/neo4j-contrib/cypher-dsl" class="bare"&gt;https://github.com/neo4j-contrib/cypher-dsl&lt;/a&gt;. We use this internally but you can create custom queries with it, too.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Support for the experimental Spring Native project, Spring Data Neo4j. The Cypher-DSL and the Neo4j Java driver are fully compatible with GraalVMs native image.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The return of the Neo4j template.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Well defined multiple levels of abstractions:&lt;/p&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SDN 6 is not responsible for creating a database connection any more. Nor it can be hold responsible for bringing up an embedded instance.
+Instead, you bring the driver (or let Spring Boot handle this for you).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Do whatever you want with the driver. Manage your transactions the way you need.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SDN 6 gives you a thin client over the driver. We hope that client has some nice and usable hooks for your own mapping.
+At least we are happy with it and use it under the hood.
+The client is integrated with Springs transaction managers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On top of the client sits the Neo4j template. It knows your domain model.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The template is used by the repository abstraction.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;One point that is very dear to us:
+The support for Neo4j is embedded.
+While Neo4j-OGM can not only start an embedded instance but also use the Graphdatabase API directly, we do not recommend that approach at all.
+Starting any database from the object mapping layer opens a world full of problems.
+This begins at the sheer amount of dependencies a database brings into your application and continues with the synchronization of multiple instances of the same service,
+and possibly ends with shutdown timing issues, especially when something is run on Kubernetes, which has a tendency to kill things quickly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you are aware of those drawbacks, you can still bring up an embedded Neo4j. &lt;a href="https://gist.github.com/michael-simons/d3137f64ac0b13713fae8e7e1a69367e"&gt;Here&lt;/a&gt; is an example
+that can be turned into a Spring bean.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This embedded instance can then be used by SDN 6. You can open up a local Bolt connection to it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Boot&amp;#8217;s infrastructure has the following changes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;There are new properties on the top level: &lt;code&gt;spring.neo4j.*&lt;/code&gt; is now used to configure the database connection.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;spring.data.neo4j.*&lt;/code&gt; has new properties to configure the database name being used.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Better health and (hopefully soon) great Micrometer metrics support.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@DataNeo4jTest&lt;/code&gt; no longer starts an embedded instance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Regarding that last point, we recommend &lt;a href="https://www.testcontainers.org/modules/databases/neo4j/"&gt;Testcontainers Neo4j&lt;/a&gt; or the manual creation and management of an embedded instance.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;What do you need to do?
+The annotations have changed, and we offer a dedicated page in the &lt;a href="https://docs.spring.io/spring-data/neo4j/docs/6.0.0/reference/html/#Migrating"&gt;documentation&lt;/a&gt; to describe which annotation of OGM has been replaced by a Spring Data Neo4j annotation.
+The mapping is a bit opinionated, and you might need to rework your domain model in a couple of places.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We think that we managed to lay the groundwork for a stable framework for the coming years, and we look forward to your feedback.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Our thanks go out to Mark Paluch, team lead of the Spring Data team.
+Mark had incredible patience for all the questions we had about the internal workings of Spring Data commons and an open ear for any discussions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Also, kudos to Sergei Egorov, from Project Reactor: Not only is Sergei one of the friendliest folks in the Java ecosystem, but he is also a hot stream of all things reactive.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;And, of course, thanks to St?phane Nicoll, who worked with us over the last two years to improve the Neo4j support in Spring Boot in many ways:
+By challenging our ideas, polishing our code, and leading to an integration that is now much cleaner and hopefully more attractive for our shared user base.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://twitter.com/rotnroll666"&gt;Michael Simons&lt;/a&gt;, on behalf of the Spring Data Neo4j team.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>A Bootiful Podcast: BDD creator, optimizer of organizations and agile legend Dan North</title>
     <link rel="alternate" href="https://spring.io/blog/2020/11/20/a-bootiful-podcast-bdd-creator-optimizer-of-organizations-and-agile-legend-dan-north" />
@@ -1367,7 +1612,7 @@ dependencies {&#xD;
   &lt;li&gt;Reactive Context Access features in Data Commons.&lt;/li&gt;
   &lt;li&gt;Lifecycle callbacks and baselining to Spring R2DBC in &lt;a href="https://spring.io/blog/2020/11/18/spring-data-2020-0-new-and-noteworthy-in-spring-data-r2dbc-1-2"&gt;R2DBC&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;General Repository and store-specific Redis Cache Metrics.&lt;/li&gt;
-  &lt;li&gt;Neo4J reactive repositories.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2020/11/20/spring-data-2020-0-new-and-noteworthy-in-spring-data-neo4j-6-0"&gt;Neo4J reactive repositories&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;Paging repository APIs for Spring Data for Apache Geode.&lt;/li&gt;
   &lt;li&gt;Geoshape, index, and reactive search improvements for Spring Data Elasticsearch.&lt;/li&gt;
   &lt;li&gt;Partial filter and aggregation hints in &lt;a href="https://spring.io/blog/2020/11/13/spring-data-2020-0-new-and-noteworthy-in-spring-data-mongodb-3-1"&gt;MongoDB&lt;/a&gt;.&lt;/li&gt;
@@ -1502,107 +1747,6 @@ PersonRespository.findByName(String): 1 ms - SUCCESS
     <updated>2020-11-05T23:44:26Z</updated>
     <content type="html">&lt;p&gt;Hi, Spring fans! In this episode &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to Spring &lt;a href="http://twitter.com/trisberg"&gt;legend Thomas Risberg (@trisberg)&lt;/a&gt;.&lt;/p&gt;
 &lt;iframe title="Spring legend Thomas Risberg on JDBC, Spring Cloud Data Flow, Kubernetes and so much more" height="122" width="100%" style="border: none;" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/media/player/bqtfb-f17814?from=pb6admin&amp;download=1&amp;version=1&amp;auto=0&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Helvetica&amp;skin=1&amp;pfauth=&amp;btn-skin=107"&gt;&lt;/iframe&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.5.0-M1 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2020/11/04/spring-security-5-5-0-m1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Joe Grandja</name>
-    </author>
-    <id>tag:spring.io,2020-11-03:4252</id>
-    <updated>2020-11-04T12:12:50Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I¡¯m pleased to announce the release of
-Spring Security 5.5.0-M1! You can find the complete details in the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.5.0-M1"&gt;release notes&lt;/a&gt; and the highlights below:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="oauth-2-0"&gt;&lt;a class="anchor" href="#oauth-2-0"&gt;&lt;/a&gt;OAuth 2.0&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-5502-oauth2token-interface-for-abstractoauth2token"&gt;&lt;a class="anchor" href="#gh-5502-oauth2token-interface-for-abstractoauth2token"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/5502"&gt;gh-5502&lt;/a&gt; - OAuth2Token interface for AbstractOAuth2Token&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9070-use-lobhandler-in-jdbcoauth2authorizedclientservice"&gt;&lt;a class="anchor" href="#gh-9070-use-lobhandler-in-jdbcoauth2authorizedclientservice"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/pull/9070"&gt;gh-9070&lt;/a&gt; - Use LobHandler in JdbcOAuth2AuthorizedClientService&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-8765-provide-a-r2dbc-implementation-of-reactiveouath2authorizedclientservice"&gt;&lt;a class="anchor" href="#gh-8765-provide-a-r2dbc-implementation-of-reactiveouath2authorizedclientservice"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/pull/8765"&gt;gh-8765&lt;/a&gt; - Provide a R2dbc implementation of ReactiveOuath2AuthorizedClientService&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7160-jwtdecoders-and-reactivejwtdecoders-should-determine-algorithm-from-jwk-set-endpoint"&gt;&lt;a class="anchor" href="#gh-7160-jwtdecoders-and-reactivejwtdecoders-should-determine-algorithm-from-jwk-set-endpoint"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7160"&gt;gh-7160&lt;/a&gt; - JwtDecoders and ReactiveJwtDecoders should determine algorithm from JWK Set Endpoint&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="saml"&gt;&lt;a class="anchor" href="#saml"&gt;&lt;/a&gt;SAML&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9177-saml-2-0-asserting-party-metadata-resolution-should-read-signingmethod-elements"&gt;&lt;a class="anchor" href="#gh-9177-saml-2-0-asserting-party-metadata-resolution-should-read-signingmethod-elements"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9177"&gt;gh-9177&lt;/a&gt; - SAML 2.0 Asserting Party Metadata resolution should read SigningMethod elements&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9131-opensamlauthenticationprovider-should-decrypt-attributes"&gt;&lt;a class="anchor" href="#gh-9131-opensamlauthenticationprovider-should-decrypt-attributes"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9131"&gt;gh-9131&lt;/a&gt; - OpenSamlAuthenticationProvider should decrypt attributes&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9028-file-based-configuration-for-asserting-party-metadata"&gt;&lt;a class="anchor" href="#gh-9028-file-based-configuration-for-asserting-party-metadata"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9028"&gt;gh-9028&lt;/a&gt; - File-based Configuration for Asserting Party Metadata&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="testing"&gt;&lt;a class="anchor" href="#testing"&gt;&lt;/a&gt;Testing&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9179-withsecuritycontexttestexecutionlistener-should-support-nested-classes"&gt;&lt;a class="anchor" href="#gh-9179-withsecuritycontexttestexecutionlistener-should-support-nested-classes"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9179"&gt;gh-9179&lt;/a&gt; - WithSecurityContextTestExecutionListener Should Support Nested Classes&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="docs"&gt;&lt;a class="anchor" href="#docs"&gt;&lt;/a&gt;Docs&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-9178-add-webflux-documentation-for-multiple-filter-chains"&gt;&lt;a class="anchor" href="#gh-9178-add-webflux-documentation-for-multiple-filter-chains"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/9178"&gt;gh-9178&lt;/a&gt; - Add WebFlux Documentation for Multiple Filter Chains&lt;/h5&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; |
-&lt;a href="https://docs.spring.io/spring-security/site/docs/5.5.0-M1/reference/html5/"&gt;Reference&lt;/a&gt;
-| &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - November 3, 2020</title>
-    <link rel="alternate" href="https://spring.io/blog/2020/11/03/this-week-in-spring-november-3-2020" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2020-11-03:4253</id>
-    <updated>2020-11-03T23:05:51Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! I hope you&amp;rsquo;re all doing well, staying safe, healthy and happy. Today&amp;rsquo;s election day here in the US, so I am super happy to have the chance to dive into this week&amp;rsquo;s roundup as a bit of a distraction. We&amp;rsquo;ve got a ton to get through today, so let&amp;rsquo;s! &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;I really enjoyed last week&amp;rsquo;s &lt;em&gt;A Bootiful Podcast&lt;/em&gt; episode with &lt;a href="https://spring.io/blog/2020/10/29/a-bootiful-podcast-spring-test-framework-lead-and-junit-contributor-sam-brannen"&gt;Spring Test Framework lead and JUnit contributor Sam Brannen&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2020/11/02/spring-integration-5-4-goes-ga-some-other-integration-releases"&gt;Spring Integration 5.4 goes GA; some other Integration releases&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2020/10/30/spring-boot-2-4-0-rc1-available-now"&gt;Spring Boot 2.4.0.RC1 is now available&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2020/10/29/notice-of-permissions-changes-to-repo-spring-io-fall-and-winter-2020"&gt;Notice of Permissions Changes to repo.spring.io, Fall and Winter, 2020&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/morl99/status/1321194714692001792?s=21"&gt;Congrats, Carsten Hoffmann, on your first live-coding presentation, and congrats on starting your work from my second favorite place on the internet: start.spring.io!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/olehdokuka/status/1321385366746767360?s=21"&gt;Oleh Dokuka on Twitter: &amp;ldquo;Woo! &#x1f37e; &#x1f4e2; New RSocket 1.1.0 is GA. It includes, among other things, 10x better performance than before, reworked loadbalance API and implementation, a new &lt;code&gt;RSocketClient&lt;/code&gt; for a better experience, fixes for memory leaks and more&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2020/10/29/spring-boot-2-1-18-available-now"&gt;Spring Boot 2.1.18 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2020/10/28/spring-data-2020-0-0-goes-ga"&gt;Spring Data 2020.0.0 goes GA&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2020/10/28/spring-data-neumann-sr5-moore-sr11-and-lovelace-sr21-available-now"&gt;Spring Data Neumann SR5, Moore SR11, and Lovelace SR21 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/CapgeminiNL/status/1321409280881401857?s=20"&gt;capgeminiNL on Twitter: &amp;quot;Ready for a night full of tech inspiration? Join us on the .BLD() Tech Talks XXL - Java Night on 17 November! We¡¯ll dive into the future of microservice based architectures together with @wietsesmid @starbuxman. Get your free ticket!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/java/status/1321586704042455040"&gt; Java 16 Update: New JEP Proposed to Target: 394: Pattern Matching for instanceof. Targeted JEP Additions: 380: Unix-Domain Socket Channels and 395: Records &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://springdoc.org/"&gt;springdoc-openapi | Library for OpenAPI 3 with spring-boot&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

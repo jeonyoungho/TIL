@@ -6,10 +6,10 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 public class MyKafkaConsumer {
-	public static void main(String[] args) {
+	public static void main3(String[] args) {
 		Properties configs = new Properties();
 		// 환경 변수 설정
-		configs.put("bootstrap.servers", "52.78.38.62:9092"); // kafka server host 및 port
+		configs.put("bootstrap.servers", "localhost:9092"); // kafka server host 및 port
 		configs.put("session.timeout.ms", "10000"); // session 설정
 		configs.put("group.id", "topic1"); // topic 설정
 		configs.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer"); // key deserializer
