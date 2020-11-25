@@ -1,0 +1,23 @@
+# Docker
+
+- <b> 도커를 사용해야 하는 이유?</b><br>   
+· 수평적 확장에 편리성 (ex. 테스트 서버에서 운영서버로 작업을 하려면 단순하게 똑같이 서버를 세팅할 필요없이 Dockerfile로만 가능하기에 편리함)<br><br>
+· 서버의 견고함을 보장하면서도 컨테이너를 실행시킬때 마다 주는 환경변수를 달리 할 수 있어 운영에 있어 유연성을 가짐<br><br>
+· 여러 대에 배포 할 수 있어 편리함<br><br>
+· 도커 파일의 내용을 통해 히스토리를 공유 할 수 있어 팀원들 간의 서버 구성 내용을 공유하기에 편리함<br><br>
+
+- <b>도커 파일의 내용을 통해 히스토리를 공유하는 방식</b><br>
+· 도커 파일 == 서버 운영 기록 (도커 파일을 통해 서버가 구성되는 히스토리를 파악 할 수 있음)<br><br>
+· 도커 이미지 == 도커 파일 + 실행 시점 (apt-update 등을 실행 시킬 때 수행하는 내용이 다를 수 있으므로 똑같은 도커 파일로 만든 이미지라도 내부 구성이 다를 수 있음)<br><br>
+· 도커 컨테이너 == 도커 이미지 + 환경 변수 (컨테이너를 실행 시킬 때 환경변수를 입력함으로써 다른 운영환경을 세팅할 수 있음)<br><br>
+
+- <b>리눅스 컨테이너란?</b>  
+· 리눅스 컨테이너는 운영체제 수준의 가상화 기술로 리눅스 커널을 공유하면서 프로세스를 격리된 환경에서 실행하는 기술<br><br>
+
+- <b>참고</b>    
+https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose#%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%EC%9D%B4%EB%9D%BC%EB%8A%94-%EC%96%B4%EB%A0%A4%EC%9B%80  
+https://akageun.github.io/2019/09/10/docker-compose-local-kafka.html  
+https://blog.voidmainvoid.net/325  
+https://twowinsh87.github.io/etc/2019/09/28/etc-kafka2019-2/  
+https://log-laboratory.tistory.com/226  
+https://data-newbie.tistory.com/241  
