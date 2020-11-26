@@ -12,3 +12,4 @@
 - SessionDestroyedEvent 이벤트를 발생시켜주는 Event Publisher인 스프링에서 제공하는 HttpSessionEventPublisher를 listener로 다음과 같이 web.xml에 등록<br>
 ![image](https://user-images.githubusercontent.com/44339530/100308201-1e790600-2feb-11eb-9e7d-5872c1cae235.png)<br>
 - HttpSessionEventPublisher가 session이 만료되는 것을 리스닝하면서 만료될때마다 sessionDestroyed를 호출하여 sesseion을 종료심<br>
+- 참고 https://behonestar.tistory.com/75
