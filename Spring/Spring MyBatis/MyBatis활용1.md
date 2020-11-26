@@ -28,7 +28,7 @@ SELECT * FROM board
 ~~~
 · 참고 https://java119.tistory.com/99<br>
   
-- <b>&lt;where&gt; 문법</b>
+- <b>&lt;where&gt; 문법</b><br>
 · 추가 쿼리 문의 내용을 <where> 문 안에 작성하면 첫 조건이 AND로 시작할지라도 WHERE로 치환되어 쿼리가 수행 된다.<br>
 · 형식<br>
 ~~~
