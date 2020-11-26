@@ -6,7 +6,7 @@
 · 참고 https://madplay.github.io/post/difference-between-dollar-sign-and-sharp-sign-in-mybatis<br>
 
 
-- <b><bind> 문법</b>
+- <b>&lt;bind&gt; 문법</b><br>
 · 외부에서 전달된 파라미터를 이용하여 변수 생성하는 엘리먼트, 동적 쿼리 변수를 생성할 때 사용한다.<br>
 · 형식<br>
 ~~~
