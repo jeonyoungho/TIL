@@ -14,7 +14,7 @@ public class Main {
 
 		try {
 
-			File file = new File("D:\\a.xml");
+			File file = new File("/Users/jeon-yongho/Desktop/test.xml");
 			
 			// JAXBContext 생성
 			JAXBContext jaxbContext = JAXBContext.newInstance(Alice.class);
