@@ -21,8 +21,8 @@ public class RootConfig {
 		HikariConfig hikariConfig = new HikariConfig();
 		hikariConfig.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3306/boardprac?characterEncoding=UTF-8&serverTimezone=Asia/Seoul");
-		hikariConfig.setUsername("root");
-		hikariConfig.setPassword("*dydgH1092");
+		hikariConfig.setUsername("");
+		hikariConfig.setPassword("");
 		
 		HikariDataSource dataSource = new HikariDataSource(hikariConfig);
 		
