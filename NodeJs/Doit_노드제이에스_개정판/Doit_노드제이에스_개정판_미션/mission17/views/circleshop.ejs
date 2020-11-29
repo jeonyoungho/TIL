@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+		
+		<title>반경으로 Shop찾기</title>
+			
+	    <style>
+	        html, body {
+	            width: 100%;
+	            height: 100%;
+	        }
+	        
+	        * {
+	            margin: 0;
+	            padding: 0;
+	        }
+	      
+	        #map {
+	            width: 100%;
+	            height: 95%;
+	        }
+	    </style>
+	    
+	    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxgSpw5aHnyVE8_MhnxWji5qK8Cjl6zzQ"></script>
+	    
+	    <script>
+	        function onLoad() {
+	            initMap();
+	        }
+	        
+	        var map;
+	        var centerLocation = {lat: <%= paramLatitude %>, lng: <%= paramLongitude %>};
+	        var shopLocation = {lat: <%= result.geometry.coordinates[1] %>, lng: <%= result.geometry.coordinates[0] %>};
+	         
+	        function initMap() {
+	             
+	            map = new google.maps.Map(document.getElementById('map'), {
+	                center: centerLocation,
+	                zoom: 17
+	            });
+	            
+	            var myMarker = new google.maps.Marker({
+	                position:centerLocation,
+	                icon:'/public/mylocation.png',
+	                animation:google.maps.Animation.BOUNCE
+	            });
+	
+	            myMarker.setMap(map);
+	            
+	            var shopMarker = new google.maps.Marker({
+	                position:shopLocation,
+	                icon:'/public/chinese.png'
+	            });
+	
+	            shopMarker.setMap(map);
+                
+                var searchCircle = new google.maps.Circle({
+                    strokeColor:"#0000FF",
+                    strokeOpacity:0.8,
+                    strokeWeight:2,
+                    fillColor:"#0000FF",
+                    fillOpacity:0.4,
+                    center:centerLocation,
+                    radius:200
+                });
+                
+	            searchCircle.setMap(map);
+                
+	        }
+	        
+	    </script>
+	    
+	</head>
+	<body onload="onLoad()">
+		
+		<p>가까운 Shop 찾아 구글맵에 표시하기</p>
+    	<div id="map"></div>
+			
+	</body>
+</html>

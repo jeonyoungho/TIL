@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Shop 추가 테스트</title>
+	</head>
+<body>
+	<h1>Shop 추가</h1>
+	<br>
+	<h3>http://mygeoposition.com/에서 좌표를 확인하여 추가합니다.</h3>
+	<br>
+    <!--
+	<p>스타벅스 삼성역점, 서울특별시 강남구 테헤란로103길 9 제일빌딩, 02-758-8585, coffeeshop, 37.5101225, 127.0638104 </p>
+	<p>스타벅스 삼성교점, 서울특별시 강남구 영동대로86길 12 동남유화빌딩, 02-758-8592, coffeeshop, 37.5078076, 127.0652052 </p>
+	<p>스타벅스 삼성역사거리점, 서울특별시 강남구 테헤란로98길 11 대원빌딩, 02-758-8320, coffeeshop, 37.5076629, 127.0627161 </p>
+    -->
+    <p>연화산, 서울특별시 강남구 테헤란로92길 11, 050-4570-0536, chinese restaurant, 37.5071693, 127.0613642 </p>
+    <p>크리스탈제이드 무역점, 서울특별시 강남구 테헤란로 517 현대백화점무역센터점 10F, 02-3453-8811, chinese restaurant, 37.5087523, 127.0595618 </p>
+    <p>시추안하우스 삼성점, 서울특별시 강남구 테헤란로87길 29 M타워, 02-508-1320, chinese restaurant, 37.5096970, 127.0582207 </p>
+	
+	<br>
+	<form method="post" action="/process/addshop">
+		<table>
+			<tr>
+				<td><label>이름</label></td>
+				<td><input type="text" name="name" value="연화산" /></td>
+			</tr>
+			<tr>
+				<td><label>주소</label></td>
+				<td><input type="text" name="address" value="서울특별시 강남구 테헤란로92길 11" /></td>
+			</tr>
+			<tr>
+				<td><label>전화번호</label></td>
+				<td><input type="text" name="tel" value="050-4570-0536" /></td>
+			</tr>
+            <tr>
+				<td><label>분류</label></td>
+				<td><input type="text" name="shopType" value="chinese restaurant" /></td>
+			</tr>
+			<tr>
+				<td><label>경도</label></td>
+				<td><input type="text" name="longitude" value="127.0613642" /></td>
+			</tr>
+			<tr>
+				<td><label>위도</label></td>
+				<td><input type="text" name="latitude" value="37.5071693" /></td>
+			</tr>
+		</table>
+		<input type="submit" value="전송" name="" />
+	</form>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+		<title>메모 페이지</title>
+        
+		<link href="./semantic/semantic.min.css" rel="stylesheet" >
+
+		<style>
+			* {
+				padding:0;
+				margin:0;
+				box-sizing:border-box;
+			}
+			
+			html {
+				width:100%;
+				height:100%;
+			}
+			
+			body {
+				width:100%;
+				height:100%;
+				color: #000;
+				background-color: #fff;
+			}
+					
+			.container {
+				margin-right: auto;
+				margin-left: auto;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			#cardbox {
+				width:70%;
+			}
+
+			#iconImage {
+				display:inline;
+				width:2em;
+				height:2em;
+			}
+			
+			.bottomArea {
+				background-color:rgba(242,248,255,255) !important;
+			}
+		</style>
+		
+        <!-- 제이쿼리 사용 -->
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+        
+        <!-- moment 사용 -->
+        <script src="moment.min.js"></script>
+        
+        <!-- semantic 사용 -->
+        <script src="./semantic/semantic.min.js"></script>
+        
+        <!-- jsonrpc 사용 -->
+        <script src="jquery.jsonrpc.js"></script>
+        
+        <script>
+        
+            // 문서 로딩 완료 시
+            $(function() {
+                var curDate = moment().format('YYYY-MM-DD HH:mm');
+                $('#createDate').attr('value', curDate);
+                
+                showSendForm();
+                
+                // JSON-RPC 기본 설정
+	            $.jsonRPC.setup({
+	                endPoint : 'http://localhost:3000/api',
+	                namespace : ''
+	            });
+                
+                $('#saveButton').on('click', function(event) {
+                    var author = $('#author').val();
+                    var contents = $('#contents').val();
+                    var createDate = $('#createDate').val();
+
+	    			var method = 'saveMemo';
+	    			var id = 1004;
+	    			var params = [
+                        author,
+                        contents,
+                        createDate
+                    ];
+	    			
+	                sendRequest(method, id, params);
+	                
+	                console.log('[' + method + '] method로 요청을 보냈습니다.');
+                });
+                
+            });
+             
+            
+			// 요청을 위한 기본 함수
+			function sendRequest(method, id, params) {
+				$.jsonRPC.request(method, {
+                	id: id,
+                    params: params,
+                    success: function(data) {
+                        console.log('정상 응답을 받았습니다.');
+                        console.dir(data);
+                        
+                        processResponse(data);
+                    },
+                    error: function(data) {
+                    	println('에러 응답을 받았습니다.');
+                    	console.dir(data);
+                    	
+                        processError(data);
+                    }
+                });
+			}
+			
+			// 성공 응답을 받은 경우 호출되는 함수
+			function processResponse(data) {
+                
+                $('#sendForm').hide();
+                $('#resultForm').show();
+                
+			}
+			
+			// 에러 응답을 받은 경우 호출되는 함수
+			function processError(data) {
+				console.log(data.error.code + ', ' + data.error.message);
+			}
+			
+            function showSendForm() {
+                
+                $('#sendForm').show();
+                $('#resultForm').hide();
+                
+            }
+            
+        </script>
+        
+	</head>
+    <body>
+         
+        <div class="ui raised segment">
+            <a class="ui blue ribbon label">나의 메모</a>
+            <br><br>
+            <div class="ui blue fluid card">
+                <div class="content">
+                    <div class="header">메모 작성</div>
+                    <div class="description">
+                        <div id="sendForm">
+                            <div class="ui form">
+                                <div class="fields">
+                                    <div class="inline field">
+                                        <label>작성자</label>
+                                        <input id="author" type="text" name="author">
+                                    </div>
+                                    <div class="inline field" style="margin-top:1em;">
+                                        <label>작성일시</label>
+                                        <input type="text" name="createDate" id="createDate">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui form">
+                                <div class="field" style="margin-top:1em;">
+                                    <label>내용</label>
+                                    <textarea id="contents" name="contents" rows="2"></textarea>
+                                </div>
+                            </div>
+                            
+                            <br>
+                            
+                            <input id="saveButton" type="button" value="저장" name="" class="ui primary button"/>
+                            <input type="button" value="닫기" class="ui button"/>
+                        </div>
+                        <div id="resultForm">
+
+                              <div id="cardbox" class="ui blue fluid card">
+                                <div class="content">
+                                  <div id="titleText" class="header">처리 결과</div>
+                                  <div id="contentsText" class="description">
+                                    메모가 저장되었습니다.
+                                  </div>
+                                  <div><input type="button" value="다시 작성" onclick="showSendForm()" class="ui primary button"></div>    
+                                </div>
+                              </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div> 	 
+        </div>
+        
+    </body>
+</html>

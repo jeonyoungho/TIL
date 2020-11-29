@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<% include ./head.ejs %>
+    
+	<body>
+        
+      <div id="cardbox" class="ui blue fluid card">
+        <div class="content">
+          <div id="titleText" class="header">처리 결과</div>
+          <div id="contentsText" class="description">
+            <%=contents %>
+          </div>
+          <div><input type="button" value="<%=button_value %>" onclick="<%=button_action %>" class="ui primary button"></div>    
+        </div>
+      </div>
+        
+	</body>
+    
+</html>
+

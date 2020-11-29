@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<% include ./head.ejs %>
+    
+	<body>
+        
+      <div class="container">
+        <div class="form-group">
+          <label><%=contents %></label>
+          <% if (filename) { %>    
+               <a href="#" class="thumbnail"><img src="<%=filename %>" width="200px"></a>
+          <% } %>    
+          <br>
+          <input type="button" value="<%=button_value %>" onclick="<%=button_action %>" class="btn btn-primary">
+        </div>
+      </div>
+        
+	</body>
+    
+</html>
+

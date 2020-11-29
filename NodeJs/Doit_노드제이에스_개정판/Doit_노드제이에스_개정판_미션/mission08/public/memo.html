@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+		<title>메모 페이지</title>
+        
+        <!-- 부트스트랩 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- 부트스트랩 테마 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        
+        <!-- 제이쿼리 JS -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        
+        <!-- 부트스트랩 JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!-- moment 사용 -->
+        <script src="moment.min.js"></script>
+        <script>
+        
+            // 문서 로딩 완료 시
+            $(function() {
+                var curDate = moment().format('YYYY-MM-DD HH:mm');
+                $('#createDate').attr('value', curDate);
+                
+                // 파일선택 값이 바뀌면 
+                $("#photoInput").change(function() {
+                    readURL(this);
+                });
+            });
+            
+            // 파일선택한 정보를 이용해 이미지 프리뷰
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#photoOutput').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+             
+        </script>
+        
+	</head>
+    <body>
+        
+        <div class="container">
+
+            <h3>나의 메모</h3>
+            <br>
+            <form method="post" enctype="multipart/form-data" action="/process/save">
+                <table>
+                    <tr>
+                        <div class="form-group">
+                            <label>작성자</label> 
+                            <input type="text" name="author" class="form-control"> 
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-group">
+                            <label>작성일시</label> 
+                            <input type="text" name="createDate" id="createDate" class="form-control"> 
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-group">
+                            <label>내용</label> 
+                            <textarea name="contents" rows="4" class="form-control"></textarea>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="form-group">
+                            <label>사진</label> 
+                            <input type="file" name="photo" id="photoInput" class="form-control"><br> <a href="#" class="thumbnail"><img src="" id="photoOutput"></a>
+                        </div>    
+                    </tr>
+                </table>
+                <input type="submit" value="저장" name="" class="btn btn-primary"/>
+                <input type="button" value="닫기" class="btn btn-default"/>
+            </form>
+            
+        </div>    
+    </body>
+</html>

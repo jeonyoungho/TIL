@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+		<title>메모 페이지</title>
+        
+        <!-- 부트스트랩 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- 부트스트랩 테마 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        
+        
+		<style>
+			* {
+				padding:0;
+				margin:0;
+				box-sizing:border-box;
+			}
+			
+			html {
+				width:100%;
+				height:100%;
+			}
+			
+			body {
+				width:100%;
+				height:100%;
+				color: #000;
+				background-color: #fff;
+			}
+					
+			.container {
+				margin-right: auto;
+				margin-left: auto;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+        </style>
+        
+        
+        <!-- 제이쿼리 JS -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        
+        <!-- 부트스트랩 JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!-- moment 사용 -->
+        <script src="moment.min.js"></script>
+        
+        <!-- jsonrpc 사용 -->
+        <script src="jquery.jsonrpc.js"></script>
+        
+        <script>
+        
+            // 문서 로딩 완료 시
+            $(function() {
+                var curDate = moment().format('YYYY-MM-DD HH:mm');
+                $('#createDate').attr('value', curDate);
+                
+                // 파일선택 값이 바뀌면 
+                $("#photoInput").change(function() {
+                    readURL(this);
+                });
+                
+                
+                showSendForm();
+                
+                // JSON-RPC 기본 설정
+	            $.jsonRPC.setup({
+	                endPoint : 'http://localhost:3000/api',
+	                namespace : ''
+	            });
+                
+                $('#saveButton').on('click', function(event) {
+                    uploadFile(function(filename) {
+                        var author = $('#author').val();
+                        var contents = $('#contents').val();
+                        var createDate = $('#createDate').val();
+
+                        var method = 'saveMemo';
+                        var id = 1004;
+                        var params = [
+                            author,
+                            contents,
+                            createDate,
+                            filename
+                        ];
+
+                        sendRequest(method, id, params);
+
+                        console.log('[' + method + '] method로 요청을 보냈습니다.');
+                    });
+                    
+                });
+                
+                
+            });
+            
+            // 파일선택한 정보를 이용해 이미지 프리뷰
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#photoOutput').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+             
+            function uploadFile(callback) {
+                console.log('uploadFile called.');
+                
+                var form = $('FILE_FORM')[0];
+                var formData = new FormData(form);
+                formData.append("photo", $("#photoInput")[0].files[0]);
+ 
+                $.ajax({
+                    url: 'http://localhost:3000/process/uploadFile',
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    type: 'POST',
+                    success: function(input) {
+                        console.log("파일 업로드 성공함.");
+                        console.dir(input);
+                        
+                        callback(input.filename);
+                    }
+                });
+            }
+ 
+            
+			// 요청을 위한 기본 함수
+			function sendRequest(method, id, params) {
+				$.jsonRPC.request(method, {
+                	id: id,
+                    params: params,
+                    success: function(data) {
+                        console.log('정상 응답을 받았습니다.');
+                        console.dir(data);
+                        
+                        processResponse(data);
+                    },
+                    error: function(data) {
+                    	println('에러 응답을 받았습니다.');
+                    	console.dir(data);
+                    	
+                        processError(data);
+                    }
+                });
+			}
+			
+			// 성공 응답을 받은 경우 호출되는 함수
+			function processResponse(data) {
+                
+                $('#sendForm').hide();
+                $('#resultForm').show();
+                
+			}
+			
+			// 에러 응답을 받은 경우 호출되는 함수
+			function processError(data) {
+				console.log(data.error.code + ', ' + data.error.message);
+			}
+			
+            function showSendForm() {
+                
+                $('#sendForm').show();
+                $('#resultForm').hide();
+                
+            }
+            
+            
+        </script>
+        
+	</head>
+    <body>
+        
+        <div class="container">
+
+            <h3>나의 메모</h3>
+            <br>
+            <div id="sendForm">
+                <form id="FILE_FORM" method="post" enctype="multipart/form-data" action="/process/save">
+                    <table>
+                        <tr>
+                            <div class="form-group">
+                                <label>작성자</label> 
+                                <input id="author" type="text" name="author" class="form-control"> 
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label>작성일시</label> 
+                                <input id="createDate" type="text" name="createDate" id="createDate" class="form-control"> 
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label>내용</label> 
+                                <textarea id="contents" name="contents" rows="4" class="form-control"></textarea>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label>사진</label> 
+                                <input type="file" name="photo" id="photoInput" class="form-control"><br> <a href="#" class="thumbnail"><img src="" id="photoOutput"></a>
+                            </div>    
+                        </tr>
+                    </table>
+                    <input id="saveButton" type="button" value="저장" name="" class="btn btn-primary"/>
+                    <input type="button" value="닫기" class="btn btn-default"/>
+                </form>
+            </div>
+            <div id="resultForm">
+
+                <div class="form-group">
+                  <label>메모가 저장되었습니다.</label>
+                     
+                  <br>
+                  <input type="button" value="다시 작성" onclick="showSendForm()" class="btn btn-primary">
+                </div>
+                 
+            </div>
+            
+        </div>    
+    </body>
+</html>
