@@ -70,5 +70,6 @@ local.properties
 ### Eclipse Patch ###
 # Spring Boot Tooling
 .sts4-cache/
+Servers/
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
