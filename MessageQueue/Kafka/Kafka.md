@@ -13,10 +13,10 @@
 - Kafka Producer는 데이터를 집어넣는 역할, 즉 Source Application이 되며 Kafka Consumer는 데이터를 빼서 쓰는 역할을 함<br>
 - Producer, Consumer는 라이브러리로 구현되어 다양한 언어로 지원<br>
 - 낮은 지연과 높은 처리량으로 대량의 데이터를 효과적으로 처리<br>
-<img width="808" alt="스크린샷 2020-11-30 오후 10 15 43" src="https://user-images.githubusercontent.com/44339530/100614510-97fd5500-3359-11eb-9d71-379cbdc2414b.png"><br>
+<img width="878" alt="스크린샷 2020-11-30 오후 10 15 43" src="https://user-images.githubusercontent.com/44339530/100614510-97fd5500-3359-11eb-9d71-379cbdc2414b.png"><br>
 
 ### Topic
-- <img width="1427" alt="스크린샷 2020-11-30 오후 10 24 26" src="https://user-images.githubusercontent.com/44339530/100615336-d0516300-335a-11eb-9166-86674444b164.png"><br>
+- <img width="878" alt="스크린샷 2020-11-30 오후 10 24 26" src="https://user-images.githubusercontent.com/44339530/100615336-d0516300-335a-11eb-9166-86674444b164.png"><br>
 - 카프카에서는 토픽을 여러 개 생성 가능<br>
 - 목적에 따라 무슨 데이터를 담는지 명확히 명시하여 유지보수가 편리함<br>
 - 하나의 파티션은 내부의 0번 인덱스부터 순서대로 쌓이게 됨<br>
@@ -25,7 +25,7 @@
 - 새로운 컨슈머가 붙었을때 0번 부터 새로 가져가게 됨 (단, 컨슈머 그룹이 달라야 하고 auto.offset.reset=earliest로 설정되있어야함)<br>
 - 데이터의 유실도 방지하며 동일 데이터를 여러 번 사용 가능
 - 클릭로그를 분석하고 시각화하기 위해 엘라스틱 서치에 저장하기도 하고 백업하기 위해 Hadoop에 저장하기도 함<br>
-- <img width="1429" alt="스크린샷 2020-11-30 오후 10 26 25" src="https://user-images.githubusercontent.com/44339530/100615561-173f5880-335b-11eb-94e8-220341a608f0.png"><br>
+- <img width="878" alt="스크린샷 2020-11-30 오후 10 26 25" src="https://user-images.githubusercontent.com/44339530/100615561-173f5880-335b-11eb-94e8-220341a608f0.png"><br>
 - 다음 그림과 같이 키가 null이고, 기본 파티셔너를 사용할 경우 데이터는 라운드로빈 방식으로 할당이되고 키가 있고 기본파티셔너를 사용할 경우 키의 해시 값을 구하여 특정 파티션에 할당되어짐<br>
 - 파티션을 늘리면 컨슈머의 개수를 늘려서 데이터 처리를 분산시킬 수 있음<br>
 - 파티션을 늘리는 건 가능하지만 줄일 수는 없음<br>
@@ -53,7 +53,7 @@ compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.3.0'
 </dependency>
 ~~~
 - 예제 코드<br>
-  - <img width="877" alt="스크린샷 2020-11-30 오후 10 34 58" src="https://user-images.githubusercontent.com/44339530/100616322-4904ef00-335c-11eb-85bd-bec544f6fca0.png"><br>
+  - <img width="878" alt="스크린샷 2020-11-30 오후 10 34 58" src="https://user-images.githubusercontent.com/44339530/100616322-4904ef00-335c-11eb-85bd-bec544f6fca0.png"><br>
 - 브로커의 주소목록은 2개 이상의 ip와 port를 지정하도록 권장 (한 개 브로커가 비정상일 경우 다른 브로커를 사용할 수 있기 때문에)<br>
 - StringSerializer는 key혹은 value를 직렬화하기 위해 사용(byte array, string, integer 시리얼라이즈 사용 가능)<br>
 - 키는 메시지를 보내면, 토픽의 파티션이 지정될 때 쓰임<br>
@@ -67,7 +67,7 @@ producer.send(new ProducerData<String, String>("TopicName", "KeyName", "Value"))
 ###  Broker
 - 카프가 설치되어 있는 서버 단위<br>
 - 보통 세 개 이상의 브로커를 구성하여 사용하는 것을 권장<br>
-- <img width="861" alt="스크린샷 2020-11-30 오후 10 46 20" src="https://user-images.githubusercontent.com/44339530/100617449-deed4980-335d-11eb-8f2a-530cc65a0fd6.png"><br>
+- <img width="878" alt="스크린샷 2020-11-30 오후 10 46 20" src="https://user-images.githubusercontent.com/44339530/100617449-deed4980-335d-11eb-8f2a-530cc65a0fd6.png"><br>
   - <b>replication</b>은 파티션의 복제를 뜻함<br>
   - 클러스터에서 서버에 장애가 생겼을 때 가용성을 보장<br>
   - 카프카 아키텍쳐의 핵심<br>
@@ -75,7 +75,7 @@ producer.send(new ProducerData<String, String>("TopicName", "KeyName", "Value"))
     - 만약 repliaction이 2이라면 원본 파티션1개, 복제본 파티션1개 존재<br>
     - 만약 repliaction이 3이라면 원본 파티션1개, 복제본 파티션2개 존재<br>
     - 여기서 원본 파티션은 Leader Partion이라 부르고 복제본 파티션은 Follower Partion이라 부름<br>
-    - <img width="812" alt="스크린샷 2020-11-30 오후 10 50 56" src="https://user-images.githubusercontent.com/44339530/100617943-836f8b80-335e-11eb-8c35-afd6e199000f.png">
+    - <img width="878" alt="스크린샷 2020-11-30 오후 10 50 56" src="https://user-images.githubusercontent.com/44339530/100617943-836f8b80-335e-11eb-8c35-afd6e199000f.png">
     - 다만 브로커 개수에 따라 replication의 개수는 제한이 됨<br>
     - replication의 개수는 broker의 개수보다 많아질 수 없음<br>
       - broker의 개수가 3이면 replication의 개수는 4가 될 수 없음<br>
@@ -117,7 +117,7 @@ compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.3.0'
 - Consumer group id를 지정해야함<br>
 - StringDeSerializer는 key혹은 value를 직렬화 설정해야함(byte array, string, integer 시리얼라이즈 사용 가능)<br>
 - 특정 토픽의 전체 파티션이 아닌 특정 파티션에서 데이터를 가져오고자 한다면 다음과 같이 설정<br>
-- <img width="1440" alt="스크린샷 2020-11-30 오후 11 18 17" src="https://user-images.githubusercontent.com/44339530/100620918-5624dc80-3362-11eb-9d42-6cb79bd8c675.png"><br>
+- <img width="878" alt="스크린샷 2020-11-30 오후 11 18 17" src="https://user-images.githubusercontent.com/44339530/100620918-5624dc80-3362-11eb-9d42-6cb79bd8c675.png"><br>
 - polling한 데이터를 하둡 또는 엘라스틱서치와 같은 저장소에 저장하기도 함<br>
 - Consumer는 partion에 접근해서 __consumer_offsets토픽에 offset에 대한 정보들을 기록하며 데이터를 가져감<br>
 - 만약 Consumer가 의도치 않게 중단되도 어디까지 읽었는지에 대한 offset정보는 __consumer_offsets에 이미 저장되있기에 컨슈머를 재실행해도 중지되었던 시점부터 제대로 데이터를 읽어들일 수 있음(고가용성)<br>
@@ -157,9 +157,9 @@ compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.3.0'
 - 각기 다른 Consumer Group에 속한 Consumer들은 서로 영향을 끼치지 않음<br>
 - <b>Consumer Group의 활용</b><br>
   - 데이터 실시간 시각화 및 분석을 위해 엘라스틱 서치에 데이터를 저장하는 Consumer Group이 있다고 가정<br>
-  - <img width="752" alt="스크린샷 2020-11-30 오후 11 32 17" src="https://user-images.githubusercontent.com/44339530/100622522-4a3a1a00-3364-11eb-98f0-2c437c3bf4ad.png"><br>
+  - <img width="878" alt="스크린샷 2020-11-30 오후 11 32 17" src="https://user-images.githubusercontent.com/44339530/100622522-4a3a1a00-3364-11eb-98f0-2c437c3bf4ad.png"><br>
   - 여기에 추가로 데이터 백업 용도로 하둡에 데이터를 저장하는 Consumer Group이 새로 들어옴<br>
-  - <img width="767" alt="스크린샷 2020-11-30 오후 11 33 46" src="https://user-images.githubusercontent.com/44339530/100622691-7f466c80-3364-11eb-899c-e4d6d7ccffa9.png"><br>
+  - <img width="878" alt="스크린샷 2020-11-30 오후 11 33 46" src="https://user-images.githubusercontent.com/44339530/100622691-7f466c80-3364-11eb-899c-e4d6d7ccffa9.png"><br>
   - 만약 엘라스틱 서치에 저장하는 Consumer Group이 각 파티션에 특정 offset을 읽고 있어도 하둡에 저장하는 Consumer Group이 데이터를 읽는데 영향을 미치지 않음<br>
   - 왜냐하면 __consumer_offsets토픽에는 컨슈머 그룹별로 토픽별로 offset을 나눠 저장하기 때문<br>
   - 이러한 카프카의 특징을 토대로 하나의 Topic으로 들어온 데이터는 다양한 역할을 하는 여러 Consumer들이 각자 원하는 데이터로 처리가 될 수 있음<br>
