@@ -57,6 +57,5 @@ class Solution {
     }
 }
 ~~~
-#### 출처 
-- https://cheolhojung.github.io/posts/algorithm/Codility-MaxCounters.html
+#### 출처 https://cheolhojung.github.io/posts/algorithm/Codility-MaxCounters.html
 
