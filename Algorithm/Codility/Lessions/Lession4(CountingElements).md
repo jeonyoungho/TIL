@@ -59,3 +59,42 @@ class Solution {
 ~~~
 #### 출처 https://cheolhojung.github.io/posts/algorithm/Codility-MaxCounters.html
 
+## MissingInteger - Find the smallest positive integer that does not occur in a given sequence.
+~~~
+import java.util.*;
+class Solution {
+    public int solution(int[] A) {
+        Arrays.sort(A);
+
+        int result=1;
+        for(int i=0;i<A.length;i++) {
+            if(A[i]>0 && A[i] == result) {
+                result++;
+            }
+        }
+
+        return result;
+    }
+}
+~~~
+
+## PermCheck - Check whether array A is a permutation.
+~~~
+import java.util.*;
+class Solution {
+    public int solution(int[] A) {
+        Arrays.sort(A);
+        
+        int temp=1;
+        for(int i=0;i<A.length;i++) {
+            if(A[i] != temp) {
+                return 0;
+            } else {
+                temp++;
+            }
+        }
+
+        return 1;
+    }
+}
+~~~
