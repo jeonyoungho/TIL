@@ -41,6 +41,8 @@ Write an efficient algorithm for the following assumptions:
 
 N and X are integers within the range [1..100,000];
 each element of array A is an integer within the range [1..X].
+
+### 해답
 ~~~
 import java.util.*;
 class Solution {
@@ -116,6 +118,8 @@ Write an efficient algorithm for the following assumptions:
 
 N and M are integers within the range [1..100,000];
 each element of array A is an integer within the range [1..N + 1].
+
+### 해답
 ~~~
 class Solution {
     public int[] solution(int N, int[] A) {
@@ -172,6 +176,8 @@ Write an efficient algorithm for the following assumptions:
 
 N is an integer within the range [1..100,000];
 each element of array A is an integer within the range [−1,000,000..1,000,000].
+
+### 해답
 ~~~
 import java.util.*;
 class Solution {
@@ -236,6 +242,7 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..100,000];
 each element of array A is an integer within the range [1..1,000,000,000].
 
+### 해답
 ~~~
 import java.util.*;
 class Solution {

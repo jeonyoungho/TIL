@@ -14,6 +14,8 @@ Write an efficient algorithm for the following assumptions:
 A and B are integers within the range [0..2,000,000,000];
 K is an integer within the range [1..2,000,000,000];
 A ≤ B.
+
+### 해답
 ~~~
 class Solution {
     public int solution(int A, int B, int K) {
@@ -61,6 +63,8 @@ M is an integer within the range [1..50,000];
 each element of arrays P, Q is an integer within the range [0..N − 1];
 P[K] ≤ Q[K], where 0 ≤ K < M;
 string S consists only of upper-case English letters A, C, G, T.
+
+### 해답
 ~~~
 class Solution {
     public int[] solution(String S, int[] P, int[] Q) {
@@ -167,6 +171,8 @@ Write an efficient algorithm for the following assumptions:
 
 N is an integer within the range [2..100,000];
 each element of array A is an integer within the range [−10,000..10,000].
+
+### 해답
 ~~~
 class Solution {
     public int solution(int[] A) {
@@ -240,6 +246,8 @@ Write an efficient algorithm for the following assumptions:
 
 N is an integer within the range [1..100,000];
 each element of array A is an integer that can have one of the following values: 0, 1.
+
+### 해답
 ~~~
 class Solution {
     public int solution(int[] A) {
