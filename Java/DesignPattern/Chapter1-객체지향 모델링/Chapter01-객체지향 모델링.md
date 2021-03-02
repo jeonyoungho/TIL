@@ -25,7 +25,7 @@
 - 객체지향 시스템은 여러 개의 클래스가 서로 긴밀한 관계를 맺어 기능을 수행한다.
 - UML에서 제공하는 클래스들 사이의 관계는 4가지가 존재한다. (연관 관계, 일반화 관계, 집합 관계, 의존 관계, 실체화 관계)
 
-### 연관 관계란? (association)
+### 1) 연관 관계(association)
 - 클래스들이 개념상 서로 연결되었음을 나타낸다. 실선이나 화살표로 표시하며 보통은 한 클래스가 다른 클래스에서 제공하는 기능을 사용하는 상황일때 표시한다. 
 ![image](https://user-images.githubusercontent.com/44339530/109623678-bc4b1680-7b80-11eb-9ae6-bbc7287ee88e.png)</br>
 - "교수(Porfessor 클래스)가 학생(Student)을 상담한다" 라는 사실을 위의 그림과 같이 나타낸다.  
@@ -49,15 +49,44 @@
 - 연관 관계에 추가할 속성이나 행위가 있을 때 사용  
 ![image](https://user-images.githubusercontent.com/44339530/109624923-1698a700-7b82-11eb-9e46-1df3fee17d41.png)<br>
 
-### 일반화 관계란? (generalization)
+### 2) 일반화 관계(generalization)
 - 객체지향 개념에서는 상속 관계라고 한다. 한 클래스가 다른 클래스를 포함하는 상위 개념일때의 관계이며 속이 빈 화살표를 사용해 표시한다.
+- "is a kind of" 관계이다.<br>
+    ![image](https://user-images.githubusercontent.com/44339530/109625869-2e245f80-7b83-11eb-82ff-786d9614d26d.png)<br>
+    - 세탁기 is a kind of 가전 제품
+    - TV is a kind of 가전 제품
+    - 식기 섹처기 is a kind of 가전 제품
 
-### 집합 관계란? (Composition, aggregation)
+### 3) 집합 관계(Composition, aggregation)
 - 클래스들 사이의 전체 또는 부분 같은 관계를 나타낸다. 집약 관계와 합성 관계가 존재한다.
+- 집약(aggregation)
+    - 전체를 나타내는 객체와 부분을 나타태는 개체의 라이프 타임이 독립적
+    - 부분을 나타내는 객체를 다른 객체와 공유 가능
+    - 빈 마름모로 표시<br>
+    ![image](https://user-images.githubusercontent.com/44339530/109626051-65930c00-7b83-11eb-9d91-2803cda1b761.png)<br>
+    - Computer와 그의 부품인 MaiBoard, CPU, Memory, PowerSupply의 라이프 사이클은 독립적
+- 합성(Composition)
+    - 전체를 나타내는 객체에 부분을 나타내는 개체의 라이프 타임이 종속적
+    - 전체 객체가 사라지면 부분 객체도 사라짐
+    - 채워짐 마름모로 표시<br>
+    - ![image](https://user-images.githubusercontent.com/44339530/109626191-97a46e00-7b83-11eb-8f0d-b38c6b25ad05.png)<br>
+    - Computer와 그의 부품인 MaiBoard, CPU, Memory, PowerSupply의 라이프 사이클은 의존적
 
-### 의존 관계란? (dependency)
+
+
+### 4) 의존 관계(dependency)
 - 연관 관계와 같이 한 클래스가 다른 클래스에서 제공하는 기능을 사용할 때를 나타낸다. 차이점은 두 클래스의 관계가 한 메서드를 실행하는 동안과 괕은, 매우 짧은 시간만 유지된다는 점이다. 점선 화살표를 사용해 표시한다.
+- 클래스의 속성에서 참조하거나 연산의 인자로 참조하거나 메소드의 지역 개체로 참조하는 방법이 있다.<br>
+![image](https://user-images.githubusercontent.com/44339530/109626925-6e381200-7b84-11eb-914f-5e05db160169.png)<br>
+- 연산의 인자나 메소드의 지역 개체로 참조(찰나적 관계)<br>
+![image](https://user-images.githubusercontent.com/44339530/109627089-9a539300-7b84-11eb-9346-a0d8ad300706.png)<br>
 
-### 실체화 관계란? (realization)
+### 5) 실체화 관계(realization)
 - 책임들의 집합인 인터페이스와 이 책임들을 실제로 실현한 클래스들 사이의 관계를 나타낸다. 상속과 유사하게 빈 삼각형을 사용하며 머리에 있는 실선 대신 점선을 사용해 표시한다.
+- "can do this"의 관계이다.
+- 인터페이스란 책임이다 (ex. 리모콘의 책임은 가전 기기를 켜거나 끄거나 볼륨을 높이거나 낮춘다)
+- 인터페이스란 어떤 공통되는 능력이 있는 것들을 대표하는 관점이다.<br>
+![image](https://user-images.githubusercontent.com/44339530/109627330-dd156b00-7b84-11eb-939b-dbdae4f3ab5c.png)<br>
 
+#### 출처
+- Java객체지향 디자인패턴(한빛미디어)
