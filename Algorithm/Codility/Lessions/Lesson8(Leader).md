@@ -63,3 +63,98 @@ class Solution {
 ~~~
 #### 출처 
 - https://rooted.tistory.com/47
+
+## EquiLeader - Find the index S such that the leaders of the sequences A[0], A[1], ..., A[S] and A[S + 1], A[S + 2], ..., A[N - 1] are the same.
+
+A non-empty array A consisting of N integers is given.
+
+The leader of this array is the value that occurs in more than half of the elements of A.
+
+An equi leader is an index S such that 0 ≤ S < N − 1 and two sequences A[0], A[1], ..., A[S] and A[S + 1], A[S + 2], ..., A[N − 1] have leaders of the same value.
+
+For example, given array A such that:
+
+    A[0] = 4
+    A[1] = 3
+    A[2] = 4
+    A[3] = 4
+    A[4] = 4
+    A[5] = 2
+we can find two equi leaders:
+
+0, because sequences: (4) and (3, 4, 4, 4, 2) have the same leader, whose value is 4.
+2, because sequences: (4, 3, 4) and (4, 4, 2) have the same leader, whose value is 4.
+The goal is to count the number of equi leaders.
+
+Write a function:
+
+class Solution { public int solution(int[] A); }
+
+that, given a non-empty array A consisting of N integers, returns the number of equi leaders.
+
+For example, given:
+
+    A[0] = 4
+    A[1] = 3
+    A[2] = 4
+    A[3] = 4
+    A[4] = 4
+    A[5] = 2
+the function should return 2, as explained above.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [1..100,000];
+each element of array A is an integer within the range [−1,000,000,000..1,000,000,000].
+Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
+
+### 해답
+~~~
+import java.util.*;
+class Solution {
+    public int solution(int[] A) {
+        int result=0;
+        int leader=0, leaderCount=0;
+        // 숫자 빈도 카운트 값 기록을 위해 해시맵 컨테이너를 선언한다.
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // 카운트 값을 기록한다
+        for(int i=0;i<A.length;i++) {
+            int cnt = map.getOrDefault(A[i], 0) + 1;
+            map.put(A[i], cnt);
+
+            // 가장 많이 나온 수 (Leader)를 기록한다.
+            if(leaderCount<cnt) {
+                leaderCount = cnt;
+                leader = A[i];
+            }
+        }
+
+        // Leader 숫자를 구했으니 Leader 숫자가 각 인덱스에서 몇 개 정도 나왔는지 기록할 벡터 컨테이너를 만든다.
+        Vector<Integer> record = new Vector<Integer>();
+        int currentCount = 0;
+        for(int i=0;i<A.length;i++) {
+            if(A[i] == leader) {
+                currentCount++;
+            }
+            record.add(currentCount);
+        }
+
+        for(int i=0;i<A.length-1;i++) {
+            int leftCount = record.elementAt(i); // 둘로 쪼갰을때 왼쪽 부분 Leader 빈도수
+            int rightCount = record.lastElement() - leftCount; // 오른쪽 부분 Leader 빈도수
+
+            int limitEquiLeft = ((i + 1) / 2) + 1; 
+            int limitEquiRight = ((A.length - (i + 1)) / 2) + 1; 
+            
+            // EquiLeader 조건을 왼쪽과 오른쪽 부분 모두 만족한다면 갯수를 증가 시킨다. 
+            if((leftCount >= limitEquiLeft) && (rightCount >= limitEquiRight)) {
+                 ++result; 
+            }
+        }
+
+        return result;
+    }
+}
+~~~
+#### 출처
+- https://lipcoder.tistory.com/entry/EquiLeader-Codility
