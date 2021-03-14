@@ -47,5 +47,9 @@ each element of array A is an integer within the range [−10,000..10,000].
 Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ### 해답
 ~~~
+class Info{ 
+    int sum_from_front = 0; 
+    int sum_from_back = 0; 
+} 
 
 ~~~
