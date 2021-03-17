@@ -1,12 +1,33 @@
 # DesignPattern
 
 ### [Chapter01-객체지향 모델링](https://github.com/jeonyoungho/TIL/tree/master/Java/DesignPattern/Chapter1-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EB%AA%A8%EB%8D%B8%EB%A7%81)
+- 연관 관계(association): 클래스들이 개념상 서로 연결되었음을 나타냄(실선이나 화살표로 표시하며 보통은 한 클래스가 다른 클래스에서 제공하는 기능을 사용하는 상황일때 표시)
+- 일반화 관계(generalization): 객체지향 개념에서는 상속 관계라고 함(한 클래스가 다른 클래스를 포함하는 상위 개념일때의 관계이며 속이 빈 화살표를 사용해 표시)
+- 집합 관계(Composition, aggregation): 클래스들 사이의 전체 또는 부분 같은 관계를 나타냄(집약 관계와 합성 관계가 존재함)
+- 의존 관계(dependency): 연관 관계와 같이 한 클래스가 다른 클래스에서 제공하는 기능을 사용할 때를 나타냄(차이점은 두 클래스의 관계가 한 메서드를 실행하는 동안과 괕은, 매우 짧은 시간만 유지된다는 점, 점선 화살표를 사용해 표시)
+- 실체화 관계(realization): 책임들의 집합인 인터페이스와 이 책임들을 실제로 실현한 클래스들 사이의 관계를 나타냄(상속과 유사하게 빈 삼각형을 사용하며 머리에 있는 실선 대신 점선을 사용해 표시)
 
 ### [Chapter02-객체지향 원리](https://github.com/jeonyoungho/TIL/tree/master/Java/DesignPattern/Chapter02-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%9B%90%EB%A6%AC)
+- 캡슐화: 캡슐화를 통해 <b>높은 응집도와 낮은 결합도</b>를 갖는 설계를 구현해야 함
+- 일반화 관계: 클래스 자체를 캡슐화하여 변경에 대비할 수 있는 설계를 가능하게 함. 즉, <b>새로운 클래스가 추가되더라도 클라이언트는 영향 받지 않음</b>
+- 피터코드의 상속 규칙: 
+    - 자식 클래스와 부모 클래스 사이는 ‘역할 수행is role played by’ 관계가 아니어야 한다.
+    - 한 클래스의 인스턴스는 다른 서브 클래스의 객체로 변환할 필요가 절대 없어야 한다.
+    - 자식 클래스가 부모 클래스의 책임을 무시하거나 재정의하지 않고 확장만 수행해야 한다.
+    - 자식 클래스가 단지 일부 기능을 재사용할 목적으로 유틸리티 역할을 수행하는 클래스를 상속하지 않아야 한다.
+    - 자식 클래스가 ‘역할role’, ‘트랜잭션transaction’, ‘디바이스device’ 등을 특수화specialization해야 한다.
 
 ### [Chapter03-SOLID원칙](https://github.com/jeonyoungho/TIL/tree/master/Java/DesignPattern/Chapter03-SOLID%20%EC%9B%90%EC%B9%99)
+- 로버트 마틴이 주장한 다섯 가지 설계 원칙
+- SRP(단일 책임 원칙, Siingle Responsibility Principle): 즉, 클래스는 단 하나의 책임만을 가지도록 설계해야 하는 원칙(단일 책임 원칙)
+- OCP(개방 폐쇄 원칙, Open Closed Principle): 기존의 코드를 변경하지 않으면서 새로운 기능을 추가할 수 있도록 설계하는 원칙
+- LSP(리스코프의 대입 원칙, Liskov Substitution Principle): 일반화 관계는 슈퍼 클래스가 제공하는 오퍼레이션과 파생클래스에서 제공하는 오퍼레이션 간에는 <b>행위적으로 일관성이 있도록</b> 설계가 되어야 한다는 원칙
+- ISP(인터페이스 분리 원칙, Interface Segregation Principle): 인터페이스를 클라이언트에 특화되도록 분리시키라는 설계 원칙
+- DIP(의존성 역전 원칙, Dependency Inversion Principle): 의존 관계를 맺을 때 변화하기 쉬운 것 또는 변화가 자주 되는 것보다는 변화하기가 어려운 것, 변화가 거의 되지 않는 것에 의존하라는 원칙
 
 ### [Chapter04-디자인패턴](https://github.com/jeonyoungho/TIL/tree/master/Java/DesignPattern/Chapter04-%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4)
+- 소프트웨어를 설계할 때 특정 맥락에서 자주 발생하는 고질적인 문제들이 또 발생했을 떄 재사용할 수 있는 훌륭한 해결책
+- 아키텍처 패턴에서 컴포넌트의 내부 구조를 대상으로 한 클래스/ 객체의 구조와 협업 방법을 패턴화한 것이다.
 
 ### [Chapter05-스트래티지패턴](https://github.com/jeonyoungho/TIL/tree/master/Java/DesignPattern/Chapter05-%EC%8A%A4%ED%8A%B8%EB%9E%98%ED%8B%B0%EC%A7%80%ED%8C%A8%ED%84%B4)
 - 전략을 쉽게 바꿀 수 있도록 해주는 디자인 패턴
