@@ -113,7 +113,7 @@
     - JDK 6에서는 G1 GC를 early access라고 부르며 그냥 시험삼아 사용할 수만 있도록 함
     - JDK 7에서 정식으로 G1 GC를 포함하여 제공
 
-#### 참고 자료
+#### 출처
 - https://d2.naver.com/helloworld/37111
 - https://yaboong.github.io/java/2018/06/09/java-garbage-collection/
 - https://velog.io/@litien/%EA%B0%80%EB%B9%84%EC%A7%80-%EC%BB%AC%EB%A0%89%ED%84%B0GC

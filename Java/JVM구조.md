@@ -56,5 +56,5 @@
 ### 참고 사항
 - 스레드 생성시 Method Heap영역을 모든 스레드가 공유하고, stack, PC Register, Native Stack은 각각의 스레드마다 생성되고 공유되지 않음
 
-#### 참고 자료
+#### 출처
 - https://velog.io/@hono2030/JVM%EC%9D%98-%EA%B5%AC%EC%A1%B0
