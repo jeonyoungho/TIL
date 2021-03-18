@@ -1,4 +1,4 @@
-## GC(Garbage Collection)
+## GC(Garbage Collection)의 개요
 
 ### 가비지 컬렉션 과정
 - GC에 대해 알아보기 전에 'stop-the-world'라는 용어를 알아 둬야 함

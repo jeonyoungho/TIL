@@ -1,4 +1,4 @@
-## Restful API
+## Restful API의 개요
 
 ### Rest란?
 - Representational State Transfer의 약자(상태를 전달한다)
