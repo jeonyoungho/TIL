@@ -146,7 +146,9 @@ class Solution {
 }
 ~~~
 
+### 설명
 - 루프를 한 번씩만 돌면서 최소값을 발견하면 갱신해주고 기존의 손익보다 큰지 비교해서 갱신해주면 되는 문제
+
 #### 출처
 - https://lipcoder.tistory.com/entry/MaxProfit-Codility
 
@@ -193,6 +195,8 @@ class Solution {
 }
 ~~~
 
+### 설명
 - 최대 합을 보관하는 변수를 두 개 만들고 하나는 result용 최종 최대 합을 보관하는 변수로 사용하고 하나는 임시 최대 합을 보관하는 용도로 사용하는게 문제 풀이의 핵심!
+
 #### 출처
 - https://lipcoder.tistory.com/entry/MaxProfit-Codility

@@ -77,7 +77,6 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [3..100,000];
 each element of array A is an integer within the range [−1,000..1,000].
 
-
 ### 해답
 ~~~
 import java.util.*;
@@ -221,6 +220,7 @@ class Solution {
 }
 ~~~
 
+### 설명
 - 배열 A를 정렬 하게 되면 두 조건은 자연스레 만족하게 됨(A[R] + A[P] > A[Q], A[Q] + A[R] > A[P])
 - 따라서 조건 A[P] + A[Q] > A[R] 에 대해서만 체크하여 일치하는게 존재한다면 1을 리턴해주면 됨
 
