@@ -223,7 +223,7 @@ public class PersonService {
 - 다음과 같이 Spring의 Transactional어노테이션을 활용하여 클래스 전체 메소드에 대해 트랜잭션 처리를 할 수도 있다.<br>
 <img width="446" alt="스크린샷 2021-03-29 오후 6 59 49" src="https://user-images.githubusercontent.com/44339530/112820794-f1d01a80-90c0-11eb-8499-aee97c1f3216.png"><br>
 
-<!-- 여기까지 3/30일 -->
+<!-- 여기까지 3/31일 -->
 
 ### Hibernate 라이브러리 추가  
 <img width="844" alt="스크린샷 2020-06-29 오후 1 58 17" src="https://user-images.githubusercontent.com/44339530/85974506-975e3c80-ba10-11ea-9d04-a2be2c687769.png"><br>
