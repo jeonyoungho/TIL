@@ -3,7 +3,8 @@
 ### ORM Framework (Object Relational Mapping)   
 - Object Persistence 를 위한 프레임워크   
 - 객체와 테이블 사이에는 mismatch가 발생한다. 이를 위해 mapping시켜주는 프레임워크  
-<img width="844" alt="스크린샷 2020-06-29 오전 11 50 35" src="https://user-images.githubusercontent.com/44339530/85967989-bf44a480-b9fe-11ea-981f-691e6a994120.png">  
+![image](https://user-images.githubusercontent.com/44339530/113159166-5af98e80-9277-11eb-8ea8-04147c0b7eec.png)<br>
+
   
 ### DB에 데이터 persist를 위한 3가지 방법  
 1. JDBC  
