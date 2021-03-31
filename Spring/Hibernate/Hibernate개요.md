@@ -223,7 +223,236 @@ public class PersonService {
 - 다음과 같이 Spring의 Transactional어노테이션을 활용하여 클래스 전체 메소드에 대해 트랜잭션 처리를 할 수도 있다.<br>
 <img width="446" alt="스크린샷 2021-03-29 오후 6 59 49" src="https://user-images.githubusercontent.com/44339530/112820794-f1d01a80-90c0-11eb-8499-aee97c1f3216.png"><br>
 
-<!-- 여기까지 3/31일 -->
+3. Session Object
+- entity개체에 대해서 CRUD연산을 수행하는 객체
+- 애플리케이션과 데이터베이스를 연결해주는 역할
+- 데이터베이스와 물리적 커넥션을 얻을 때 사용
+- Thread-safe하지 않기 때문에 오랜 시간 동안 open된 상태로 두어선 안된다.<br>
+![image](https://user-images.githubusercontent.com/44339530/113136063-dbab9100-925d-11eb-99f2-188f43e88444.png)<br>
+- Hibernate는 캐쉬가 존재 한다.
+- Session객체와 데이터베이스 사이에는 캐쉬가 존재한다.
+- 매번 바로 Session객체로부터 데이터베이스에 쓰는 것은 퍼포먼스에 영향을 줄 수 있기 때문에 캐쉬에 모아뒀다가 한 번에 작업을 처리한다.<br>
+
+#### Object states
+![image](https://user-images.githubusercontent.com/44339530/113136419-4c52ad80-925e-11eb-9d3a-fed5862c876c.png)<br>
+- 인스턴스를 맨 처음에 만들면 Transient상태가 된다.(메모리에 저장된 상태)
+- save또는 saveOrUpdate메소드를 호출하면 Persistent상태로 바뀌게 된다.(DB에 저장된 상태, 하드디스크)
+- Session을 close시키면 Detached상태가 되어 Session과 분리가 된다.
+- 예제 코드
+~~~
+public class HibernateTest {
+    public static void main() {
+
+	Person person = new Person();	// Transient Object
+	person.setUserName("Test User"); 
+		
+	SessonFactory sessionFactory = 
+		new Configuration().configure().buildSessionFactory();
+	Sesson session = SessionFactory.openSession();
+	session.beginTransaction();
+		
+	session.save(person);  // Persistent Object
+		
+    // persistent 상태에서 어떤 변경을 가하면 DB에 그대로 반영이 된다.
+	person.setUserName("Updated User");
+	person.setUserName("Updated User Again");
+		
+	session.getTransaction().commit();
+
+    // setter메소드 호출 후 save하지 않았지만 결과는 "Updated User"가 나온다
+	session.close();
+		
+    // Detached 객체이기 때문에 더 이상 hibernate가 변경상태를 추적하지 않는다.
+	person.setUserName("Updated User After session close");
+
+    
+    }
+}
+~~~
+
+#### Session Methods
+1. get(Class clazz, Serializable id)
+- 지정한 클래스에 매핑되는 테이블에서 id에 해당되는 레코드를 읽어서 객체가 넘어오게 됨
+- 해당되는 id에 해당하는게 없으면 null값이 리턴 됨
+
+2. save(Object object)
+- object를 저장
+- 리턴값으로는 저장된 entity의 id가 넘어오게 됨
+- cascade 연산에 cascade="save-update"하면 참조하는 객체까지 같이 저장됨
+- 예를 들어, Student객체를 저장해도 참조하고 있는 Address객체도 함께 저장됨
+
+2. saveOrUpdate()
+- 기존에 이미 저장된게 있으면 update, 없으면 save
+
+3. delete()
+- persistent인스턴스를 데이터베이스에서 제거
+- cascade 연산에 cascade="delete"하면 참조하는 객체까지 같이 제거됨
+- 예를 들어, Student객체를 제거해도 참조하고 있는 Address객체도 함께 제거됨
+
+4. flush()
+- Hibernate안에 캐쉬에 있는 내용을 데이터베이스에 반영(동기화)
+- flush의 4가지 모드
+    - Always: 모든 쿼리를 수행할때마다 바로 캐쉬에 저장했다가 바로 flush(퍼포먼스엔 안 좋은 영향)
+    - Commit: 트랜잭션이 커밋될떄 flush
+    - Manual: 수동적으로 flush메소드를 호출해서 사용
+    - Auto: 디폴트 모드, 트랜잭션이 커밋 또는 쿼리가 실행되기 전에 시스템에서 알아서 flush
+    - hibernate.cfg.xml 설정 파일에서 다음과 같이 모드 설정 가능
+    ~~~
+    <property name="org.hibernate.flushMode" value="COMMIT"/>
+    ~~~
+- 예를 들어, 다음과 같은 작업을 수행한다고 가정 했을 때
+    ~~~
+    Step 1: Begin transaction
+    Step 2: Create employee A
+    Step 3: Create employee B
+    Step 4: Associate A with its manager C
+    Step 5: Look up all employees reporting to C
+    Step 6: Associate B with its manager D
+    Step 7: Look up all employees reporting to D
+    Step 8: Commit transaction
+    ~~~
+    - A,B,C,D는 디비가 아닌 캐쉬에 저장되어있는 상태있기기에.스텝5,7 수행시 디비에 아무것도 없기에 결과가 제대로 나오지 않음
+    - 따라서 적절한 타이밍에 flush시켜줘야함
+
+5. close()
+- Session을 닫음
+- Spring에서는 알아서 close를 시켜주기에 호출 할 필요가 없다
+
+~~~
+@Repository
+@Transactional
+public class ProductDaoImpl  implements  ProductDao {
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    public Product getProductById (int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Product product = (Product) session.get(Product.class, id);
+
+        return product;
+    }
+
+    public void addProduct (Product product) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(product);
+        session.flush();
+    }
+}
+~~~
+
+6. Query createQuery(String queryString)
+- Query 객체를 생성하여 좀 더 디테일하게 쿼리를 만들 때 사용
+- HQL(Hibernate Query Language)을 사용
+- 예제 코드
+~~~
+public List<Product> getProductList() {
+
+        Session session = sessionFactory.getCurrentSession();
+        Query<Product> theQuery = 
+	    session.createQuery("from Product“, Product.class);
+        List<Product> products = theQuery.getResultList(); 
+        return products;
+}
+~~~
+
+4. Transaction Object
+- 데이터베이스와 관련된 작업의 단위를 나타냄<br>
+![image](https://user-images.githubusercontent.com/44339530/113154987-87aba700-9273-11eb-9577-32532f1058fe.png)<br>
+
+5. Query Object
+- session.createQuery()메소드를 생성
+- SQL 또는 HQL을 사용할 수 있음
+- parameter를 지정하거나 조회 되는 result의 개수를 지정 할 때 주로 사용
+~~~
+public List<Product> getProductList() {
+
+        Session session = sessionFactory.getCurrentSession();
+        Query<Product> query = 
+	  session.createQuery("from Product order by name“, Product.class);
+        List<Product> products = query.getResultList();
+
+        return products;
+}
+~~~
+
+#### HQL
+- SQL과 유사함
+- 테이블이나 컬럼 이름을 사용하는게 아니라 클래스나 속성이름을 사용
+- 키워드는 대소문자 구분하지 않음
+- 자바 클래스나 속성이름은 대소문자를 구분함
+- 실행 방법
+~~~
+1. hql 작성
+String hql= "Your Query Goes Here";
+
+2. session으로 부터 쿼리 객체 생성
+Query query = session.createQuery(hql);
+
+3. 레코드들을 리스트 형태로 조회하는 쿼리 실행
+List listResult = query.getResultList();
+
+3-2. update 쿼리 실행
+int rowsAffected = query.executeUpdate();
+~~~
+
+- 예시<br>
+![image](https://user-images.githubusercontent.com/44339530/113156349-ddcd1a00-9274-11eb-9639-249aae9bd570.png)<br>
+1. 복수 레코드 리스트 조회 쿼리
+~~~
+String hql = "from Category";
+Query<Category> query = session.createQuery(hql, Category.class); // 두 번째 인자로 실제로 조회하는 클래스 이름을 명시
+List<Category> listCategories = query.getResultList();
+ 
+for (Category aCategory : listCategories) {
+    System.out.println(aCategory.getName());
+}
+~~~
+
+2. 단일 레코드 조회 쿼리
+~~~
+String hql = "from Product where category.name = 'Computer'"; // 내부적으로는 hibernate에 의해서 JOIN연산이 이뤄져서 처리가 된다.
+Query<Product> query = session.createQuery(hql, Product.class);
+List<Product> listProducts = query.getResultList();
+ 
+for (Product aProduct : listProducts) {
+    System.out.println(aProduct.getName());
+}
+~~~
+
+3. 업데이트 쿼리
+~~~
+String hql = "update Product set price = :price where id = :id"; //placeholder가 들어가 있음 (:placeholder이름)
+
+// Update/Delete queries can not be typed.
+@SuppressWarnings("rawtypes") // warning을 나오지 않게 하기 위한 anno
+Query query = session.createQuery(hql); // 클래스 타입을 명시 안해주면 waring 발생
+
+query.setParameter("price", 488.0); // 해당 되는 placeholder에 값 세팅
+query.setParameter("id", 43); // 해당 되는 placeholder에 값 세팅
+ 
+int rowsAffected = query.executeUpdate();
+if (rowsAffected > 0) {
+    System.out.println("Updated " + rowsAffected + " rows.");
+}
+~~~
+
+4. 삭제 쿼리
+~~~
+String hql = "delete from OldCategory where id = :catId";
+ 
+@SuppressWarnings("rawtypes")
+Query query = session.createQuery(hql);
+query.setParameter("catId",  1);
+ 
+int rowsAffected = query.executeUpdate();
+if (rowsAffected > 0) {
+    System.out.println("Deleted " + rowsAffected + " rows.");
+}
+~~~
+
+
+<!-- 여기까지 3/31일 --> 
 
 ### Hibernate 라이브러리 추가  
 <img width="844" alt="스크린샷 2020-06-29 오후 1 58 17" src="https://user-images.githubusercontent.com/44339530/85974506-975e3c80-ba10-11ea-9d04-a2be2c687769.png"><br>
