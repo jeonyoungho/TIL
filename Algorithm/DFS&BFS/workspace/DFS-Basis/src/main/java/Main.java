@@ -14,7 +14,7 @@ public class Main {
 	    
 	    System.out.println("Start DFS with " + g1.getNodeCount() + " node");
 	    // 기대 결과: 2 -> 0 -> 1 -> 3
-	    g1.startDFS(2);
+	    g1.startDFSWithNodeNumber(2);
 	    
 	    
 	    
@@ -33,7 +33,7 @@ public class Main {
 	    
 	    System.out.println("Start DFS with " + g2.getNodeCount() + " node");
 	    // 기대 결과: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
-	    g2.startDFS(1);
+	    g2.startDFSWithNodeNumber(1);
 	}
 
 }

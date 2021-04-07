@@ -40,7 +40,7 @@ public class Graph {
 	}
 	
 	// 노드v로 부터 DFS시작
-	public void startDFS(int v) {
+	public void startDFSWithNodeNumber(int v) {
 		System.out.println("========== Adjacent node list ==========");
 		for(int i=0;i<adj.length;i++) {
 			System.out.print("[node" + i + "] ");
@@ -55,6 +55,17 @@ public class Graph {
 		System.out.print("=> ");
 		search(v, isVisited);
 		System.out.println();
+	}
+	
+	public void startDFS() {
+	  // 노드의 방문 여부 판단 (초깃값: false)
+	  boolean isVisited[] = new boolean[nodeCount];
+	
+	  // 비연결형 그래프의 경우, 모든 정점을 하나씩 방문
+	  for (int i=0; i<nodeCount; ++i) {
+	      if (isVisited[i] == false)
+	    	  search(i, isVisited);
+	  }
 	}
 	
 	public int getNodeCount() {
