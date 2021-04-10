@@ -3,7 +3,7 @@ public class TestMain {
 
 	private final static int NODE_NUM = 6;
 	
-	public static void main(String[] args) {
+	public static void main2(String[] args) {
 		
 		int[] parent = new int[NODE_NUM];
 		
