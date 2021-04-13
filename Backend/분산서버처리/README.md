@@ -1,6 +1,6 @@
 # 분산서버처리를 위한 기술
 
-## [1) 로드 밸런싱(Load Balancing)](https://github.com/jeonyoungho/TIL/blob/master/Backend/%EB%B6%84%EC%82%B0%EC%84%9C%EB%B2%84%EC%B2%98%EB%A6%AC/LoadBalcner/LoadBalancer.md)
+## [1) 로드 밸런싱(Load Balancing)](https://github.com/jeonyoungho/TIL/tree/master/Backend/%EB%B6%84%EC%82%B0%EC%84%9C%EB%B2%84%EC%B2%98%EB%A6%AC/LoadBalcner.md)
 - 부하 분산을 위해 가상 IP를 통해 각 서버에 Request를 분배하는 기능
 
 ## 2) Scale Up, Scale Out
