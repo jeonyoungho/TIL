@@ -140,6 +140,13 @@
 ![4](https://user-images.githubusercontent.com/44339530/114511151-7ea6d680-9c72-11eb-9fcd-bac70c1ca90e.png)<br>
 
 
+## call by value와 call by reference와 차이는 무엇인가요?
+- 두 가지의 차이는 특정 메서드를 호출할 때 파라미터를 넘겨주는 방식에 있습니다.
+- call by value는 값에 의한 호출로 메서드를 호출할 때 메모리 상에 값을 복사하여 전달하는 방식입니다.
+- call by reference는 참조에 의한 호출로 메서드를 호출할 때 인자로 전달되는 변수의 레퍼런스를 전달하는 방식입니다.
+- Java는 call by value형식으로 특정 메서드를 호출하면 값을 복사하게 됩니다. 하지만 참조형 타입은 실제 인스턴스에 대한 레퍼런스가 메모리상에 저장되있기에 실제 인스턴스를 넘겨주는 것과 동일하다.
+
 #### 출처
 - https://gmlwjd9405.github.io/2018/09/17/class-object-instance.html
 - https://mangkyu.tistory.com/94
+- https://wayhome25.github.io/cs/2017/04/11/cs-13/
