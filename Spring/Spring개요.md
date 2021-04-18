@@ -139,7 +139,7 @@
 #### 6) Spring Web
 - 일반적인 웹 애플리케이션 개발에 필요한 기능을 제공하고, 다른 웹 애플리케이션 프레임워크와의 통합을 지원한다.
 
-#### 7) Spring WebMVC
+#### 7) [Spring WebMVC](https://github.com/jeonyoungho/TIL/tree/master/Spring/Spring%20MVC)
 - MVC(Model/View/Controller) 패러다임은 사용자가 인터페이스가 애플리케이션 로직과 분리되는 웹 애플리케이션을 만드는 경우에 일반적으로 사용되는 패러다임이다. 이 패러다임을 바탕으로 웹 계층에서 결합도를 낮추는 Spring MVC 프레임워크가 있다.
 
 ## 출처
