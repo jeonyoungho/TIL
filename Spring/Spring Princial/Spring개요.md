@@ -116,7 +116,6 @@
 #### 6) 영속성과 관련된 다양한 API지원
 - Spring은 MyBatis, Hibernate등 데이터베이스 처리를 위한 ORM(Object Relational Mapping)프레임워크들과의 연동을 지원한다.
 
-
 ### 4. Spring Framework의 기능요소
 ![2](https://user-images.githubusercontent.com/44339530/115145652-95439800-a08d-11eb-95d2-6f96aa1e1d1f.gif)<br>
 
@@ -129,10 +128,10 @@
 #### 3) Spring DAO
 - DAO 패키지는 JDBC에 대한 추상화 계층으로 JDBC코딩이나 예외처리 하는 부분을 간편화 시켰으며, AOP모듈을 이용해 트랜젝션 관리 서비스도 제공한다.
 
-#### 4) Spring ORM
+#### 4) [Spring ORM](https://github.com/jeonyoungho/TIL/tree/master/Spring/JPA)
 - Mybatis, Hibernate, JPA 등 널리 사용되는 ORM 프레임워크와의 연결고리를 제공한다. ORM 프레임워크의 기능을 Spring의 기능과 조합해서 사용할 수 있도록 해준다.
 
-#### 5) Spring AOP
+#### 5) [Spring AOP](https://github.com/jeonyoungho/TIL/tree/master/Spring/Spring%20AOP)
 - AOP 모듈을 통해 관점 지향 프로그래밍을 지원한다.
 - AOP 모듈은 Spring 애플리케이션에서 Aspect를 개발할 수 있는 기반을 지원한다.
 
