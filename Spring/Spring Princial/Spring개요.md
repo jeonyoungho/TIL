@@ -3,7 +3,7 @@
 ## 프레임워크란?
 ### Framework의 개념
 - <b>“소프트웨어의 구체적인 부분에 해당하는 설계와 구현을 재사용이 가능하게끔 일련의 협업화된 형태로 클래스들을 제공하는 것” - 랄프 존슨(Ralph Johnson) -</b>
-- 말 그대로 뼈대나 근간을 이루는 코드들의 묶어놓은 것
+- 말 그대로 뼈대나 근간을 이루는 코드들을 묶어놓은 것
 - 프레임워크는 반제품으로 애플리케이션 구조 및 코드의 상당 부분을 제공하여 개발자는 핵심 비즈니스로직에만 집중할 수 있다.
 
 ### Framework의 장점
@@ -46,7 +46,7 @@
 ### 2. Spring Framework의 전략
 ![1](https://user-images.githubusercontent.com/44339530/115144750-5f041980-a089-11eb-8270-e31c17d91a97.png)<br>
 - 엔터프라이즈 개발의 복잡함을 상대하는 Spring의 전략
-    - 1)Portable Service Abstraction(PSA
+    - 1)Portable Service Abstraction(PSA)
     - 2)DI
     - 3)AOP
     - 4)POJO
@@ -139,7 +139,7 @@
 - 일반적인 웹 애플리케이션 개발에 필요한 기능을 제공하고, 다른 웹 애플리케이션 프레임워크와의 통합을 지원한다.
 
 #### 7) [Spring WebMVC](https://github.com/jeonyoungho/TIL/tree/master/Spring/Spring%20MVC)
-- MVC(Model/View/Controller) 패러다임은 사용자가 인터페이스가 애플리케이션 로직과 분리되는 웹 애플리케이션을 만드는 경우에 일반적으로 사용되는 패러다임이다. 이 패러다임을 바탕으로 웹 계층에서 결합도를 낮추는 Spring MVC 프레임워크가 있다.
+- MVC(Model/View/Controller) 패러다임은 사용자 인터페이스가 애플리케이션 로직과 분리되는 웹 애플리케이션을 만드는 경우에 일반적으로 사용되는 패러다임이다. 이 패러다임을 바탕으로 웹 계층에서 결합도를 낮추는 Spring MVC 프레임워크가 있다.
 
 ## 출처
 - https://gmlwjd9405.github.io/2018/10/26/spring-framework.html
