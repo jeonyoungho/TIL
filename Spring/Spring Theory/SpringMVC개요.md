@@ -48,7 +48,7 @@
 - WebContent(전체 Root) - webapp
     - 배포 시 WebContent 디렉토리 전체가 war로 묶여서 보내진다.
     - resources
-        - 정적인 데이터(ex. image file, css, fs, fonts, etc)
+        - 정적인 데이터(ex. image file, css, js, fonts, etc)
     - WEB-INF
         - classes: 작성한 Java Servlet 파일이 .class로 이곳에 모두 저장된다.
         - lib: 추가한 모든 라이브러리 또는 드라이버가 이곳에 모두 저장된다.
@@ -67,11 +67,11 @@
 ## Spring MVC에서 Model, View, Controller
 ### Model
 - Controller에서 View로 개체를 전달하는데 사용
-- 명명된 객체된 객체들의 집합이라 할 수 있음
+- 명명된 객체들의 집합이라 할 수 있음
     - Key-Value형식의 하나의 쌍을 명명된 객체라 부른다.
     - 또한 이 명명된 객체는 model attribute라고도 부른다.
     - 여러 개의 attribute가 모여 Table형식을 이룬다.
-- viewdㅔ서 attribute의  key값을 통해 value값을 사용할 수 있다.
+- view에서 attribute의 key값을 통해 value값을 사용할 수 있다.
 
 |Key|Value|
 |-----|-----|
@@ -208,7 +208,7 @@ public class HomeController {
 ### 1. Maven Configuration(pom.xml)
 - 자신의 프로젝트에 대한 고유의 좌표 설정
     - 1)groupId
-        - 자신의 프로젝트를 고유하게 식별하게 해주는 것으로, 최한 내가 컨트롤하는 domain name이어야 한다.
+        - 자신의 프로젝트를 고유하게 식별하게 해주는 것으로, 최소한 내가 컨트롤하는 domain name이어야 한다.
         - package 명명 규칙을 따른다.
         - 하위 그룹은 얼마든지 추가할 수 있다.
     - 2)artifactId
