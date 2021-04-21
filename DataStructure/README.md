@@ -8,4 +8,4 @@
 
 ### 4. [Stack](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Stack.md)
 
-### 5. [Queue](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Queue.md)
+### 5. [Queue와 우선순위큐(Heap)](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Queue.md)
