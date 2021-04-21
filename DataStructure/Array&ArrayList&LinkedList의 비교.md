@@ -43,17 +43,17 @@
 
 ## 데이터의 검색, 삽입, 삭제시 성능 비교
 
-#### 검색
+### 검색
 - Array&ArrayList가 LinkedList에 비해 굉장히 빠름
 - Array&ArrayList: 인덱스 기반의 자료 구조이며 get(int index)를 통해 O(1)의 시간복잡도를 가짐
 - LinkedList: 모든 요소를 탐색해야 하기 때문에 최악의 경우에는 O(N)의 시간 복잡도를 가짐
 
-#### 삽입/삭제
+### 삽입/삭제
 - LinkedList가 Array&ArrayList에 비해 굉장히 빠르다.
 - Array&ArrayList: 삽입/ 삭제 이후 다른 데이터를 복사해야 하므로 최악의 경우 O(N)의 시간복잡도를 가지게 됨
-    - Array는 크기가 고정되어있지만 ArrayList는 사이즈가 동적인 배열이기에 적절히 사용해주면 된다.
+    - <b>Array는 크기가 고정되어있지만 ArrayList는 사이즈가 동적이기에 적절히 사용해주면 된다.(ArrayList의 경우는 메모리에 할당 된 공간 외에 추가적으로 삽입이 요청되면 기존 용량의 1.5배만큼 증가시키기 때문이다.)</b>
     - Array는 primitive type(int, byte, char 등)과 object 모두를 담을 수 있지만, ArrayList는 object만 담을 수 있다.
-- LinkedList: 이전 노드와 다음 노드를 참조하는 상태만 변경하면 됨, O(1)의 시간 복잡도를 가짐
+- LinkedList: <b>삽입/삭제할 특정 노드를 탐색하기까지에는 O(N)의 시간 복잡도를 가지지만 단순하게 삽입/삭제하는데에는 이전 노드와 다음 노드를 참조하는 상태만 변경하면 되기에 O(1)의 시간 복잡도를 가짐</b>
 
 ## 정리
 - 데이터의 삽입/삭제가 빈번할 경우 LinkedList를 사용!
