@@ -10,4 +10,4 @@
 
 ### 5. [Queue](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Queue.md)
 - [우선순위 큐(Heap)](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%20%ED%81%90(Heap).md)
-- [DeQue(덱)](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Dequeue.md)
+- [Deque(덱)](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Dequeue.md)
