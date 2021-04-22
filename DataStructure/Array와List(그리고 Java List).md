@@ -18,7 +18,7 @@
 - 컴파일 이후 배열의 크기를 변경할 수 없다.
 
 ## List의 개념
-- <b>순서가 있는 데이터들을 집합으로 배열과는 다르게 빈 엘리먼트는 절대 허용하지 않는다.</b>
+- <b>순서가 있는 데이터들의 집합으로 배열과는 다르게 빈 엘리먼트는 절대 허용하지 않는다.</b>
 - 배열이 가진 인덱스라는 장점을 버리고 대신 빈틈없는 데이터의 적재라는 장점이 있다.
 - List에서의 인덱스는 몇 번째 데이터인가 정도(순서)의 의미를 가진다(배열에서의 인덱스는 값에 대한 유일무이한 식별자)
 - 빈 엘리먼트는 허용하지 않는다. => java에서는 허용하는 경우도 있음
@@ -28,9 +28,9 @@
 
 ### List의 장점
 - 포인터를 통하여 다음 데이터의 위치를 가르키고 있기에 삽입 삭제가 용이하다.
-- 메모리 공간의 크기가 동적으로 변경할 수 있다.(컴파일 후 데이터 추가가능)
+- 메모리 공간의 크기가 동적으로 변경할 수 있다.(컴파일 후 데이터 추가 가능)
 - 메모리의 재사용이 편리하다.
-- 불연속적이므로 메모리 관리의 편리하다.
+- 불연속적이므로 메모리 관리가 편리하다.
 
 ### List의 단점
 - 검색 성능이 좋지 않다.
@@ -62,16 +62,17 @@ List<String> list = new ArrayList<>();
 List<String> list = new ArrayList<>(100);
 ~~~
 
-- 메모리 공간을 빈 공간 없이 자동으로 관리하다.
+- 메모리 공간을 빈 공간 없이 자동으로 관리한다.
     - ArrayList에서 특정 인덱스의 객체를 제거하게 되면, 제거한 객체의 인덱스부터 마지막 인덱스까지 모두 앞으로 1칸씩 앞으로 이동한다. 객체를 추가하게 되면 1칸씩 뒤로 이동하게 된다. 인덱스 값을 유지하기 위해서 전체 객체가 위치가 이동한다.
-- 하지만 특정 인덱스를 추가 및 삭제하며 임시 배열을 생성 후 처리하기 때문에 잦은 삽입/삭제가 발생한다면 LinkedList를 사용하여야한다.[ArrayList와 LinkedList의 차이]( https://github.com/jeonyoungho/TIL/blob/master/DataStructure/ArrayList%EC%99%80LinkedList%EC%9D%98%EC%B0%A8%EC%9D%B4.md)
+- 하지만 특정 인덱스를 추가 및 삭제하며 임시 배열을 생성 후 처리하기 때문에 잦은 삽입/삭제가 발생한다면 LinkedList를 사용하여야한다.
+- [ArrayList와 LinkedList의 차이]( https://github.com/jeonyoungho/TIL/blob/master/DataStructure/ArrayList%EC%99%80LinkedList%EC%9D%98%EC%B0%A8%EC%9D%B4.md)
 
 #### 배열과 ArrayList의 차이
-- 배열은 크기가 고정되어있지만 arrayList는 사이즈가 동적인 배열이다.
-- 배열은 primitive type(int, byte, char 등)과 object 모두를 담을 수 있지만, arrayList는 object element만 담을 수 있다.
-- 배열은 제네릭을 사용할 수 없지만, arrayList는 타입 안정성을 보장해주는 제네릭을 사용할 수 있다.
+- 배열은 크기가 고정되어있지만 ArrayList는 사이즈가 동적인 배열이다.
+- 배열은 primitive type(int, byte, char 등)과 object 모두를 담을 수 있지만, ArrayList는 object element만 담을 수 있다.
+- 배열은 제네릭을 사용할 수 없지만, ArrayList는 타입 안정성을 보장해주는 제네릭을 사용할 수 있다.
 - 길이에 대해 배열은 length 변수를 쓰고, arrayList는 size() 메서드를 써야한다.
-- 배열은 element들을 할당하기 위해 assignment(할당) 연산자를 써야하고, arrayList는 add() 메서드를 통해 element를 삽입한다.
+- 배열은 element들을 할당하기 위해 assignment(할당) 연산자를 써야하고, ArrayList는 add() 메서드를 통해 element를 삽입한다.
 
 ~~~
 // ArrayList.class
@@ -115,7 +116,7 @@ private Object[] grow(int minCapacity) {
 <img width="719" alt="스크린샷 2021-04-21 오후 2 46 05" src="https://user-images.githubusercontent.com/44339530/115502708-4de92180-a2b0-11eb-8322-4b014fb9264e.png"><br>
 
 ### Vector
-- 자바는 ArrayList와 동일한 내부 구조를 가지고 있다. Vector 객체를 생성하기 위해서는 저장할 타입을 지정해야 한다.
+- Vector는 ArrayList와 동일한 내부 구조를 가지고 있다. Vector 객체를 생성하기 위해서는 저장할 타입을 지정해야 한다.
 - <b>ArrayList와 차이점으로는 Vector 클래스는 동기화된(synchronized) 메서드로 구성되어 있다.</b>
     - 따라서 멀티 스레드 환경에서 안전하게 객체를 삽입/삭제할 수 있다.(Thread-Safe)
 - 하지만 Thread-safe하기 때문에 lock을 걸고 푸는 과정을 반드시 거쳐야하므로 삽입/삭제시 다소 느리다.
@@ -124,8 +125,8 @@ private Object[] grow(int minCapacity) {
 ## ArrayList, Vector 와 LinkedList의 삽입 과정 비교
 <img width="717" alt="스크린샷 2021-04-21 오후 2 51 47" src="https://user-images.githubusercontent.com/44339530/115503268-1af35d80-a2b1-11eb-855b-ccfca5947ef4.png"><br>
 
-- ArrayList : 객체 검색, 맨 마지막 인덱스에 객체 추가에 좋은 성능을 발휘함, 싱글스레드 환경에서 사용
-- Vector: ArrayList와 동일하지만 멀티스레드 환경에서 사용
+- ArrayList : 객체 검색, 맨 마지막 인덱스에 객체 추가에 좋은 성능을 발휘함, 싱글스레드 환경에서 사용, 공간이 부족할시 1.5배로 늘림
+- Vector: ArrayList와 동일하지만 멀티스레드 환경에서 사용, 공간이 부족할시 2배로 늘림
 - LinkedList : 객체 삽입 및 삭제에 좋은 성능을 발휘함
 
 #### 출처
