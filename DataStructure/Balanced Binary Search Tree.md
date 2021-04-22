@@ -18,9 +18,9 @@
 - (a)처럼 균형이 맞지 않는 트리의 경우 루트에서 특정 노드로 갈 때 평균 3.27회의 노드 접근이 필요하다. 하지만 (b)처럼 트리의 높이 균형을 맞춘다면 이동 비용이 3.0으로 감소된다.
 - 이런 균형 이진 탐색트리에는 여러가지가 있는데 대표적으로 <b>AVL 트리 , 레드-블랙트리(Red-Black Tree) , B 트리, B+ 트리, B* 트리</b> 들이 있다. 각 균형탐색트리마다 트리 높이의 균형을 잡기 위한 알고리즘들이 조금씩 다르다.
 
-#### 균형 이진 탐색트리의 종류
-- [1. AVL트리]()
-- [2. 레드-블랙트리(Red-Black Tree)]()
+#### [균형 이진 탐색트리의 종류](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/red-black%20%ED%8A%B8%EB%A6%AC%20%26%20AVL%20%ED%8A%B8%EB%A6%AC.md)
+- 1)AVL트리
+- 2)레드-블랙트리(Red-Black Tree)
 
 #### 출처
 - https://jackpot53.tistory.com/17
