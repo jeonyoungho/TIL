@@ -2,7 +2,6 @@
 
 ## Deque(덱)
 ![6](https://user-images.githubusercontent.com/44339530/115526273-d2489e00-a2ca-11eb-90e8-61f5a0b77ee6.jpeg)<br>
-- Deque란 Stack과 queue 양쪽으로 엘리먼트의 삽입과 삭제를 수행할 수 있는 자료구조 
 - Deque(덱 혹은 데크)은 Double-Ended Queue의 줄임말로 큐의 양쪽으로 엘리먼트의 삽입과 삭제를 수행할 수 있는 자료구조이다.
 - 카프카의 소스코드 내부에서 Deque 클래스를 사용한다.
 - 덱(Deque)은 어떤 쪽으로 입력하고 어떤 쪽으로 출력하느냐에 따라서 스택(Stack)으로 사용할 수도 있고, 큐(Queue)로도 사용할 수 있다.
@@ -64,7 +63,7 @@
 
 - element(): removeFirst()와 동일
 
-- addAll(Collection <? extends E c): 입력 받은 Collection의 모든 데이터를 덱의 뒤쪽에 삽입한다.
+- addAll(Collection <? extends E >): 입력 받은 Collection의 모든 데이터를 덱의 뒤쪽에 삽입한다.
 
 - push(): addFirst()와 동일. 덱을 스택으로 사용할 때 쓰임
 
