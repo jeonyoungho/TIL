@@ -6,7 +6,7 @@
     - 1)배열 사용
         - 데이터 삽입, 삭제과정에서 데이터를 밀고 당기는 연산을 해야 하는 단점이 존재
     - 2)연결리스트 사용
-        - 연결리스트로 우선순위 que를 구현하였을 경우 삽입의 위치를 찾기 위해 첫 번째 노드부터 마지막에 저장된 노드까지 순회해야 하는 단점
+        - 연결리스트로 우선순위 큐를 구현하였을 경우 삽입의 위치를 찾기 위해 첫 번째 노드부터 마지막에 저장된 노드까지 순회해야 하는 단점
     - 3)Heap을 사용
         - <b>가장 일반적인 사용 방법!</b>
 ## Heap
@@ -19,7 +19,7 @@
 ### Java에서의 우선순위 큐 구현
 - java.util.PriorityQueue를 사용
 - java.util.PriorityQueue의 경우 기본 Heap구성은 minHeap(우선 순위가 낮은 것부터)으로 구성된다.(디폴트)
-- 만약 우선순위가 maxHeap(우선 순위가 높은 것부터)으로 구성하기 위해서 Comparator.reverseOrder()를 인자로 추가
+- 만약 우선순위가 maxHeap(우선 순위가 높은 것부터)으로 구성하기 위해서 Collections.reverseOrder()를 인자로 추가
 ~~~
 PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 ~~~
@@ -33,10 +33,10 @@ PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
 //int형 priorityQueue 선언 (우선순위가 높은 숫자 순)
 PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Collections.reverseOrder());
 
-//String형 priorityQueue 선언 (우선순위가 낮은 숫자 순)
+//String형 priorityQueue 선언 (우선순위가 낮은 문자 순)
 PriorityQueue<String> priorityQueue = new PriorityQueue<>(); 
 
-//String형 priorityQueue 선언 (우선순위가 높은 숫자 순)
+//String형 priorityQueue 선언 (우선순위가 높은 문자 순)
 PriorityQueue<String> priorityQueue = new PriorityQueue<>(Collections.reverseOrder());
 
 // 출처: https://coding-factory.tistory.com/603
