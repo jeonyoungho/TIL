@@ -88,7 +88,7 @@ public class MyStack {
 - 웹 브라우저 방문기록(뒤로가기)
 - 실행 취소(undo)
 - 역순 문자열 만들기
-- 수식의 괄호 검사(Ex) 올바른 괄호 문자열(VPS, Valid Parenthesis String) 판단하기)
+- 수식의 괄호 검사(Ex. 올바른 괄호 문자열(VPS, Valid Parenthesis String) 판단하기)
 - 후위 표기법 계산
 
 ### Java의 스택(Stack) 관련 메서드
