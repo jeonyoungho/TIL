@@ -15,5 +15,5 @@
 - [1. 이진 트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Binary%20Tree.md)
 - [2. 이진 탐색 트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Binary%20Search%20Tree.md)
 - [3. 균형 이진탐색트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Balanced%20Binary%20Search%20Tree.md)
-    - [red-black 트리 & red-black 트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/red-black%20%ED%8A%B8%EB%A6%AC%20%26%20AVL%20%ED%8A%B8%EB%A6%AC.md)
+    - [red-black 트리 & AVL 트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/red-black%20%ED%8A%B8%EB%A6%AC%20%26%20AVL%20%ED%8A%B8%EB%A6%AC.md)
 - [4. 이진 힙(최대 힙, 최소힙)](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%20%ED%81%90(Heap).md)
