@@ -103,15 +103,15 @@ public class MyQueue {
 
 ### Java의 큐를 구현한 클래스
 - 1)LinkedList
-    - 끝에 요소를 추가하기에 용이하다.
-    - List interface 구현
-    - 요소에 null을 허용한다.
+  - 끝에 요소를 추가하기에 용이하다.
+  - List interface 구현
+  - 요소에 null을 허용한다.
 - 2)priorityQueue(우선순위 큐)
-    - PIPO(Priority-In Priority-Out)
-    - 정렬된 순서에 의해 반복
-    - 요소에 null을 허용하지 않는다.
+  - PIPO(Priority-In Priority-Out)
+  - 정렬된 순서에 의해 반복
+  - 요소에 null을 허용하지 않는다.
 - 3)priorityBlockingQueue
-- priorityQueue의 동기화된 버전
+  - priorityQueue의 동기화된 버전
 
 #### 출처
 - https://gmlwjd9405.github.io/2018/08/02/data-structure-queue.html
