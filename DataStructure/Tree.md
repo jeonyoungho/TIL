@@ -14,7 +14,7 @@
 - RootNode: 최상위 계층에 존재하는 노드
 - level: 트리의 특정 깊이를 가지는 노드의 집합
 - degree:(차수): 하위 트리 개수 / 간선 수(degree) = 각 노드가 가진 가지의 수
-- Terminal Node ( = leaf Node, 단말 노드) : 하위에 다른 노드가 연결되어 있지 않은 노드
+- Terminal Node ( = Leaf Node, 단말 노드) : 하위에 다른 노드가 연결되어 있지 않은 노드
 - Internal Node (내부노드, 비단말 노드) : 단말 노드를 제외한 모든 노드로 루트 노드를 포함한다.
 
 ## 트리의 특징
@@ -30,14 +30,14 @@
     - 임의의 두 노드 간의 경로도 유일하다. 즉, 두 개의 정점 사이에 반드시 1개의 경로만을 가진다.
 - 한 개의 루트 노드만이 존재하며 모든 자식 노드는 한개의 부모 노드만을 가진다.
     - 부모-자식 관계이므로 흐름은 top-bottom 아니면 bottom-top으로 이루어진다.
-- 순회는 Pre-order(전위순회), In-order(중위순회)아니면 Post-order(후위순회)로 이루어진다. 이 3가지 모두 DBF/BFS안에 있다.
+- 순회는 Pre-order(전위순회), In-order(중위순회)아니면 Post-order(후위순회)로 이루어진다. 이 3가지 모두 DFS/BFS안에 있다.
 - 트리는 이진트리, 이진 탐색 트리, 균형트리(AVL 트리, red-black 트리), 이진 힙(최대힙, 최소힙) 등이 있다.
 
 ## 트리의 종류
 - [1. 이진 트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Binary%20Tree.md)
 - [2. 이진 탐색 트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Binary%20Search%20Tree.md)
 - [3. 균형 이진탐색트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/Balanced%20Binary%20Search%20Tree.md)
-    - [red-black 트리 & red-black 트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/red-black%20%ED%8A%B8%EB%A6%AC%20%26%20AVL%20%ED%8A%B8%EB%A6%AC.md)
+    - [red-black 트리 & AVL 트리](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/red-black%20%ED%8A%B8%EB%A6%AC%20%26%20AVL%20%ED%8A%B8%EB%A6%AC.md)
 - [4. 이진 힙(최대 힙, 최소힙)](https://github.com/jeonyoungho/TIL/blob/master/DataStructure/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%20%ED%81%90(Heap).md)
 
 
