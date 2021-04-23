@@ -50,7 +50,12 @@
 - https://zeddios.tistory.com/237
 
 ### red-black 트리의 시간 복잡도
-<img width="941" alt="스크린샷 2021-04-23 오후 12 07 25" src="https://user-images.githubusercontent.com/44339530/115812512-785fe980-a42c-11eb-8dcf-d296b8bc178f.png"><br/>
+|연산|평균|최악|
+|-----|-----|-----|
+|공간|O(N)|O(N)|
+|탐색|O(logN)|O(logN)|
+|삽입|O(logN)|O(logN)|
+|삭제|O(logN)|O(logN)|
 
 ### red-black 트리 정리
 - <b>※red-black 트리는 이진 탐색 트리에서 삽입/삭제 연산에, 이런 균형을 잡는 Restructuring, Recoloring 연산을 전 노드에 대해 재귀적으로 수행하는 과정을 추가하는 트리이다.</b>
@@ -116,7 +121,13 @@
 - https://m.blog.naver.com/PostView.nhn?blogId=dhdh6190&logNo=221062784111&proxyReferer=https:%2F%2Fwww.google.com%2F
 
 ### AVL트리의 시간 복잡도
-<img width="296" alt="스크린샷 2021-04-23 오후 12 11 03" src="https://user-images.githubusercontent.com/44339530/115812811-fa501280-a42c-11eb-8f6c-ed34fd4742a1.png"><br>
+|연산|평균|최악|
+|-----|-----|-----|
+|공간|O(N)|O(N)|
+|탐색|O(logN)|O(logN)|
+|삽입|O(logN)|O(logN)|
+|삭제|O(logN)|O(logN)|
+- <b>red-black트리와 AVL트리의 시간 복잡도는 동일</b>
 
 ### AVL트리 정리
 - <b>※AVL 트리는 이진 탐색 트리에서 삽입/삭제 연산에, 이런 균형을 잡는 회전을 전 노드에 대해서 재귀적으로 수행하는 과정을 추가하는 트리이다.</b>
