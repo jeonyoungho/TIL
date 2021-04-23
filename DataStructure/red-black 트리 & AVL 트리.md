@@ -11,7 +11,7 @@
 <img width="554" alt="스크린샷 2021-04-22 오후 5 06 35" src="https://user-images.githubusercontent.com/44339530/115679022-19976300-a38d-11eb-90c9-9c8d2753084a.png"><br>
 
 - 이렇게 트리의 깊이가 균형이 맞게 된다면 이진 탐색 알고리즘의 속도와 비슷해져서 아주 효율적으로 사용할 수 있다.
-- <b>자바에서 treeSet, treeMap이 Red-Black트리를 구현하고 있다.
+- <br>자바에서 treeSet, treeMap이 Red-Black트리를 구현하고 있다.
 
 ## red-black트리란?
 <img width="554" alt="스크린샷 2021-04-22 오후 5 06 35" src="https://user-images.githubusercontent.com/44339530/115679022-19976300-a38d-11eb-90c9-9c8d2753084a.png"><br>
@@ -33,7 +33,7 @@
 
 #### Restructuring, Recoloring 연산
 - 자신(Z)과 부모 노드(V)가 레드라면
-    - 삼촌 노드(W)가 블랙일 때 Restructuring(Rotation)<br>
+    - 삼촌 노드(W)가 블랙이거나 NULL일 때 Restructuring(Rotation)<br>
         - ![12](https://user-images.githubusercontent.com/44339530/115680392-7a736b00-a38e-11eb-8858-9f23374b55d3.png)<br>
         - ![13](https://user-images.githubusercontent.com/44339530/115680400-7c3d2e80-a38e-11eb-9a1e-ff6d46b089ce.png)<br>
         - 나(Z)와 내 부모(V), 내 부모의 부모(조상)을 오름차순으로 정렬한다.
@@ -45,14 +45,20 @@
         - 삽입된 노드(Z)의 부모와 삼촌(W)을 블랙으로 색을 변경하고 부모의 부모(조상)노드를 레드로 만든다.
         - 내 부모의 부모(조상)노드가 root가 아니었을 시 더블 레드가 다시 발생할 수 있다.
 
-- 구체적인 예시 참고 블로그: https://zeddios.tistory.com/237
+### red-black 트리의 예제(첫번째 블로그가 더 이해하기 쉬움)
+- https://nesoy.github.io/articles/2018-08/Algorithm-RedblackTree
+- https://zeddios.tistory.com/237
 
-#### ※red-black 트리는 이진 탐색 트리에서 삽입/삭제 연산에, 이런 균형을 잡는 Restructuring, Recoloring 연산을 전 노드에 대해 재귀적으로 수행하는 과정을 추가하는 트리이다.
+### red-black 트리의 시간 복잡도
+<img width="941" alt="스크린샷 2021-04-23 오후 12 07 25" src="https://user-images.githubusercontent.com/44339530/115812512-785fe980-a42c-11eb-8dcf-d296b8bc178f.png"><br/>
+
+### red-black 트리 정리
+- <b>※red-black 트리는 이진 탐색 트리에서 삽입/삭제 연산에, 이런 균형을 잡는 Restructuring, Recoloring 연산을 전 노드에 대해 재귀적으로 수행하는 과정을 추가하는 트리이다.</b>
 
 ## AVL트리란?
 - 이진 탐색 트리를 기본으로 하며 트리의 균형이 깨질 때 4가지 회전을 통해서, 스스로 균형을 유지하는 트리이다.
 
-### AVL트리의 4가지 회전
+### AVL트리의 4가지 회전 연산
 #### 1) LL회전
 ![16](https://user-images.githubusercontent.com/44339530/115683166-2322ca00-a391-11eb-89e2-f594e8009366.png)<br>
 - LL회전 LL상태에서 발생한다. 위와 같은 트리가 존재할 때 루트 노드 기준으로 왼쪽의 높이는 2, 오른쪽의 높이는 0이다.<br>
@@ -106,15 +112,27 @@
 - 결국, RR회전의 결과는 다음과 같아져 균형을 맞추게 된다.
 ![33](https://user-images.githubusercontent.com/44339530/115687022-bad5e780-a394-11eb-9114-495bc699f266.png)<br>
 
-#### ※AVL 트리는 이진 탐색 트리에서 삽입/삭제 연산에, 이런 균형을 잡는 회전을 전 노드에 대해서 재귀적으로 수행하는 과정을 추가하는 트리이다.
-    
+### AVL 트리 예제
+- https://m.blog.naver.com/PostView.nhn?blogId=dhdh6190&logNo=221062784111&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+### AVL트리의 시간 복잡도
+<img width="296" alt="스크린샷 2021-04-23 오후 12 11 03" src="https://user-images.githubusercontent.com/44339530/115812811-fa501280-a42c-11eb-8f6c-ed34fd4742a1.png"><br>
+
+### AVL트리 정리
+- <b>※AVL 트리는 이진 탐색 트리에서 삽입/삭제 연산에, 이런 균형을 잡는 회전을 전 노드에 대해서 재귀적으로 수행하는 과정을 추가하는 트리이다.</b>
 
 ## Red-Black 트리 vs AVL 트리
-- AVL트리는 더욱 엄격한 균형을 이루고 있기 때문에 Red-Black 트리보다 더 빠른 조회를 제공
-- Red-Black 트리는 상대적으로 느슨한 균형으로 인해 회전이 거의 이루어지지 않기 때문에 AVL트리보다 빠르게 삽입 및 제거 작업을 수행
-- <b>Red-Black 트리는 맵, C++의 멀티캐스트, Java treeMap 등 대부분의 언어 라이브러리에서 사용, AVL트리는 더 빠른 검색이 필요한 데이터베이스에서 사용</b>
+- <b>AVL Tree가 red-black Tree보다 빠른 Search를 제공합니다.</b>
+    - AVL트리는 더욱 엄격한 균형을 이루고 있기 때문이다.
+- <b>red-black Tree은 AVL Tree보다 빠른 삽입과 삭제를 제공한다.</b>
+    - red-black 트리는 상대적으로 느슨한 균형으로 인해 회전이 거의 이루어지지 않기 때문이다.
+
+- red-black Tree는 AVL Tree보다 색깔을 저장하기 위해 더 많은 Space Complexity가 필요
+- red-black Tree는 Java의 treeMap과 같이 대부분의 언어의 map, multimap, multiset에 사용되고 있다.
+- AVL tree는 검색에 속도가 중요한 Database에 사용되고 있다.
 
 ## 출처
 - https://velog.io/@agugu95/%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC%EC%9D%98-%EA%B7%A0%ED%98%95-RED-BALCKAVL
 - https://gurumee92.tistory.com/146
 - https://velog.io/@agugu95/%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC%EC%9D%98-%EA%B7%A0%ED%98%95-RED-BALCKAVL
+- https://nesoy.github.io/articles/2018-08/Algorithm-RedblackTree
