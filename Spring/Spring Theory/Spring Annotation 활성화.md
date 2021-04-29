@@ -13,7 +13,8 @@
 @EnableWebMvc
 @ComponentScan("package-name")
 public class WebConfig { ... }
-https://gmlwjd9405.github.io/2018/12/18/spring-annotation-enable.html
+
+출처 : https://gmlwjd9405.github.io/2018/12/18/spring-annotation-enable.html
 ~~~
 
 ### Configuration with Xml
@@ -22,7 +23,8 @@ https://gmlwjd9405.github.io/2018/12/18/spring-annotation-enable.html
 <mvc:annotation-driven></mvc:annotation-driven> 
 <!-- Component 패키지 지정 -->
 <context:component-scan base-package="package-name"></context:component-scan>
-https://gmlwjd9405.github.io/2018/12/18/spring-annotation-enable.html
+
+출처 : https://gmlwjd9405.github.io/2018/12/18/spring-annotation-enable.html
 ~~~
 
 ## annotation-driven, component-scan, annotation-config 차이
