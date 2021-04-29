@@ -1,6 +1,5 @@
 # Spring Interceptor 개념 및 흐름
 
-
 ## Spring Request Flow
 ![1](https://user-images.githubusercontent.com/44339530/115347493-6c85e480-a1ec-11eb-9099-b4a52d254037.png)
 
