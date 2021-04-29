@@ -1,5 +1,4 @@
 # Spring Annotation 활성화
-#### 출처 블로그: https://gmlwjd9405.github.io/2018/12/18/spring-annotation-enable.html
 
 ## Annotation 기본 개념
 - xml 설정이 너무 길어짐에 따라 그 대안으로 생겨났다.
