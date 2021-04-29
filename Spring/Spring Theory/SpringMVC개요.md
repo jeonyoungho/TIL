@@ -1,5 +1,4 @@
 # Spring MVC 개요
-#### 출처 블로그: https://gmlwjd9405.github.io/2018/12/20/spring-mvc-framework.html
 
 ## Spring MVC란?
 - Spring 프레임워크에서 제공하는 웹 모듈이다.
