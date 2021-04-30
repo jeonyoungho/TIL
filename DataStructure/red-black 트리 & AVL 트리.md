@@ -75,7 +75,7 @@
 - ![18](https://user-images.githubusercontent.com/44339530/115683844-ce338380-a391-11eb-8037-f7c1b7d339b1.png)<br>
 - 먼저 부모 노드 p의 왼쪽 자식 노드를, 자식 노드 c의 오른쪽 자식 노드로 바꾼다.<br>
 - ![19](https://user-images.githubusercontent.com/44339530/115684355-3edaa000-a392-11eb-8909-79d2f9ad3835.png)<br>
-- 자식 노드였떤 c의 오른쪽 자식 노드를 부모 노드 p로 하면 균형이 잡혀지게 된다.<br>
+- 자식 노드였던 c의 오른쪽 자식 노드를 부모 노드 p로 하면 균형이 잡혀지게 된다.<br>
 - ![20](https://user-images.githubusercontent.com/44339530/115684497-5f0a5f00-a392-11eb-9193-377f049f31c3.png)<br>
 
 #### 2) RR 회전
