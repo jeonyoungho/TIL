@@ -31,6 +31,10 @@
 - 1)어플리케이션 전체에 흩어진 공통 기능이 하나의 장소에서 관리됨
 - 2)다른 서비스 모듈들이 본인의 역할에만 충실하고 그외 부가적인 기능들은 신경쓰지 않아도 됨
 
+### AOP의 구현체
+<img width="198" alt="스크린샷 2021-05-03 오후 7 36 55" src="https://user-images.githubusercontent.com/44339530/116866786-f307e080-ac46-11eb-838a-9d92731aefc1.png"><br>
+- 다양한 언어로 구현이 되어있는데 Java는 AspectJ를 사용함
+
 ## AOP 용어
 ### Target
 - <b>부가기능을 부여할 대상</b>
@@ -168,13 +172,40 @@ public class UserHistory {
 - 즉, AOP에서 프록시는 호출을 가로챈 후, Advice에 등록된 기능을 수행 후 타겟 메소드를 호출한다.<br>
 ![3](https://user-images.githubusercontent.com/44339530/116859148-7d961300-ac3a-11eb-8e2b-c9a70b0ad369.png)<br>
 
+- Spring AOP Proxy는 CGLIB Proxy, JDK Dynamic Proxy를 사용
+    - 과거에는 기본적으로 인터페이스가 있고, 그의 구현체가 있는 클래스의 경우 JDK dynamic Proxy를 사용하고 인터페이스가 없는 경우 CGLIB Proxy를 사용
+    - Spring Boot에서는 디폴트로 CGLib Proxy를 생성(성능도 더 좋고 예외도 더 적음)
+    - JDk Dynamic Proxy는 Java Reflection을 이용해 조금 속도가 느리다고 함. JDK Dynamic Proxy를 강제로 사용하려면 아래와 같은 설정을 추가하면 됨.
+    ~~~
+    @EnableAspectjAutoProxt(proxyTargetClass = false)
+    @Configuration
+    public class ProxyConfig {
+
+    }
+    ~~~
+    - 예외적으로 spring-data-jap에서는 JDK Dynamic Proxy를 사용해 Repository를 생성
+
 ### Introduction(인트로덕션)
 - Target 클래스에 코드 변경없이 신규 메소드나 멤버변수를 추가하는 기능
 
 ### Weaving(위빙)
+- <b>공통코드(Advice)를 핵심로직코드에 삽입하는것</b>
 - 지정된 객체에 Aspect를 적용하여 새로운 프록시 객체를 생성하는 과정
 - 예를 들어, A라는 객체에 트랜잭션 Aspect가 지정되어 있다면, A라는 객체가 실행되기전 커넥션을 오픈하고 실행이 끝나면 커넥션을 종료하는 기능이 추가된 프록시 객체가 생성되고, 이 프록시 객체가 앞으로 A객체가 호출되는 시점에 사용된다. <b>이때의 프록시 객체가 생성되는 과정을 위빙이라 생각하면 된다.</b>
 - 컴파일 타임, 클래스로드 타임, 런타임과 같은 시점에서 실행되지만, <b>Spring AOP는 런타임에서 프록시 객체가 생성 됩니다.</b>
+
+#### Weaving 방식(시점)
+- 1)Compile-Time Weaving
+    - .java파일을 .class파일로 컴파일시 AOP를 적용시키는 방식
+    - JAR를 이용하여 Weaving을 하는 경우, Post-Compile Weaving(Binary Weaving)을 사용하며, 일반 소스 코드의 경우, 일반 Compile-Time Weaving을 사용한다.
+- 2)Load-Time Weaving
+    - 실제 컴파일된 클래스를 클래스 로더가 JVM에 적재시킬 때 AOP를 적용시키는 방식
+    - 다른 Weaving보다 속도 측면에서는 느리다.
+- 3)<b>Run-Time Weaving(프록시 패턴)</b>
+    - Spring AOP에서 사용하는 방식
+    - 특정 기능을 프록시로 감싸서 수행하는 패턴
+    - 어떤 클래스가 Spring AOP의 대상이라면 그 기존 클래스의 Bean이 생성될때 Spring AOP가 프록시(기능이 추가된 클래스)를 자동으로 만들고 원본 클래스 대신 프록시를 Bean으로 등록한다. 그리고 원본 클래스가 사용되는 지점에 프록시를 대신 사용한다.
+    - 즉, 프록시 Bean 생성하는 것, WAS 가동 후 IoC 컨테이너 초기화 작업할 때
 
 ## 실습
 ### 1. Aspect를 선언
@@ -242,11 +273,21 @@ public class Application implements CommandLineRunner{
     - 포인트컷 표현식은 2가지로 나눠짐
         - 1)포인트컷 지정자: execution
         - 2)타겟 명세: (* com.blogcode.board.BoardService.getBoards(..))
+- <b>자기가 자신의 메서드를 실행할 때는 AOP가 적용되지 않음!</b>
 
 ## AOP의 활용 방법
 - 1)트랜잭션
 - 2)캐시 추상화
 - 3)Dao에서 Service를, Service에서 Controller를 호출하지 못하도록 막을때(계층형 구조에서 하위계층이 상위 계층을 호출하는 것은 금지하므로)
+
+## Spring AOP vs AspectJ
+||Spring AOP|Aspect J|
+|-----|------|------|
+|목표|간단한 AOP 기능 제공|완벽한 AOP기능 제공|
+|join point|메서드 레벨만 지원|생성자, 필드, 메서드 등 다양하게 지원|
+|weaving|런타임 시에만 가능|런타임은 제공하지 않음. compile-time, post-compile, load-time 제공|
+|대상|Spring Container가 관리하는 Bean에만 가능|모든 Java Object에 가능|
+
 
 #### 출처
 - https://jojoldu.tistory.com/71?category=635883
@@ -254,3 +295,4 @@ public class Application implements CommandLineRunner{
 - https://dailyheumsi.tistory.com/202
 - https://atoz-develop.tistory.com/entry/Spring-%EC%8A%A4%ED%94%84%EB%A7%81-AOP-%EA%B0%9C%EB%85%90-%EC%9D%B4%ED%95%B4-%EB%B0%8F-%EC%A0%81%EC%9A%A9-%EB%B0%A9%EB%B2%95
 - https://doublesprogramming.tistory.com/115
+- https://tram-devlog.tistory.com/entry/Spring-AOP-weaving-proxy
