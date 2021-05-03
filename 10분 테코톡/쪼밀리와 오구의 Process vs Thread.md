@@ -44,8 +44,67 @@
 - Code: 프로그램의 코드
     
 ### 멀티 프로세스의 문제점
-- ㅁㅁ
+<img width="871" alt="1" src="https://user-images.githubusercontent.com/44339530/116839330-f54d4900-ac0c-11eb-96a1-e94392a13e0d.png"><br>
+
+#### 단점1) 각 프로세스가 각각의 메모리 영역을 따로 가지고 있기에 비효율이 발생함
+- 작업 중인 프로세스를 교체할 때 독자적인 메모리 영역을 core로 교체해야하는 비효율이 발생<br>
+ 
+ <img width="448" alt="스크린샷 2021-05-03 오후 12 43 32" src="https://user-images.githubusercontent.com/44339530/116839375-2d548c00-ac0d-11eb-960e-ad62ce3a6a93.png"><br>
+<img width="453" alt="스크린샷 2021-05-03 오후 12 46 16" src="https://user-images.githubusercontent.com/44339530/116839491-91775000-ac0d-11eb-9ff9-e6d924a7429c.png"><br>
+
+#### 단점2) 다른 프로세스의 정보를 이용하기 위해서 통신이 필요함
+- 각각의 메모리의 영역을 따로 가지고 있기 때문<br>
+
+<img width="467" alt="스크린샷 2021-05-03 오후 12 48 22" src="https://user-images.githubusercontent.com/44339530/116839576-da2f0900-ac0d-11eb-94c1-e5543eece657.png"><br>
+
+### 스레드 
+<img width="222" alt="스크린샷 2021-05-03 오후 12 49 46" src="https://user-images.githubusercontent.com/44339530/116839627-0c406b00-ac0e-11eb-9890-d49730b8f16d.png"><br>
+
+- 위의 그림과 같이 멀티스레드로 구성하면 Code Data Heap영역을 공유하게 되어 Context Switching이 발생하지 않게 됨
+
+
+### 멀티 프로세스 vs 멀티 스레드
+#### 멀티 프로세스
+<img width="477" alt="스크린샷 2021-05-03 오후 12 53 23" src="https://user-images.githubusercontent.com/44339530/116839783-8cff6700-ac0e-11eb-9acd-cd5ca220036b.png"><br>
+<img width="455" alt="스크린샷 2021-05-03 오후 12 55 03" src="https://user-images.githubusercontent.com/44339530/116839853-c89a3100-ac0e-11eb-9b34-bf4988938bdd.png"><br>
+
+- 프로세스A가 CPU에 할당되면 Core의 레지스터는 PCB에 대한 정보를 가지게 되고 캐시 및 램 에는 code data heap영역이 할당되게 됨
+- 현 상태에서 프로세스B가 CPU에 할당된다면 기존의 프로세스A의 데이터들이 내려가고 프로세스B의 데이터들이 다시 Core의 레지스터 및 램에 올라가기 때문에 많은 데이터들의 이동이 발생하게 됨
+
+#### 멀티 스레드
+<img width="464" alt="스크린샷 2021-05-03 오후 12 57 34" src="https://user-images.githubusercontent.com/44339530/116839953-229af680-ac0f-11eb-8665-6955b97bce7d.png"><br>
+<img width="468" alt="스크린샷 2021-05-03 오후 12 57 58" src="https://user-images.githubusercontent.com/44339530/116839969-30e91280-ac0f-11eb-8ab0-979b54d7d247.png"><br>
+
+- 프로세스A가 실행되는 도중에 스레드가 교체 될 경우 <b>CPU 및 램에 새롭게 데이터를 적재시킬 필요없이 CPU에 있는 레지스터블록들만 변경되면 됨</b>
+    - <b>즉, 다음 스레드가 실행할 메소드가 어느 부분부터 시작해야 될지에 대한 정보를 가지고 있는 레지스터만 변경되면 되기에 context switching비용이 줄어들게 됨</b><br>
+
+<img width="437" alt="스크린샷 2021-05-03 오후 1 00 30" src="https://user-images.githubusercontent.com/44339530/116840072-8c1b0500-ac0f-11eb-92c7-4a9bb7bb9ff1.png"><br>
+
+### 멀티코어라면?
+#### 멀티코어일때의 멀티스레드 방식
+<img width="459" alt="스크린샷 2021-05-03 오후 1 03 48" src="https://user-images.githubusercontent.com/44339530/116840219-0186d580-ac10-11eb-8542-a3573c3d7190.png"><br>
+
+- <b>core 두개가 L2캐쉬를 통해 code, data, heap영역을 공유하며 각각의 작업을 진행하게 됨</b>
+
+#### 멀티코어일때의 싱글스레드 방식
+<img width="450" alt="스크린샷 2021-05-03 오후 1 04 21" src="https://user-images.githubusercontent.com/44339530/116840245-16636900-ac10-11eb-928d-d30a8129f9f6.png">
+
+- core는 하나만 돌게되어 비효율적이게 됨
+
+### 멀티 스레드 주의점
+- 디버깅이 까다로움
+- 한 프로세스안의 스레드에 문제가 생기면 같은 프로세스안의 스레드도 같이 문제가 생김
+- 같은 데이터를 공유하기에, 데이터 동기화에 신경써야함
+
+### 결론
+- 스레드: 프로세스 내에서 실행되는 작업 흐름의 단위
+- 프로세스
+    - 프로세서에 의해 동작하고 있는 프로그램
+    - 프로세스가 동작 한다는 것은 프로세스의 특정 스레드가 실행 중인데 실행중인 스레드는 프로세스가 가진 데이터를 참조함
+    - 스레드 단위 작업을 지원하기 위한 자원 할당의 단위
+- <b>자원은 Process단위로 받고 CPU의 작업/스케쥴링은 Thread 단위로 진행됨</b>
 
 #### 출처
 - https://heurinbada.tistory.com/27
 - https://www.guru99.com/process-management-pcb.html
+- https://www.neulsang.life/multi%20process%20vs%20multi%20thread/
