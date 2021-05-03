@@ -246,7 +246,7 @@ public class Application implements CommandLineRunner{
 ## AOP의 활용 방법
 - 1)트랜잭션
 - 2)캐시 추상화
-- 3) Dao에서 Service를, Service에서 Controller를 호출하지 못하도록 막을때(계층형 구조에서 하위계층이 상위 계층을 호출하는 것은 금지하므로)
+- 3)Dao에서 Service를, Service에서 Controller를 호출하지 못하도록 막을때(계층형 구조에서 하위계층이 상위 계층을 호출하는 것은 금지하므로)
 
 #### 출처
 - https://jojoldu.tistory.com/71?category=635883
