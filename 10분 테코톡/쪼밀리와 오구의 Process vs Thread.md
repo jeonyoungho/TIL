@@ -44,6 +44,7 @@
 - Code: 프로그램의 코드
     
 ### 멀티 프로세스의 문제점
+- ㅁㅁ
 
 #### 출처
 - https://heurinbada.tistory.com/27
