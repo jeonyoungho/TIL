@@ -1,4 +1,5 @@
 # 던의 JVM의 Garbage Collector
+- https://www.youtube.com/watch?v=vZRmCbl871I&list=PLgXGHBqgT2TvpJ_p9L_yZKPifgdBOzdVH&index=71
 
  ### JVM(Java Virtual Machine)
  - 운영체제의 메모리 영역에 접근하여 메모리를 관리하는 프로그램
@@ -7,7 +8,7 @@
     - GC수행
 
 ### Garbage Collector
-- 동적으로 할당된 메모리 영역 중 하용하지 않은 영역을 탐지하여 해제하는 기능
+- 동적으로 할당된 메모리 영역 중 사용하지 않은 영역을 탐지하여 해제하는 기능
 
 ### Stack & Heap
 - Stack: 정적으로 할당한 메모리 영역
@@ -65,7 +66,7 @@
 <img width="451" alt="스크린샷 2021-05-04 오후 6 23 21" src="https://user-images.githubusercontent.com/44339530/116984075-d088cc80-ad05-11eb-8ece-e5aadfbbccf8.png">
 
 - 그 다음 Eden영역에 GC가 발생했을 때는 두 개의 Survival영역 중 이미 객체가 차있는 영역(Survival1)에 쌓이게 된다.
-- 만약 Survival1영역이 꽉 reachable object로 꽉차면 Minor GC가 발생하고 Survival0영역으로 Age값이 증가하여 옮겨진다.
+- 만약 Survival1영역이 꽉 꽉차면 Minor GC가 발생하고 Survival0영역으로 Age값이 증가하여 옮겨진다.
 - 위의 과정들을 반복하며 결론적으로 두 개의 Survival영역 중 하나는 무조건 비어있게 된다.<br>
 <img width="451" alt="스크린샷 2021-05-04 오후 6 28 18" src="https://user-images.githubusercontent.com/44339530/116984708-818f6700-ad06-11eb-8680-48db6ca613ee.png">
 
@@ -103,7 +104,7 @@
 
 - CMS GC의 경우 stop-the-world를 더 줄일 수 있으므로 속도가 중요한 애플리케이션에 주요 적용된다.
     - 1)Initial Mark: Stack의 모든 변수를 스캔하면서 살아있는 객체들을 마킹한다.
-    - 2)Concurrent Mark: 다른 애플리케이션 스레드와 동시에 수행되면서 Inital Mark단계에서 참조된 객체가 참조하는 개체들을 객체 그래프를 순회하면서 계속해서 마킹한다.
+    - 2)Concurrent Mark: 다른 애플리케이션 스레드와 동시에 수행되면서 Inital Mark단계에서 살아있는 객체가 참조하는 개체들을 객체 그래프를 순회하면서 계속해서 마킹한다.
     - 3)Remark: Concurrent Mark단계에서 작업 스레드와 동시에 수행되므로 새롭게 생성된 객체들이 있을 것이다. 그러기에 stop-the-world를 수행 후 다시 한 번 마킹하여 재검토한다.
     - 4)Concurrent Sweep: 다른 애플리케이션 스레드와 동시에 수행되며 마킹되지 않은 객체들을 제거한다.
 
