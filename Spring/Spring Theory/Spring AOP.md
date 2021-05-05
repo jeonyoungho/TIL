@@ -80,7 +80,8 @@
     - ex)args(java.io.Serializable): 하나의 파라미터를 갖고, 그 인자가 Serializable타입인 모든 메소드
 - 4)@args
     - 메소드의 인자가 타겟 명세에 포함된 어노테이션 타입을 갖는 경우
-    - @args(com.blogcode.session.User): 하나의 파라미터를 갖고, 그 인자의 타입이 @User 어노테이션을 갖는 모든 메소드(@User User user같이 인자 선언된 메소드)
+    - @args(com.blogcode.session.User): 하나의 파라미터를 갖고, 그 인자의 타입이 @User 어노테이션을 갖는 모든 메소드
+        - @User User user같이 인자 선언된 메소드
 
 - 5)this()
     - 타겟 메소드가 지정된 빈 타입의 인스턴스인 경우
@@ -175,7 +176,7 @@ public class UserHistory {
 - Spring AOP Proxy는 CGLIB Proxy, JDK Dynamic Proxy를 사용
     - 과거에는 기본적으로 인터페이스가 있고, 그의 구현체가 있는 클래스의 경우 JDK dynamic Proxy를 사용하고 인터페이스가 없는 경우 CGLIB Proxy를 사용
     - Spring Boot에서는 디폴트로 CGLib Proxy를 생성(성능도 더 좋고 예외도 더 적음)
-    - JDk Dynamic Proxy는 Java Reflection을 이용해 조금 속도가 느리다고 함. JDK Dynamic Proxy를 강제로 사용하려면 아래와 같은 설정을 추가하면 됨.
+    - JDK Dynamic Proxy는 Java Reflection을 이용해 조금 속도가 느리다고 함. JDK Dynamic Proxy를 강제로 사용하려면 아래와 같은 설정을 추가하면 됨.
     ~~~
     @EnableAspectjAutoProxt(proxyTargetClass = false)
     @Configuration
@@ -183,7 +184,7 @@ public class UserHistory {
 
     }
     ~~~
-    - 예외적으로 spring-data-jap에서는 JDK Dynamic Proxy를 사용해 Repository를 생성
+    - 예외적으로 spring-data-jpa에서는 JDK Dynamic Proxy를 사용해 Repository를 생성
 
 ### Introduction(인트로덕션)
 - Target 클래스에 코드 변경없이 신규 메소드나 멤버변수를 추가하는 기능
@@ -277,8 +278,11 @@ public class Application implements CommandLineRunner{
 
 ## AOP의 활용 방법
 - 1)트랜잭션
-- 2)캐시 추상화
-- 3)Dao에서 Service를, Service에서 Controller를 호출하지 못하도록 막을때(계층형 구조에서 하위계층이 상위 계층을 호출하는 것은 금지하므로)
+- 2)로깅
+- 3)인증, 인가(권한 체크)
+- 4)캐시 추상화
+- 5)메소드의 실행시간 측정
+- 6)Dao에서 Service를, Service에서 Controller를 호출하지 못하도록 막을때(계층형 구조에서 하위계층이 상위 계층을 호출하는 것은 금지하므로)
 
 ## Spring AOP vs AspectJ
 ||Spring AOP|Aspect J|
