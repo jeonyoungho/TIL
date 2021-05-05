@@ -31,6 +31,7 @@
 ### Context Switching(문맥 교환)
 <img width="536" alt="스크린샷 2021-05-01 오후 5 41 07" src="https://user-images.githubusercontent.com/44339530/116776637-69b8a880-aaa4-11eb-9569-081f3fa771b7.png"><br>
 
+- <b>하나의 프로세스가 CPU를 사용 중인 상태에서 다른 프로세스가 CPU를 사용하도록 하기 위해, 이전의 프로세스의 상태(문맥)를 보관하고 새로운 프로세스의 상태를 적재하는 작업(위키백과)</b>
 - Task1, Task2 두 가지 프로세스가 진행 중이라고 가정해보자.
     - Task1에서 어디까지 진행됐는지 Task2를 어디서 부터 시작해야 될지에 대해 알아내야함
     - Task1과 Task2과 교체되는 시점마다 PCB를 교체하는 과정이 일어남. 이를 Context Swithching라 한다.
@@ -47,7 +48,7 @@
 <img width="871" alt="1" src="https://user-images.githubusercontent.com/44339530/116839330-f54d4900-ac0c-11eb-96a1-e94392a13e0d.png"><br>
 
 #### 단점1) 각 프로세스가 각각의 메모리 영역을 따로 가지고 있기에 비효율이 발생함
-- 작업 중인 프로세스를 교체할 때 독자적인 메모리 영역을 core로 교체해야하는 비효율이 발생<br>
+- 작업 중인 프로세스를 교체할 때 독자적인 메모리 영역을 core로 교체해야하기에 context swithching에 있어 많은 부담이 발생<br>
  
  <img width="448" alt="스크린샷 2021-05-03 오후 12 43 32" src="https://user-images.githubusercontent.com/44339530/116839375-2d548c00-ac0d-11eb-960e-ad62ce3a6a93.png"><br>
 <img width="453" alt="스크린샷 2021-05-03 오후 12 46 16" src="https://user-images.githubusercontent.com/44339530/116839491-91775000-ac0d-11eb-9ff9-e6d924a7429c.png"><br>
@@ -60,8 +61,7 @@
 ### 스레드 
 <img width="222" alt="스크린샷 2021-05-03 오후 12 49 46" src="https://user-images.githubusercontent.com/44339530/116839627-0c406b00-ac0e-11eb-9890-d49730b8f16d.png"><br>
 
-- 위의 그림과 같이 멀티스레드로 구성하면 Code Data Heap영역을 공유하게 되어 Context Switching이 발생하지 않게 됨
-
+- 위의 그림과 같이 멀티스레드로 구성하면 Code Data Heap영역을 공유하게 되어 Context Switching시 비교적 부담이 덜함
 
 ### 멀티 프로세스 vs 멀티 스레드
 #### 멀티 프로세스
@@ -93,8 +93,8 @@
 
 ### 멀티 스레드 주의점
 - 디버깅이 까다로움
-- 한 프로세스안의 스레드에 문제가 생기면 같은 프로세스안의 스레드도 같이 문제가 생김
-- 같은 데이터를 공유하기에, 데이터 동기화에 신경써야함
+- 한 프로세스안의 스레드에 문제가 생기면 같은 프로세스안의 다른 스레드에도 같이 문제가 생길 우려가 있음
+- 같은 데이터(Code Data Heap영역)를 공유하기에, 데이터 동기화에 신경써야함
 
 ### 결론
 - 스레드: 프로세스 내에서 실행되는 작업 흐름의 단위
