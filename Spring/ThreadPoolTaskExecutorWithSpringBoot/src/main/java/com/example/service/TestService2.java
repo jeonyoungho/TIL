@@ -2,36 +2,21 @@ package com.example.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TestService1 {
+public class TestService2 {
 
-    @Autowired
-    @Qualifier("executor")
-    private ThreadPoolTaskExecutor executor;
-
+    @Async("executor")
     public void executeThreads() {
-        System.out.println("executing threads");
-
-        for(int i=0;i<10;i++) {
-            executor.execute(new Job());
+        try {
+            Thread.sleep(3000);
+            System.out.println("[TestService2]" + Thread.currentThread().getName());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
-    }
-
-    class Job implements Runnable {
-
-        @Override
-        public void run() {
-            try {
-                Thread.sleep(3000);
-                System.out.println(Thread.currentThread().getName());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-        }
     }
 }

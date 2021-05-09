@@ -6,14 +6,14 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TestService {
+public class TestService1 {
 
     @Autowired
     @Qualifier("executor")
     private ThreadPoolTaskExecutor executor;
 
     public void executeThreads() {
-        System.out.println("executing threads");
+        System.out.println("Executing threads with Autowired!");
 
         for(int i=0;i<10;i++) {
             executor.execute(new Job());
@@ -27,7 +27,7 @@ public class TestService {
         public void run() {
             try {
                 Thread.sleep(3000);
-                System.out.println(Thread.currentThread().getName());
+                System.out.println("[TestService1]" + Thread.currentThread().getName());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
