@@ -2,7 +2,7 @@
 
 ### @Bean 어노테이션
 - 개발자가 컨트롤이 불가능한 외부 라이브러리들을 Bean으로 등록하고 싶은 경우에 사용
-- 예를 들어, RestTemplate 등등
+- 예를 들어, RestTemplate 등
 
 ### @Component 어노테이션
 - 직접 컨트롤이 가능한 Class들을 Bean으로 등록하고 싶은 경우에 사용
