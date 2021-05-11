@@ -8,7 +8,7 @@
 - 카프카는 이런 복잡함을 해결하기 위해 링크드인에서 내부적으로 개발하였고 현재는 오픈 소스로 제공<br>
 - Source Application과 TargetAppliction의 커플링을 약하게 해줌
 - Source Application은 카프카에 데이터를 전송하면 되고 Target Application은 데이터를 가져오기만 하면 됨<br>
-- 방대한 양의 클릭로그, 결제로그를 데이터를 안전하게 처리
+- 방대한 양의 클릭로그, 결제로그와 같은 데이터들을 안전하게 처리
 - json, tsv, avo등 여러 데이터 포맷을 지원함<br>
 - Kafka Producer는 데이터를 집어넣는 역할, 즉 Source Application이 되며 Kafka Consumer는 데이터를 빼서 쓰는 역할을 함<br>
 - Producer, Consumer는 라이브러리로 구현되어 다양한 언어로 지원<br>
@@ -35,7 +35,7 @@
 
 ### Producer
 - 데이터를 카프카에 보내는 역할<br>
-- 엄청난 양의 데이터를 대량으로 그리고 실시간으로 카프카에 적재할 수 있음<br>
+- 대량의 데이터를 실시간으로 카프카에 적재할 수 있음<br>
 - 프로듀서의 역할<br>
   - Topic에 해당하는 메시지를 생성<Br>
   - 특정 Topic으로 데이터를 publish<br>
@@ -70,7 +70,7 @@ producer.send(new ProducerData<String, String>("TopicName", "KeyName", "Value"))
 - <img width="878" alt="스크린샷 2020-11-30 오후 10 46 20" src="https://user-images.githubusercontent.com/44339530/100617449-deed4980-335d-11eb-8f2a-530cc65a0fd6.png"><br>
   - <b>replication</b>은 파티션의 복제를 뜻함<br>
   - 클러스터에서 서버에 장애가 생겼을 때 가용성을 보장<br>
-  - 카프카 아키텍쳐의 핵심<br>
+  - <b>카프카 아키텍쳐의 핵심</b><br>
     - 만약 repliaction이 1이라면 파티션이 1개만 존재<br>
     - 만약 repliaction이 2이라면 원본 파티션1개, 복제본 파티션1개 존재<br>
     - 만약 repliaction이 3이라면 원본 파티션1개, 복제본 파티션2개 존재<br>
@@ -93,7 +93,7 @@ producer.send(new ProducerData<String, String>("TopicName", "KeyName", "Value"))
     - 3개 이상의 브로커를 사용할 때 replication은 3으로 설정하는 것을 권장<br>
 
 ### Consumer
-- 다른 메시징 시스템과 다르게 메시지를 가져가더라도 데이터가 사라지지 않음<br>
+- <b>다른 메시징 시스템과 다르게 메시지를 가져가더라도 데이터가 사라지지 않음</b><br>
 - 이와 같은 특징은 카프카, 그리고 카프카 컨슈머를 데이터 파이프라인으로 운영하는데 핵심적인 역할을 함<br>
 - Consumer의 역할
   - Topic의 partion으로 부터 데이터를 가져옴(polling)<br>

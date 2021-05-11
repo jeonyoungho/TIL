@@ -97,6 +97,6 @@ tar xvf kafka_2.11-2.1.0.tgz
 ./kafka-console-consumer --bootstrap-server test-broker01:9092 --topic test --from-beginning
 ~~~
 
-### 출처 및 참고
-https://bluexmas.tistory.com/731
-https://blog.voidmainvoid.net/325
+#### 출처 및 참고
+- https://bluexmas.tistory.com/731
+- https://blog.voidmainvoid.net/325

@@ -12,8 +12,8 @@
     - 그 중 높은 숫자의 Lag을 records-lag-max라고 부름<br>
     - 컨슈머가 성능이 안나오거나 비정상동작을 하게 되면 lag이 필연적으로 발생하기 때문에 주의 깊게 살펴볼 필요가 있음<br>
 - lag은 두 가지만 알고 넘어가면 됨<br>
-    - lag은 프로듀서의 오프셋과 컨슈머의 오프셋간의 차이이다<br>
-    - lag은 여러 개가 존재 할 수 있다<br>
+    - <b>lag은 프로듀서의 오프셋과 컨슈머의 오프셋간의 차이이다</b><br>
+    - <b>lag은 여러 개가 존재 할 수 있다</b><br>
 
 ### Lag을 모니터링하기 위해 오픈소스인 Burrow를 사용해야 하는 이유
 - Kafka-client 디펜던시 추가 후 KafkaConsumer객체를 통해 현재Lag정보를 가져 올 수 있음<br>
@@ -40,7 +40,8 @@
     - 3) HTTP api 제공<br>
         - 위와 같은 정보들은 HTTP api를 통해 조회 가능<br>
         - response받은 데이터를 시계열DB와 같은 곳에 저장하는 application을 구축해서 활용할수도 있음<br>
-### 출처
-https://www.youtube.com/watch?v=b3i6D4eeBGw&list=PL3Re5Ri5rZmkY46j6WcJXQYRlDRZSUQ1j&index=9
+#### 출처
+- https://www.youtube.com/watch?v=b3i6D4eeBGw&
+- list=PL3Re5Ri5rZmkY46j6WcJXQYRlDRZSUQ1j&index=9
 
 
