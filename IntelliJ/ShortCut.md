@@ -1,5 +1,16 @@
 # ShortCut(유용한 단축키)
 
+### 오류 수정 관련 단축키
+- Alt + Enter: 현재 컨텍스트에 대한 액션을 표시하여 뭐든지 수정하는 데 사용
+
+
+### 찾기 관련 단축키
+- Shift + Shift: 전체 검색(file, action 모두 검색)
+- Command + Shift + a: action 검색(설정, Refactor 등)
+- Command + Shift + o: 파일 찾기
+- Command + o: 최근 열었떤 파일 리스트 보기
+- Command + [/ command+]: 이전/다음 포커스로 이동
+
 ### 코드 수정 관련 단축키
 - 라인 복사하기: Command + D
 - 라인 삭제하기: Command + Delete
@@ -9,14 +20,10 @@
     - Command + Shift + 방향키 위/아래(메소드 또는 구문 내에서만 이동 가능)
 - Element 단위로 옮기기(Html Tag의 속성 값 순서 변경): Command + Alt +Shift + 방향키 좌우
 
-### 찾기 관련 단축키
-- shift + shift: 전체 검색(file, action 모두 검색)
-- command + shift + a: action 검색(설정, Refactor 등)
-- command + shift + o: 파일 찾기
-- command + o: 최근 열었떤 파일 리스트 보기
-- command + [/ command+]: 이전/다음 포커스로 이동 
-
 ### 디버깅 관련 단축키
+- 디버그 모드로 실행하기
+    - 현재 포커스가 있는 곳을 디버그 실행 : Ctrl + Shift + D
+    - 상단 탭이 가리키는 곳을 디버그 실행 : Ctrl + D
 - Resume (다음 브레이크 포인트로 이동) : Command + Option + R
     - 디버그 화면에서 왼쪽 창은 현재 브레이크 포인트까지 오기까지 거친 메소드 목록, 즉 콜스택
 - Step Over (다음 줄로 이동) : F8
@@ -28,3 +35,5 @@
 
 #### 출처
 - https://jojoldu.tistory.com/149
+- https://blog.jetbrains.com/ko/2020/03/11/top-15-intellij-idea-shortcuts_ko/
+- https://lalwr.blogspot.com/2018/04/intellij.html
