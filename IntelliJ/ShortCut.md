@@ -2,19 +2,19 @@
 
 ### 오류 수정 관련 단축키
 - Alt + Enter: 현재 컨텍스트에 대한 액션을 표시하여 뭐든지 수정하는 데 사용
-
+- Command + N: 변수나 클래스위에 커서가 있을 경우 생성자, getter, setter와 같은 것들을 자동으로 만들어줌
 
 ### 찾기 관련 단축키
 - Shift + Shift: 전체 검색(file, action 모두 검색)
-- Command + Shift + a: action 검색(설정, Refactor 등)
-- Command + Shift + o: 파일 찾기
-- Command + o: 최근 열었떤 파일 리스트 보기
+- Command + Shift + A: action 검색(설정, Refactor 등)
+- Command + Shift + O: 파일 찾기
+- Command + O: 최근 열었떤 파일 리스트 보기
 - Command + [/ command+]: 이전/다음 포커스로 이동
 
 ### 코드 수정 관련 단축키
 - 라인 복사하기: Command + D
 - 라인 삭제하기: Command + Delete
-- 라인 합치기: Ctrl + Shift + j
+- 라인 합치기: Ctrl + Shift + J
 - 라인 옮기기
     - Shift + Alt + 방향키 위/아래(문법에 관계 없이 어디든지 이동 가능)
     - Command + Shift + 방향키 위/아래(메소드 또는 구문 내에서만 이동 가능)
