@@ -67,5 +67,8 @@
 - 부분(part)-전체(whole)의 관계를 가지는 객체들을 정의할 때 유용한 패턴(클라이언트는 전체와 부분을 구분하지 않고 동일한 인터페이스를 사용할 수가 있음)
 - ex) 컴퓨터 부품 추가 프로그램
 
+### [Chapter15-Builder패턴](https://github.com/jeonyoungho/TIL/tree/master/Java/DesignPattern/Chapter15-Builder%ED%8C%A8%ED%84%B4)
+- 객체의 생성과 표현을 분리하기 위한 패턴
+
 ### [설계 패턴 실습 코드](https://github.com/jeonyoungho/TIL/tree/master/Java/DesignPattern/Lecture)
 
