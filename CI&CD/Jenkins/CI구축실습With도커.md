@@ -32,7 +32,11 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 - 출력된 패스워드를 입력하면 젠킨스 설치페이지로 이동하게 된다. 여기서 <b>install suggested plugins</b>를 선택하면 많이 사용되는 플러그인들이 포함되어 자동설치되니 <b>install suggested plugins</b>를 설치한다. 다만 오류가 발생하기에 Retry로 계속 설치해줘야 하기에 시간이 다소 소요된다.<br>
 ![2](https://user-images.githubusercontent.com/44339530/120138203-fe800480-c210-11eb-99aa-82c0dc9eca36.png)<br>
 
-- 설치가 끝나면 관리자 계정을 생성 후 접속한다.
+- 설치가 끝나면 관리자 계정을 생성한다.<br>
+<img width="624" alt="스크린샷 2021-05-31 오후 1 18 58" src="https://user-images.githubusercontent.com/44339530/120139120-c2e63a00-c212-11eb-9466-5270706d49d5.png"><br>
+
+- 생성한 관리자 계정으로 접속하면 다음과 같은 초기 페이지가 보인다.<br>
+<img width="891" alt="스크린샷 2021-05-31 오후 1 18 46" src="https://user-images.githubusercontent.com/44339530/120139107-bc57c280-c212-11eb-8cbb-7e32148727fe.png"><br>
 
 #### 출처
 - https://jojoldu.tistory.com/139
