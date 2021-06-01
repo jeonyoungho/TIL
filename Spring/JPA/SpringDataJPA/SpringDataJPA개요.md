@@ -3,7 +3,7 @@
 ## Spring Data JPA란?
 - JPA를 사용해서 관계형 DB와 쉽게 연동하기 위한 Spring에서 제공하는 Spring ORM Module중 하나
 - Spring에서 CRUD 구현체를 제공
-    - 이를 통해 biler-pate DAO코드를 최소화
+    - 이를 통해 boiler-pate DAO코드를 최소화
     - entity type과 primary key의 정보만 넣어주면 자동으로 dao클래스를 생성해줌<br>
     - ![image](https://user-images.githubusercontent.com/44339530/113396805-1422aa80-93d7-11eb-90bf-2f4b5c5d9afb.png)<br>
     - <b>CrudRepository 클래스를 상속받아 추가적인 메소드만 구현해주면 된다.</b>
