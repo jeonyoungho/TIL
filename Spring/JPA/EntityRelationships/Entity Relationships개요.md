@@ -29,7 +29,7 @@
 - @OneToOne은 참조하는게 하나 밖에 없으므로 조기에 읽어들이는게 디폴트
 - @OneToMany는 참조하는게 여러개이므로 나중에 읽어들이는게 디폴트
 - @ManyToOne는 참조하는게 하나 밖에 없으므로 조기에 읽어들이는게 디폴트
-- @ManyToOne는 참조하는게 여러개이므로 나중에 읽어들이는게 디폴트
+- @ManyToMany는 참조하는게 여러개이므로 나중에 읽어들이는게 디폴트
 
 - 예시<br>
 ![image](https://user-images.githubusercontent.com/44339530/113244808-b156e380-92f0-11eb-8d76-25cd8072f487.png)<br>
