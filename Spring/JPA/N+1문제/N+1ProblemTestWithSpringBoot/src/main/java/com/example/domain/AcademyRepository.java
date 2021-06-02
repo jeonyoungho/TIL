@@ -1,2 +1,7 @@
-package com.example.domain;public interface AcademyRepository {
+package com.example.domain;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AcademyRepository extends JpaRepository<Academy, Long> {
+
 }

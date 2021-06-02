@@ -1,2 +1,6 @@
-package com.example.domain;public interface SubjectRepository {
+package com.example.domain;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SubjectRepository extends JpaRepository<Subject, Long> {
 }

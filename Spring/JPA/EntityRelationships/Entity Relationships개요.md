@@ -270,3 +270,6 @@ session.save(book3);
 tx.commit();
 session.close();
 ~~~
+
+#### 참고
+- https://ict-nroo.tistory.com/122
