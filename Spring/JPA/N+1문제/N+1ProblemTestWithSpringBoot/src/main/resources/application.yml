@@ -11,6 +11,8 @@ spring:
       password: sapw
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: create
 
 management:
   endpoints:

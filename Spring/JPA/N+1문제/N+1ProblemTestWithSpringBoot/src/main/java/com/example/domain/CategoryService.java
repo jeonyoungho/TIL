@@ -12,5 +12,15 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Transactional(readOnly = true)
+    public List<Category> findAll() {
+        List<Category> list = categoryRepository.findAll();
+        System.out.println(list.size() +" <-");
+        for(Category category:list) {
+            System.out.println(category.getName());
+        }
 
+        System.out.println("hello");
+        return list;
+    }
 }

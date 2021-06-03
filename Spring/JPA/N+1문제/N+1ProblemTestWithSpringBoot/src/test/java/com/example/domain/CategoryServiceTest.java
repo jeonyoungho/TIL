@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Set;
@@ -20,6 +21,9 @@ class CategoryServiceTest {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private CategoryService categoryService;
 
     @BeforeEach
     void setUp() {
@@ -64,9 +68,10 @@ class CategoryServiceTest {
         categoryRepository.deleteAll();
     }
 
+    @Transactional
     @Test
     public void testSelectCategories() {
-        List<Category> categories = categoryRepository.findAll();
+        List<Category> categories = categoryService.findAll();
 
         for(Category category:categories) {
             Set<Product> products = category.getProducts();
