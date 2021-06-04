@@ -24,15 +24,26 @@ public class AcademyService {
         return extractSubjectNames(academies);
     }
 
+    @Transactional
+    public List<Academy> findAll() {
+        List<Academy> academies = academyRepository.findAll();
+        return academies;
+    }
+
     private List<String> extractSubjectNames(List<Academy> academies) {
 
-        log.info(">>>>>>>>>>>> [모든 괌고을 추출한다] <<<<<<<");
+        log.info(">>>>>>>>>>>> [모든 과목을 추출한다] <<<<<<<");
         log.info("Academy Size: {}", academies.size());
 
         List<String> subjectNames = new ArrayList<>();
         for(Academy academy:academies) {
             String subjectName = academy.getSubjects().get(0).getName();
             subjectNames.add(subjectName);
+        }
+
+        for(Academy academy:academies) {
+            String subjectName = academy.getSubjects().get(0).getName();
+            System.out.println(subjectName);
         }
 
         return subjectNames;

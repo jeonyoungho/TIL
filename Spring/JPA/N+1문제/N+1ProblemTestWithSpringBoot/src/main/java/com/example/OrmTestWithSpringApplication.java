@@ -29,7 +29,7 @@ public class OrmTestWithSpringApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Initialize Category and Product
         Category category1 = Category.builder()
-                .name("computer")
+                .name("Computer")
                 .build();
         Product product1 = Product.builder()
                 .name("Desktop")

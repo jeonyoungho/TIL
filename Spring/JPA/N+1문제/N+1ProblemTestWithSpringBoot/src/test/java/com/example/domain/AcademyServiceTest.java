@@ -23,7 +23,7 @@ class AcademyServiceTest {
     @Autowired
     private AcademyService academyService;
 
-    @BeforeEach
+//    @BeforeEach
     void setUp() {
         List<Academy> academies = new ArrayList<>();
 

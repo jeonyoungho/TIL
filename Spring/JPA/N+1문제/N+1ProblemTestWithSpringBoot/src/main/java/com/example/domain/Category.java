@@ -31,7 +31,6 @@ public class Category {
 
     private String name;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Product> products = new HashSet<Product>();
 }

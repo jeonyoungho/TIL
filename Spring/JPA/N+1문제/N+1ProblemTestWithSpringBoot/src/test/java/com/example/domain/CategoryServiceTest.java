@@ -25,10 +25,10 @@ class CategoryServiceTest {
     @Autowired
     private CategoryService categoryService;
 
-    @BeforeEach
+//    @BeforeEach
     void setUp() {
         Category category1 = Category.builder()
-                .name("computer")
+                .name("Computer")
                 .build();
         Product product1 = Product.builder()
                 .name("Desktop")
@@ -72,7 +72,7 @@ class CategoryServiceTest {
     @Test
     public void testSelectCategories() {
         List<Category> categories = categoryService.findAll();
-
+        System.out.println("=================================");
         for(Category category:categories) {
             Set<Product> products = category.getProducts();
             for(Product product:products) {
