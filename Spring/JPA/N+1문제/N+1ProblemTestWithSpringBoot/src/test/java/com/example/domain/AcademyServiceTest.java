@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ class AcademyServiceTest {
     @Autowired
     private AcademyService academyService;
 
-//    @BeforeEach
+    @BeforeEach
     void setUp() {
         List<Academy> academies = new ArrayList<>();
 
@@ -51,5 +52,16 @@ class AcademyServiceTest {
 
         //then
         assertThat(subjectNames.size(), is(10));
+    }
+
+    @Test
+    public void Academy여러개를_joinFetch로_가져온다() throws Exception {
+        //given
+        List<Academy> academies = academyRepository.findAllJoinFetch();
+        List<String> subjectNames = academyService.findAllSubjectNamesByJoinFetch();
+
+        //then
+        assertThat(academies.size(), is(20)); // 20개가 조회!?
+        assertThat(subjectNames.size(), is(20)); // 20개가 조회!?
     }
 }

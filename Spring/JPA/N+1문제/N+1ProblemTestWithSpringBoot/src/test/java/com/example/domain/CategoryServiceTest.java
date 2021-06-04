@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ class CategoryServiceTest {
     @Autowired
     private CategoryService categoryService;
 
-//    @BeforeEach
+    @BeforeEach
     void setUp() {
         Category category1 = Category.builder()
                 .name("Computer")
@@ -63,7 +64,7 @@ class CategoryServiceTest {
         categoryRepository.save(category2);
     }
 
-    @AfterEach
+    @AfterAll
     void cleanAll() {
         categoryRepository.deleteAll();
     }
