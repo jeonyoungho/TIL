@@ -1,7 +1,10 @@
-package com.example.domain;
+package com.example.domain2;
 
+import com.example.domain2.Category;
+import com.example.domain2.CategoryRepository;
+import com.example.domain2.CategoryService;
+import com.example.domain2.Product;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -12,8 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class CategoryServiceTest {

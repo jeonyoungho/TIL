@@ -1,6 +1,10 @@
 package com.example;
 
 import com.example.domain.*;
+import com.example.domain2.Category;
+import com.example.domain2.CategoryRepository;
+import com.example.domain2.Product;
+import com.example.domain2.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -76,6 +80,7 @@ public class OrmTestWithSpringApplication implements CommandLineRunner {
                     .build();
 
             academy.addSubject(Subject.builder().name("자바웹개발" + i).build());
+            academy.addSubject(Subject.builder().name("파이썬자동화" + i).build());
             academies.add(academy);
         }
 
