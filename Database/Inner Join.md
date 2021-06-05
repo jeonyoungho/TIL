@@ -1,12 +1,8 @@
 # Inner Join
-- 대개의 업무에서 조인은 Inner Join을 주로 사용하며, 일반적으로 Join이라 하면, Innter Join을 지칭하는 것이다.
+- INNER JOIN은 조인될 조건이 부합하는 행에 대해서만 Join이 발생하는 것(교집합의 영역)
+- 대개의 업무에서 조인은 Inner Join을 주로 사용하며, 일반적으로 Join이라 하면, Inner Join을 지칭하는 것이다.
 
-- 개념적인 이해를 돕기 위해 아래의 UserTable과 BuyTable이 있다고 예시를 들어보자<br>
-![1](https://user-images.githubusercontent.com/44339530/120778568-6ca22f80-c561-11eb-9ea0-347a8cbbe496.jpeg)<br>
-
-- BuyTable을 보면, 물건을 구매한 사용자의 아이디와 물건 등의 정보만 나타난다.
-- 그런데 이 물건을 배송하기 위해서는 구매한 회원의 주소를 알아야한다.
-- 이 회원의 주소를 알기 위해 주소 정보가 있는 UserTable과 결합하는 조인이 Inner Join이다.
+### Inner Join 구조
 ~~~
 SELECT <열 목록>
 FROM <첫 번째 테이블>
@@ -15,6 +11,13 @@ FROM <첫 번째 테이블>
 [WHERE 검색조건]
 ~~~
 
+### Inner Join 예시
+- 개념적인 이해를 돕기 위해 아래의 UserTable과 BuyTable이 있다고 예시를 들어보자<br>
+![1](https://user-images.githubusercontent.com/44339530/120778568-6ca22f80-c561-11eb-9ea0-347a8cbbe496.jpeg)<br>
+
+- BuyTable을 보면, 물건을 구매한 사용자의 아이디와 물건 등의 정보만 나타난다.
+- 그런데 이 물건을 배송하기 위해서는 구매한 회원의 주소를 알아야한다.
+- 이 회원의 주소를 알기 위해 주소 정보가 있는 UserTable과 결합하는 조인이 Inner Join이다.
 - 참고로, 위 형식에서 INNER JOIN을 JOIN이라고만 해도 INNER JOIN이라고 인식한다.
 - 이제 BuyTable에서 'KJD'이라는 아이디를 가진 사람이 구매한 물건을 배송하기 위해서, 두 개의 테이블을 통째로 조인하려면 아래와 같이 하면 된다.
 ~~~
