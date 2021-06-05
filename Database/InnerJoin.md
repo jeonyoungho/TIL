@@ -44,3 +44,4 @@ WHERE BuyTable.ID = 'KJD'
 
 #### 출처
 - http://egloos.zum.com/sweeper/v/3002133
+- https://dimdim.tistory.com/entry/SQL-JOIN-%EC%A0%95%EB%A6%AC-Inner-Join-Outer-Join
