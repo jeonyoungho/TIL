@@ -13,6 +13,7 @@ FROM <첫번째 테이블 (LEFT 테이블)>
 - Inner Join과 유사해보이지만 Left, Right, Full의 새로운 키워드들이 보인다.
 
 ### Left Outer Join
+- <b>Left Outer Join은 왼쪽 테이블의 것은 조건에 부합하지 않더라도 모두 결합</b>되어야 한다는 의미이다.
 
 
 #### 출처
