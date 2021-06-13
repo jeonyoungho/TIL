@@ -1,0 +1,34 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /console
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:testdb
+      driver-class-name: org.h2.Driver
+      username: sa
+      password: sapw
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        ddl-auto: create
+        format_sql: true
+        # batch_fetch_style: dynamic
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+
