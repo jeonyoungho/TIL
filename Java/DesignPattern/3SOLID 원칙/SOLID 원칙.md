@@ -1,4 +1,4 @@
-# Chapter03-SOLID 원칙
+# SOLID 원칙
 
 ## SOLID 원칙 - 로버트 마틴이 주장한 다섯 가지 설계 원칙
 

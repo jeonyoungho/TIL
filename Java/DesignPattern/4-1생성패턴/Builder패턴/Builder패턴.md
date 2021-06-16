@@ -1,4 +1,4 @@
-# Builder패턴
+# Builder패턴(Builder Pattern)
 - 객체의 생성과정과 표현을 분리하는 패턴입니다.
 
 ### 왜 Builder패턴을 사용하느가?
