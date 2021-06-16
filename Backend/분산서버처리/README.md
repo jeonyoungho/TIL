@@ -1,15 +1,15 @@
 # 분산서버처리를 위한 기술
 
-## [1) 로드 밸런싱(Load Balancing)](https://github.com/jeonyoungho/TIL/blob/master/Backend/%EB%B6%84%EC%82%B0%EC%84%9C%EB%B2%84%EC%B2%98%EB%A6%AC/LoadBalancer.md)
+### [1) 로드 밸런싱(Load Balancing)](https://github.com/jeonyoungho/TIL/blob/master/Backend/%EB%B6%84%EC%82%B0%EC%84%9C%EB%B2%84%EC%B2%98%EB%A6%AC/LoadBalancer.md)
 - 부하 분산을 위해 가상 IP를 통해 각 서버에 Request를 분배하는 기능
 
-## 2) Scale Up, Scale Out
+### 2) Scale Up, Scale Out
 - 서버의 부하를 체크하여 서버를 늘리거나 성능을 향상 시키는 방식
 - 스케일 업(Scale Up): 서버에 CPU나 RAM 등을 추가하여 서버의 하드웨어 스펙을 향상시키는 방법
 - 스케일 아웃(Scale Out): 서버를 여러 대 추가하여 시스템을 증가시키는 방법
 - 대부분의 클라우드 서비스 제공 업체들은 Auto Scaling기능을 지원
 
-## 3) Stateless 설계
+### 3) Stateless 설계
 - 분산 서버 처리를 위해서는 모든 요청이 stateless(상태를 저장하고 있지 않은)한 것이 유리하다.
 - 다음과 같은 내용을 고려하여 자신의 서비스에 맞게 설계하면 된다.
     - 세션 관리는 로컬 파일구조가 아닌 별도의 Redis나 MongoDB를 이용한다.(한 서버에서 로컬파일로 저장할 경우 해당 서버가 다운 될 경우에 문제가 생김)
@@ -17,13 +17,13 @@
     -  내부 서버에서만 동작하는 서비스(예를 들면 socket.io) 의 stateless 여부를 확인해야 한다.(내부적으로 로컬에서 쓰는 부분을 DB를 사용하게 하면 해결된다.)
     - 데이터베이스는 분리하여 구성해야 한다.
 
-## 4) 데이터베이스의 샤딩
+### 4) 데이터베이스의 샤딩
 - 데이터베이스 또한 확장이 가능한 구조가 필요하기에 대부분의 데이터베이스가 샤딩을 통한 scale-out을 지원한다.
 - 레플리카도 거의 필수로 구축을 해야하는데, 이는 가용성, 무결성, 두 가지를 모두 만족시킨다.
 
-## 5) CDN(Content Delivery Network)사용
+### 5) CDN(Content Delivery Network)사용
 - Css, Javascript, Image 등 잘 변하지 않는 리소스들은 CDN에서 관리하는 것이 트래픽 절감에 매우 유리하다.
 
-## 6) Micro Service
+### 6) Micro Service
 - 서비스 별로 가지는 특성들이 다르다. 예를 들면 어떤 서비스는 비동기식으로 빠르게 처리해야 할 필요가 있을 경우 NodeJS로 구성될 수 있고 다른 어떤 서비스는 여러가지 트랜잭션 처리가 필요할 수 있어 SpringBoot로 구성될수도 있다.
 - 즉, 독립적인 기능을 가지면서 별도의 서비스로 분리하여 구축할 필요가 있기에 전체적인 애플리케이션을 작은 단위의 서비스로 쪼개 구성하는 MSA방식으로 구성하면 분산처리에 도움이 된다.
