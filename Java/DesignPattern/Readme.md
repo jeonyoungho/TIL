@@ -31,7 +31,7 @@
 
 #### 4-1. 생성 패턴
 - 객체 생성에 관련된 패턴. 객체의 생성과 조합을 캡슐화해 특정 객체가 생성되거나 변경되어도 프로그램 구조에 영향을 크게 받지 않도록 유연성을 제공하는 패턴
-    - [1. 싱글턴패턴](https://github.com/jeonyoungho/TIL/blob/master/Java/DesignPattern/4-1%EC%83%9D%EC%84%B1%ED%8C%A8%ED%84%B4/%EC%8B%B1%EA%B8%80%ED%86%A4%ED%8C%A8%ED%84%B4/%EC%8B%B1%EA%B8%80%ED%84%B4%ED%8C%A8%ED%84%B4.md)
+    - [1. 싱글톤패턴](https://github.com/jeonyoungho/TIL/blob/master/Java/DesignPattern/4-1%EC%83%9D%EC%84%B1%ED%8C%A8%ED%84%B4/%EC%8B%B1%EA%B8%80%ED%86%A4%ED%8C%A8%ED%84%B4/%EC%8B%B1%EA%B8%80%ED%86%A4%ED%8C%A8%ED%84%B4.md)
         - 인스턴스를 불필요하게 생성하지 않고 오직 JVM내에서 한 개의 인스턴스만 생성하여 재사용을 위해 사용되는 패턴
         - ex) 프린터 관리자를 구현하는 프로그램
 
