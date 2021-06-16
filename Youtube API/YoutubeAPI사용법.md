@@ -1,6 +1,4 @@
-# Youtube API
-
-### YoutubeAPI 사용법
+# Youtube API 사용법
 - 1)Google API 콘솔에 액세스
 - https://console.developers.google.com/apis/dashboard<br>
 <img width="1440" alt="1" src="https://user-images.githubusercontent.com/44339530/74651939-4e77bb00-51c8-11ea-9725-7607af35b016.png">
