@@ -1,4 +1,3 @@
 # AutoScaling
 
-## AutoScaling이란?
 
