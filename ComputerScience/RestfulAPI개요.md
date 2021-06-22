@@ -128,11 +128,11 @@ DELETE /api/users - 전체 사용자들을 전부 삭제
 
 - 캐슁 정책<br>
 - <img width="491" alt="스크린샷 2021-03-18 오후 6 52 56" src="https://user-images.githubusercontent.com/44339530/111606981-27e8e100-881b-11eb-926a-86d8e0b1f7f1.png"><br>
-    - 1. Public: 서버에서 오는 Response자원이 어떤 컴포넌트든 캐슁 할 수 있음
-    - 2. Private: 클라이언트나 서버만이 캐슁 할 수 있음, 중간에 있는 무언가는 캐슁 할 수가 없음(CDN을 통해서 서버에 request를 요청 하는 경우가 있는데 CDN과 같은 장치는 캐슁 할 수 없음)
-    - 3. No-store: 절대 캐쉬 할 수 없음
-    - 4. Max-age: 캐슁이 언제까지 유효한지 명시(초 단위)
-    - 5. Must-revalidate: max-age가 지났을 경우 자원이 유효하지 안한지에 한해서 서버에 꼭 물어봐야 함
+    - 1)Public: 서버에서 오는 Response자원이 어떤 컴포넌트든 캐슁 할 수 있음
+    - 2)Private: 클라이언트나 서버만이 캐슁 할 수 있음, 중간에 있는 무언가는 캐슁 할 수가 없음(CDN을 통해서 서버에 request를 요청 하는 경우가 있는데 CDN과 같은 장치는 캐슁 할 수 없음)
+    - 3)No-store: 절대 캐쉬 할 수 없음
+    - 4)Max-age: 캐슁이 언제까지 유효한지 명시(초 단위)
+    - 5)Must-revalidate: max-age가 지났을 경우 자원이 유효하지 안한지에 한해서 서버에 꼭 물어봐야 함
     - <img width="483" alt="스크린샷 2021-03-18 오후 6 55 49" src="https://user-images.githubusercontent.com/44339530/111607408-8f069580-881b-11eb-9c6e-9516f232055e.png"><br>
 
 #### CDN(content delivery network)
