@@ -41,7 +41,5 @@
         - 위와 같은 정보들은 HTTP api를 통해 조회 가능<br>
         - response받은 데이터를 시계열DB와 같은 곳에 저장하는 application을 구축해서 활용할수도 있음<br>
 #### 출처
-- https://www.youtube.com/watch?v=b3i6D4eeBGw&
-- list=PL3Re5Ri5rZmkY46j6WcJXQYRlDRZSUQ1j&index=9
-
-
+- [https://www.youtube.com/watch?v=b3i6D4eeBGw&list=PL3Re5Ri5rZmkY46j6WcJXQYRlDRZSUQ1j&index=10](https://www.youtube.com/watch?v=b3i6D4eeBGw&list=PL3Re5Ri5rZmkY46j6WcJXQYRlDRZSUQ1j&index=10)
+- [https://freedeveloper.tistory.com/351](https://freedeveloper.tistory.com/351)
