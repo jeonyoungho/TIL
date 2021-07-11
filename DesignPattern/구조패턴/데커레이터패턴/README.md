@@ -1,6 +1,6 @@
 # 데커레이터 패턴(Decorator Pattern)
 - 기본 기능에 추가할 수 있는 기능의 종류가 많은 경우에 사용하는 패턴이다.
-- 데코레이터 패턴은 기본 기능에 추가될 수 있는 많은 수의 부가 기능에 대해서 다양한 조합을 동적으로 구현할 수 있는 패턴이다.
+- 데커레이터 패턴은 기본 기능에 추가될 수 있는 많은 수의 부가 기능에 대해서 다양한 조합을 동적으로 구현할 수 있는 패턴이다.
 - 동적으로 클래스의 기능을 확장시키고자 할 때 사용하는 패턴 (추가되는 기능을 갖는 클래스만 만들어주면 됨)
 
 ## 도로 표시 방법 조합 프로그램 example
@@ -12,7 +12,7 @@
 ~~~
 public class RoadDisplay {  // 기본 도로 표시 클래스	
 	public void draw() {
-		System.out.println("도로 기본 표시") ;
+		System.out.println("도로 기본 표시");
 	}
 }
 
@@ -22,17 +22,17 @@ public class RoadDisplayWithLane extends RoadDisplay {  // 기본 도로 표시 
 		drawLane();
 	}
 	private void drawLane() {
-		System.out.println("차선 표시") ;
+		System.out.println("차선 표시");
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {		
-		RoadDisplay road = new RoadDisplay() ;
-		road.draw() ;  // 기본 도로만 표시
+		RoadDisplay road = new RoadDisplay();
+		road.draw();  // 기본 도로만 표시
 		
-		RoadDisplay roadWithLane = new RoadDisplayWithLane() ;
-		roadWithLane.draw() ; // 기본 도로 + 차선 표시
+		RoadDisplay roadWithLane = new RoadDisplayWithLane();
+		roadWithLane.draw(); // 기본 도로 + 차선 표시
 	}
 }
 ~~~
@@ -48,7 +48,7 @@ public class Client {
             drawTraffic();
         }
         private void drawTraffic() {
-            System.out.println("교통량 표시") ;
+            System.out.println("교통량 표시");
         }
     }
     ~~~
@@ -68,23 +68,23 @@ public class Client {
 - 소스 코드
 ~~~
 public abstract class Display {
-	 public abstract void draw() ;
+	 public abstract void draw();
 }
 
 public class RoadDisplay extends Display {	 // 기본 도로 표시 클래스
 	public void draw() {
-		System.out.println("도로 기본 표시") ;
+		System.out.println("도로 기본 표시");
 	}
 }
 
 // 다양한 추가 기능에 대한 공통 클래스
 public class DisplayDecorator extends Display {
-	private Display decoratedDisplay ;
+	private Display decoratedDisplay;
 	public DisplayDecorator(Display decoratedDisplay) {
-		this.decoratedDisplay = decoratedDisplay ;
+		this.decoratedDisplay = decoratedDisplay;
 	}
 	public void draw() {
-		decoratedDisplay.draw() ;
+		decoratedDisplay.draw();
 	}
 }
 
@@ -94,9 +94,9 @@ public class LaneDecorator extends DisplayDecorator {  // 차선표시를 축하
 	}
 	public void draw() {
 		super.draw(); // 설정된 기존 표시 기능을 수행
-		drawLane() ; // 추가적으로 차선을 표시
+		drawLane(); // 추가적으로 차선을 표시
 	}
-	private void drawLane() { System.out.println("\t차선 표시") ; }	
+	private void drawLane() { System.out.println("\t차선 표시"); }	
 }
 
 public class TrafficDecorator extends DisplayDecorator { // 교통량 표시를 추가하는 클래스
@@ -105,22 +105,22 @@ public class TrafficDecorator extends DisplayDecorator { // 교통량 표시를 
 	}
 	public void draw() {
 		super.draw();  // 설정된 기존 표시 기능을 수행
-		drawTraffic() ; // 추가적으로 교통량을 표시
+		drawTraffic(); // 추가적으로 교통량을 표시
 	}
-	private void drawTraffic() { System.out.println("\t교통량 표시") ;	 }	
+	private void drawTraffic() { System.out.println("\t교통량 표시");	 }	
 }
 
 public class Client {
 	public static void main(String[] args) {		
-		Display road = new RoadDisplay() ;
-		road.draw() ;  // 기본 도로 표시
+		Display road = new RoadDisplay();
+		road.draw();  // 기본 도로 표시
 		
-		Display roadWithLane = new LaneDecorator(new RoadDisplay()) ;
+		Display roadWithLane = new LaneDecorator(new RoadDisplay());
         // Client 클래스는 동일한 Display 클래스만을 통해서 일관성 있는 방식으로 도로 정보를 표시
-		roadWithLane.draw() ;  // 기본 도로 표시 + 차선 표시
+		roadWithLane.draw();  // 기본 도로 표시 + 차선 표시
 		
-		Display roadWithTraffic = new TrafficDecorator(new RoadDisplay()) ;
-		roadWithTraffic.draw() ;  // 기본 도로 표시 + 교통량 표시
+		Display roadWithTraffic = new TrafficDecorator(new RoadDisplay());
+		roadWithTraffic.draw();  // 기본 도로 표시 + 교통량 표시
 }
 ~~~
 
@@ -135,8 +135,8 @@ public class Client {
 	Display roadWithLaneAndTraffic =
 		new TrafficDecorator(
 			new LaneDecorator(
-				new RoadDisplay())) ;
-		roadWithLaneAndTraffic.draw() ;
+				new RoadDisplay()));
+		roadWithLaneAndTraffic.draw();
 	}
 }
 ~~~
@@ -151,10 +151,10 @@ public class CrossingDecorator extends DisplayDecorator {
 	}
 	public void draw() {
 		super.draw();
-		drawCrossing() ;
+		drawCrossing();
 	}
 	private void drawCrossing() {
-		System.out.println("\t횡단보도 표시") ;		
+		System.out.println("\t횡단보도 표시");		
 	}	
 }
 
@@ -164,8 +164,8 @@ public class Client {
 		new LaneDecorator(
 			new TrafficDecorator(
 				new CrossingDecorator(
-					new RoadDisplay()))) ;
-		roadWithCrossingAndTrafficAndLane.draw() ;
+					new RoadDisplay())));
+		roadWithCrossingAndTrafficAndLane.draw();
 	}
 }
 ~~~

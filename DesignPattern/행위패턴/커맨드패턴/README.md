@@ -13,25 +13,25 @@
 ~~~
 public class Lamp {
 	public void turnOn() {
-		System.out.println("Lamp On") ;
+		System.out.println("Lamp On");
 	}
 }
 
 public class Button {
-	private Lamp theLamp ;
+	private Lamp theLamp;
 	public Button(Lamp theLamp) {
-		this.theLamp = theLamp ;
+		this.theLamp = theLamp;
 	}
 	public void pressed() {
-		theLamp.turnOn() ;
+		theLamp.turnOn();
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {
-		Lamp lamp = new Lamp() ;
-		Button lampButton = new Button(lamp) ;
-		lampButton.pressed() ;
+		Lamp lamp = new Lamp();
+		Button lampButton = new Button(lamp);
+		lampButton.pressed();
 	}
 }
 ~~~
@@ -43,23 +43,23 @@ public class Client {
 ~~~
 public class Alarm {
 	public void start() {
-		System.out.println("Alarming...") ;
+		System.out.println("Alarming...");
 	}
 }
 public class Button {
-	private Alarm theAlarm ;	
+	private Alarm theAlarm;	
 	public Button(Alarm theAlarm) {
-		this.theAlarm = theAlarm ;
+		this.theAlarm = theAlarm;
 	}
 	public void pressed() {
-		theAlarm.start() ;
+		theAlarm.start();
 	}
 }
 public class Client {
 	public static void main(String[] args) {
-		Alarm alarm = new Alarm() ;		
-		Button alarmButton = new Button(alarm) ;
-		alarmButton.pressed() ;
+		Alarm alarm = new Alarm();		
+		Button alarmButton = new Button(alarm);
+		alarmButton.pressed();
 	}
 }
 ~~~
@@ -68,39 +68,39 @@ public class Client {
     - <b>=> 기존 소스 코드를 수정하므로 OCP를 위반</b>
 ~~~
 public class Lamp {
-	public void turnOn() { System.out.println("Lamp On") ; }
+	public void turnOn() { System.out.println("Lamp On"); }
 }
 public class Alarm {
-	public void start() { System.out.println("Alarming...") ; }
+	public void start() { System.out.println("Alarming..."); }
 }
-enum Mode { LAMP, ALARM} ;
+enum Mode { LAMP, ALARM};
 public class Button {
-	private Lamp theLamp ;
-	private Alarm theAlarm ;
-	private Mode theMode ;
+	private Lamp theLamp;
+	private Alarm theAlarm;
+	private Mode theMode;
 	public Button(Lamp theLamp, Alarm theAlarm) {
-		this.theLamp = theLamp ;
-		this.theAlarm = theAlarm ;
+		this.theLamp = theLamp;
+		this.theAlarm = theAlarm;
 	}
-	public void setMode(Mode mode) { this.theMode = mode ; }
+	public void setMode(Mode mode) { this.theMode = mode; }
 	public void pressed() {
 		switch ( theMode ) {
-			case LAMP: theLamp.turnOn() ; break ;
-			case ALARM: theAlarm.start() ; break ;
+			case LAMP: theLamp.turnOn(); break;
+			case ALARM: theAlarm.start(); break;
 		}
 	}
 }
 public class Client {
 	public static void main(String[] args) {
-		Lamp lamp = new Lamp() ;
-		Alarm alarm = new Alarm() ;		
-		Button button = new Button(lamp, alarm) ;
+		Lamp lamp = new Lamp();
+		Alarm alarm = new Alarm();		
+		Button button = new Button(lamp, alarm);
 		
-		button.setMode(Mode.LAMP) ;
-		button.pressed() ;
+		button.setMode(Mode.LAMP);
+		button.pressed();
 		
-		button.setMode(Mode.ALARM) ;
-		button.pressed() ;
+		button.setMode(Mode.ALARM);
+		button.pressed();
 	}
 }
 ~~~
@@ -113,58 +113,58 @@ public class Client {
 
 ~~~
 public interface Command {
-	abstract public void execute() ;
+	abstract public void execute();
 }
 public class Lamp {
-	public void turnOn() { System.out.println("Lamp On") ; }
+	public void turnOn() { System.out.println("Lamp On"); }
 }
 public class LampOnCommand implements Command { // 램프를 켜는 기능의 캡슐화
 	private Lamp theLamp;
 	public LampOnCommand(Lamp theLamp) {
-		this.theLamp = theLamp ;
+		this.theLamp = theLamp;
 	}
-	public void execute() { theLamp.turnOn() ; }
+	public void execute() { theLamp.turnOn(); }
 }
 public class Alarm {
-	public void start() { System.out.println("Alarming...") ; }
+	public void start() { System.out.println("Alarming..."); }
 }
 public class AlarmOnCommand implements Command { // 알람을 울리는 기능의 캡슐화
-	private Alarm theAlarm ;
+	private Alarm theAlarm;
 	public AlarmOnCommand(Alarm theAlarm) {
-		this.theAlarm = theAlarm ;
+		this.theAlarm = theAlarm;
 	}
-	public void execute() { theAlarm.start() ; }
+	public void execute() { theAlarm.start(); }
 }
 
 public class Button {
-	private Command theCommand ;
+	private Command theCommand;
 
 	public Button(Command theCommand) {
-		setCommand(theCommand) ;
+		setCommand(theCommand);
 	}
 	public void setCommand(Command newCommand) {
-		this.theCommand = newCommand ;
+		this.theCommand = newCommand;
 	}
 	// 버튼이 눌리면 주어진 Command의 execute 메서드를 호출함
 	public void pressed() { 
-		theCommand.execute() ;	
+		theCommand.execute();	
 	}
 }
 public class Client {
 	public static void main(String[] args) {
-		Lamp lamp = new Lamp() ;
-		Command lampOnCommand = new LampOnCommand(lamp) ;
+		Lamp lamp = new Lamp();
+		Command lampOnCommand = new LampOnCommand(lamp);
 		
-		Button button1 = new Button(lampOnCommand) ; // 램프를 켜는 기능을 설정함
-		button1.pressed() ;
+		Button button1 = new Button(lampOnCommand); // 램프를 켜는 기능을 설정함
+		button1.pressed();
 				
-		Alarm alarm = new Alarm() ;
-		Command alarmOnCommand = new AlarmOnCommand(alarm) ; // 알람을 울리는 기능을 설정함
-		Button button2 = new Button(alarmOnCommand) ;
-		button2.pressed() ;
+		Alarm alarm = new Alarm();
+		Command alarmOnCommand = new AlarmOnCommand(alarm); // 알람을 울리는 기능을 설정함
+		Button button2 = new Button(alarmOnCommand);
+		button2.pressed();
 		
-		button2.setCommand(lampOnCommand) ; // 알람을 울리는 기능을 설정함
-		button2.pressed() ;
+		button2.setCommand(lampOnCommand); // 알람을 울리는 기능을 설정함
+		button2.pressed();
 	}
 }
 ~~~

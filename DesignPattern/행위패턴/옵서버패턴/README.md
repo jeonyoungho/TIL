@@ -11,55 +11,55 @@
 - 소스 코드
 ~~~
 public class ScoreRecord {	
-	private List<Integer> scores = new ArrayList<Integer>() ;  // 점수를 저장함
-	private DataSheetView dataSheetView ;  // 목록 형태로 점수를 출력하는 클래스
+	private List<Integer> scores = new ArrayList<Integer>();  // 점수를 저장함
+	private DataSheetView dataSheetView;  // 목록 형태로 점수를 출력하는 클래스
  
 	public void setDataSheetView(DataSheetView dataSheetView) {
-		this.dataSheetView = dataSheetView ;
+		this.dataSheetView = dataSheetView;
 	}
 	public void addScore(int score) {  // 새로운 점수를 축함
-		scores.add(score) ;  // scores 목록에 주어진 점수를 추가함
-		dataSheetView.update() ;  // scores가 변경됨을 통보함
+		scores.add(score);  // scores 목록에 주어진 점수를 추가함
+		dataSheetView.update();  // scores가 변경됨을 통보함
 	}
 	public List<Integer> getScoreRecord() {
-		return scores ;
+		return scores;
 	}
 }
 
 public class DataSheetView {
-	private ScoreRecord scoreRecord ;
-	private int viewCount ;
+	private ScoreRecord scoreRecord;
+	private int viewCount;
 	
 	public DataSheetView(ScoreRecord scoreRecord, int viewCount) {
-		this.scoreRecord = scoreRecord ;
-		this.viewCount = viewCount ;
+		this.scoreRecord = scoreRecord;
+		this.viewCount = viewCount;
 	}
 	public void update() {  // 점수의 변경을 통보 받음
-		List<Integer> record = scoreRecord.getScoreRecord() ; // 점수를 조회함
+		List<Integer> record = scoreRecord.getScoreRecord(); // 점수를 조회함
 		displayScores(record, viewCount);  // 조회된 점수를 viewCount만큼 출력함
 	}
 	private void displayScores(List<Integer> record, int viewCount) { 
-		System.out.print("List of " + viewCount + " entries: ") ;
-		for ( int i = 0 ; i < viewCount && i < record.size() ; i ++ ) {
-			System.out.print(record.get(i) + " ") ;
+		System.out.print("List of " + viewCount + " entries: ");
+		for ( int i = 0; i < viewCount && i < record.size(); i ++ ) {
+			System.out.print(record.get(i) + " ");
 		}
-		System.out.println() ;
+		System.out.println();
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {
-		ScoreRecord scoreRecord = new ScoreRecord() ;
+		ScoreRecord scoreRecord = new ScoreRecord();
 		// 3개까지의 점수만 출력함
-		DataSheetView dataSheetView = new DataSheetView(scoreRecord, 3) ;
+		DataSheetView dataSheetView = new DataSheetView(scoreRecord, 3);
 		
-		scoreRecord.setDataSheetView(dataSheetView) ;
+		scoreRecord.setDataSheetView(dataSheetView);
 		
-		for (int index = 1 ; index <= 5 ; index ++ ) {
-			int score = index * 10 ;
-			System.out.println("Adding " + score) ;
+		for (int index = 1; index <= 5; index ++ ) {
+			int score = index * 10;
+			System.out.println("Adding " + score);
 			// 10 20 30 40 50을 추가함, 추가할 때마다 최대 3개의 점수만 출력함
-			scoreRecord.addScore(score) ;
+			scoreRecord.addScore(score);
 		}		
 	}
 }
@@ -72,50 +72,50 @@ public class Client {
 
 ~~~
 public class MinMaxView {  // 전체 점수가 아니라 최소/최대값만을 출력하는 클래스
-	private ScoreRecord scoreRecord ;
+	private ScoreRecord scoreRecord;
  
 	public MinMaxView(ScoreRecord scoreRecord) {
-		this.scoreRecord = scoreRecord ;
+		this.scoreRecord = scoreRecord;
 	}
 	public void update() {
-		List<Integer> record = scoreRecord.getScoreRecord() ;
+		List<Integer> record = scoreRecord.getScoreRecord();
 		displayMinMax(record);  // 최소/최대값만을 출력
 	}
 	private void displayMinMax(List<Integer> record) {
-		int min =  Collections.min(record, null) ;
-		int max =  Collections.max(record, null) ;	
-		System.out.println("Min: " + min + " Max: " + max) ;
+		int min =  Collections.min(record, null);
+		int max =  Collections.max(record, null);	
+		System.out.println("Min: " + min + " Max: " + max);
 	}
 }
 
 public class ScoreRecord {	
-	private List<Integer> scores = new ArrayList<Integer>() ;	
-	private MinMaxView minMaxView ;
+	private List<Integer> scores = new ArrayList<Integer>();	
+	private MinMaxView minMaxView;
  
 	public void setStatisticsView(MinMaxView minMaxView) {  // MinMaxView를 설정함
 		this.minMaxView = minMaxView;
 	}
 	public void addScore(int score) {
-		scores.add(score) ;
-		minMaxView.update() ;  // MinMaxView에게 점수의 변경을 통보함
+		scores.add(score);
+		minMaxView.update();  // MinMaxView에게 점수의 변경을 통보함
 	}
 	public List<Integer> getScoreRecord() {
-		return scores ;
+		return scores;
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {
-		ScoreRecord scoreRecord = new ScoreRecord() ;
-		MinMaxView minMaxView = new MinMaxView(scoreRecord) ;
+		ScoreRecord scoreRecord = new ScoreRecord();
+		MinMaxView minMaxView = new MinMaxView(scoreRecord);
 		
-		scoreRecord.setMinMaxView(minMaxView) ;
+		scoreRecord.setMinMaxView(minMaxView);
 		
-		for (int index = 1 ; index <= 5 ; index ++ ) {
-			int score = index * 10 ;
-			System.out.println("Adding " + score) ;
+		for (int index = 1; index <= 5; index ++ ) {
+			int score = index * 10;
+			System.out.println("Adding " + score);
 			// 10 20 30 40 50을 추가함, 추가할 때마다 최소/최대 점수만 출력함
-			scoreRecord.addScore(score) ;
+			scoreRecord.addScore(score);
 		}	
 	}
 }
@@ -125,81 +125,81 @@ public class Client {
     - <b>=> 기능 변경을 위해서 기존 소스 코드를 수정하므로 OCP를 위반하는 것임</b>
 ~~~
 public class ScoreRecord {	
-	private List<Integer> scores = new ArrayList<Integer>() ;	
-	private List<DataSheetView> dataSheetViews = new ArrayList<DataSheetView>() ;
-	private MainMaxView minMaxView ;
+	private List<Integer> scores = new ArrayList<Integer>();	
+	private List<DataSheetView> dataSheetViews = new ArrayList<DataSheetView>();
+	private MainMaxView minMaxView;
 	public void addDataSheetView(DataSheetView dataSheetView) {
-		dataSheetViews.add(dataSheetView) ;
+		dataSheetViews.add(dataSheetView);
 	}
 	public void setMinMaxView(MainMaxView minMaxView) {
-		this.minMaxView = minMaxView ;
+		this.minMaxView = minMaxView;
 	}
 	public void addScore(int score) {
-		scores.add(score) ;	
+		scores.add(score);	
 		for ( DataSheetView dataSheetView: dataSheetViews )
-			dataSheetView.update() ;  // 각 DataSheetView에게 점수의 변경을 통보
-		minMaxView.update() ; // MinMaxView에게 점수의 변경을 통보
+			dataSheetView.update();  // 각 DataSheetView에게 점수의 변경을 통보
+		minMaxView.update(); // MinMaxView에게 점수의 변경을 통보
 	}
-	public List<Integer> getScoreRecord() { return scores ; }
+	public List<Integer> getScoreRecord() { return scores; }
 }
 
 public class DataSheetView {
-	private ScoreRecord scoreRecord ;
-	private int viewCount ;
+	private ScoreRecord scoreRecord;
+	private int viewCount;
 	
 	public DataSheetView(ScoreRecord scoreRecord, int viewCount) {
-		this.scoreRecord = scoreRecord ;
-		this.viewCount = viewCount ;
+		this.scoreRecord = scoreRecord;
+		this.viewCount = viewCount;
 	}
 	public void update() {  // 점수의 변경을 통보 받음
-		List<Integer> record = scoreRecord.getScoreRecord() ; // 점수를 조회함
+		List<Integer> record = scoreRecord.getScoreRecord(); // 점수를 조회함
 		displayScores(record, viewCount);  // 조회된 점수를 viewCount만큼 출력함
 	}
 	private void displayScores(List<Integer> record, int viewCount) { 
-		System.out.print("List of " + viewCount + " entries: ") ;
-		for ( int i = 0 ; i < viewCount && i < record.size() ; i ++ ) {
-			System.out.print(record.get(i) + " ") ;
+		System.out.print("List of " + viewCount + " entries: ");
+		for ( int i = 0; i < viewCount && i < record.size(); i ++ ) {
+			System.out.print(record.get(i) + " ");
 		}
-		System.out.println() ;
+		System.out.println();
 	}
 }
 
 public class MinMaxView {  // 전체 점수가 아니라 최소/최대값만을 출력하는 클래스
-	private ScoreRecord scoreRecord ;
+	private ScoreRecord scoreRecord;
  
 	public MinMaxView(ScoreRecord scoreRecord) {
-		this.scoreRecord = scoreRecord ;
+		this.scoreRecord = scoreRecord;
 	}
 	public void update() {
-		List<Integer> record = scoreRecord.getScoreRecord() ;
+		List<Integer> record = scoreRecord.getScoreRecord();
 		displayMinMax(record);  // 최소/최대값만을 출력
 	}
 	private void displayMinMax(List<Integer> record) {
-		int min =  Collections.min(record, null) ;
-		int max =  Collections.max(record, null) ;	
-		System.out.println("Min: " + min + " Max: " + max) ;
+		int min =  Collections.min(record, null);
+		int max =  Collections.max(record, null);	
+		System.out.println("Min: " + min + " Max: " + max);
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {
-		ScoreRecord scoreRecord = new ScoreRecord() ;
+		ScoreRecord scoreRecord = new ScoreRecord();
 		// 3개 목록의 DataSheetView 생성
-		DataSheetView dataSheetView3 = new DataSheetView(scoreRecord, 3) ;
+		DataSheetView dataSheetView3 = new DataSheetView(scoreRecord, 3);
 		// 5개 목록의 DataSheetView 생성
-		DataSheetView dataSheetView5 = new DataSheetView(scoreRecord, 5) ;
-		MainMaxView minMaxView = new MainMaxView(scoreRecord) ;
+		DataSheetView dataSheetView5 = new DataSheetView(scoreRecord, 5);
+		MainMaxView minMaxView = new MainMaxView(scoreRecord);
 	
-		scoreRecord.addDataSheetView(dataSheetView3) ;
-		scoreRecord.addDataSheetView(dataSheetView5) ;
-		scoreRecord.setMinMaxView(minMaxView) ;
+		scoreRecord.addDataSheetView(dataSheetView3);
+		scoreRecord.addDataSheetView(dataSheetView5);
+		scoreRecord.setMinMaxView(minMaxView);
 	
-		for (int index = 1 ; index <= 5 ; index ++ ) {
-			int score = index * 10 ;
-			System.out.println("Adding " + score) ;
+		for (int index = 1; index <= 5; index ++ ) {
+			int score = index * 10;
+			System.out.println("Adding " + score);
 			// 10 20 30 40 50을 추가함
 			// 추가할 때마다 최대 3개목록, 최대 5개 목록, 그리고 최소/최대 점수가 출력됨
-			scoreRecord.addScore(score) ;
+			scoreRecord.addScore(score);
 		}		
 	}
 }
@@ -216,93 +216,93 @@ public class Client {
 - 소스 코드
 ~~~
 public interface Observer {  // 추상화된 통보 대상
-	abstract public void update() ;
+	abstract public void update();
 }
 
 public abstract class Subject { // 추상화된 변경 관심 대상 데이터
-	private List<Observer> observers = new ArrayList<Observer>() ;
+	private List<Observer> observers = new ArrayList<Observer>();
 	public void attach(Observer observer) { // 옵서버 즉 통보 대상을 추가함
-		observers.add(observer) ;
+		observers.add(observer);
 	}	
 	public void detach(Observer observer) { // 옵서버 즉 통보 대상을 제거함
-		observers.remove(observer) ;
+		observers.remove(observer);
 	}
 	// 통보 대상 목록, 즉 observers의 각 옵서버에게 변경을 통보함
 	public void notifyObservers() {
-		for ( Observer o : observers ) o.update() ;
+		for ( Observer o : observers ) o.update();
 	} 
 }
 
 public class ScoreRecord extends Subject {  // 구체적인 변경 감시 대상 데이터
-	private List<Integer> scores = new ArrayList<Integer>() ;	
+	private List<Integer> scores = new ArrayList<Integer>();	
 	public void addScore(int score) {
-		scores.add(score) ;
+		scores.add(score);
 		// 데이터가 변경되면 Subject 클래스의 notifyObservers 메서드를 호출해
 		// 각 옵서버(통보 대상 객체)에게 데이터의 변경을 통보함		
-		notifyObservers() ;
+		notifyObservers();
 	}
 	public List<Integer> getScoreRecord() {
-		return scores ;
+		return scores;
 	}
 }
 
 // DataSheetView는 Observer의 기능 즉 update 메서드를 구현함으로써 통보 대상이 됨
 public class DataSheetView implements Observer {
-	private ScoreRecord scoreRecord ;
-	private int viewCount ;
+	private ScoreRecord scoreRecord;
+	private int viewCount;
 	
 	public DataSheetView(ScoreRecord scoreRecord, int viewCount) {
-		this.scoreRecord = scoreRecord ;
-		this.viewCount = viewCount ;
+		this.scoreRecord = scoreRecord;
+		this.viewCount = viewCount;
 	}
 	public void update() {  // 점수의 변경을 통보 받음
-		List<Integer> record = scoreRecord.getScoreRecord() ; // 점수를 조회함
+		List<Integer> record = scoreRecord.getScoreRecord(); // 점수를 조회함
 		displayScores(record, viewCount);  // 조회된 점수를 viewCount만큼 출력함
 	}
 	private void displayScores(List<Integer> record, int viewCount) { 
-		System.out.print("List of " + viewCount + " entries: ") ;
-		for ( int i = 0 ; i < viewCount && i < record.size() ; i ++ ) {
-			System.out.print(record.get(i) + " ") ;
+		System.out.print("List of " + viewCount + " entries: ");
+		for ( int i = 0; i < viewCount && i < record.size(); i ++ ) {
+			System.out.print(record.get(i) + " ");
 		}
-		System.out.println() ;
+		System.out.println();
 	}
 }
 
 // MinMaxView는 Observer의 기능 즉 update 메서드를 구현함으로써 통보 대상이 됨
 public class MinMaxView implements Observer {
-	private ScoreRecord scoreRecord ;
+	private ScoreRecord scoreRecord;
  
 	public MinMaxView(ScoreRecord scoreRecord) {
-		this.scoreRecord = scoreRecord ;
+		this.scoreRecord = scoreRecord;
 	}
 	public void update() {
-		List<Integer> record = scoreRecord.getScoreRecord() ;
+		List<Integer> record = scoreRecord.getScoreRecord();
 		displayMinMax(record);  // 최소/최대값만을 출력
 	}
 	private void displayMinMax(List<Integer> record) {
-		int min =  Collections.min(record, null) ;
-		int max =  Collections.max(record, null) ;	
-		System.out.println("Min: " + min + " Max: " + max) ;
+		int min =  Collections.min(record, null);
+		int max =  Collections.max(record, null);	
+		System.out.println("Min: " + min + " Max: " + max);
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {
-		ScoreRecord scoreRecord = new ScoreRecord() ;
-		DataSheetView dataSheetView3 = new DataSheetView(scoreRecord, 3) ;
-		DataSheetView dataSheetView5 = new DataSheetView(scoreRecord, 5) ;
-		MinMaxView minMaxView = new MinMaxView(scoreRecord) ;
+		ScoreRecord scoreRecord = new ScoreRecord();
+		DataSheetView dataSheetView3 = new DataSheetView(scoreRecord, 3);
+		DataSheetView dataSheetView5 = new DataSheetView(scoreRecord, 5);
+		MinMaxView minMaxView = new MinMaxView(scoreRecord);
 		// 3개 목록 DataSheetView를 ScoreRecord에 Observer로 추가함	
-		scoreRecord.attach(dataSheetView3) ;
+		scoreRecord.attach(dataSheetView3);
 		// 5개 목록 DataSheetView를 ScoreRecord에 Observer로 추가함
-		scoreRecord.attach(dataSheetView5) ;
+		scoreRecord.attach(dataSheetView5);
 		// MinMaxView를 ScoreRecord에 Observer로 추가함
-		scoreRecord.attach(minMaxView) ;
+		scoreRecord.attach(minMaxView);
 		
-		for (int index = 1 ; index <= 5 ; index ++ ) {
-			int score = index * 10 ;
-			System.out.println("Adding " + score) ;
-			scoreRecord.addScore(score) ;
+		for (int index = 1; index <= 5; index ++ ) {
+			int score = index * 10;
+			System.out.println("Adding " + score);
+			scoreRecord.addScore(score);
 		}		
 	}
 }

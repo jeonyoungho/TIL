@@ -53,7 +53,7 @@ public class Main {
 
 #### 해결책
 - 1) 정적 변수에 인스턴스를 만들어 바로 초기화하는 방법<b>(비추천)</b>
-    - 클래스가 참조가 될때 메모리(JVM)에 로딩되어 생성됨 , instance변수가 굳이 바인딩 될 필요가 없어도 클래스를 참조하는 순간, 불필요하게 객체가 생성됨
+    - 클래스가 참조 될 때 메모리(JVM)에 로딩되어 생성됨 , instance변수가 굳이 바인딩 될 필요가 없어도 클래스를 참조하는 순간, 불필요하게 객체가 생성됨
 ~~~
 public class Printer {
 	private static Printer instance = new Printer();
@@ -81,7 +81,7 @@ public class Printer {
 	private Printer() {
 	}
 
-	public static Printer getPrinter() { // synchronized 임계구역설정
+	public synchronized static Printer getPrinter() { // synchronized 임계구역설정
         if(instance == null) {
             instance = new Printer();
         }

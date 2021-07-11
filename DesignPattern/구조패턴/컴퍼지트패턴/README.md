@@ -8,62 +8,65 @@
 - 소스 코드
 ~~~
 public class Keyboard {
-	private int price ;
+	private int price;
 	private int power;
 	public Keyboard(int power, int price) {
-		this.power = power ; this.price = price ;
+		this.power = power; 
+		this.price = price;
 	}
-	public int getPrice() { return price ; }
+	public int getPrice() { return price; }
 	public int getPower() { return power; }
 }
 ~~~
 
 ~~~
 public class Body {
-	private int price ;
+	private int price;
 	private int power;
 	public Body(int power, int price) {
-		this.power = power ; this.price = price ;
+		this.power = power; 
+		this.price = price;
 	}
-	public int getPrice() { return price ; }
+	public int getPrice() { return price; }
 	public int getPower() { return power; }
 }
 ~~~
 
 ~~~
 public class Monitor {
-	private int price ;
+	private int price;
 	private int power;
 	public Monitor(int power, int price) {
-		this.power = power ; this.price = price ;
+		this.power = power; 
+		this.price = price;
 	}
-	public int getPrice() { return price ; }
+	public int getPrice() { return price; }
 	public int getPower() { return power; }
 }
 ~~~
 
 ~~~
 public class Computer {
-	private Body body ;
-	private Keyboard keyboard ;
-	private Monitor monitor ;
+	private Body body;
+	private Keyboard keyboard;
+	private Monitor monitor;
 	
-	public void addBody(Body body) { this.body = body ; }
+	public void addBody(Body body) { this.body = body; }
 	public void addKeyboard(Keyboard keyboard) {
-		this.keyboard = keyboard ;
+		this.keyboard = keyboard;
 	}
-	public void addMonitor(Monitor monitor) { this.monitor = monitor ; }
+	public void addMonitor(Monitor monitor) { this.monitor = monitor; }
 	public int getPrice() {
-		int bodyPrice = body.getPrice() ;
-		int keyboardPrice = keyboard.getPrice() ;
-		int monitorPrice = monitor.getPrice() ;
-		return bodyPrice + keyboardPrice + monitorPrice ;
+		int bodyPrice = body.getPrice();
+		int keyboardPrice = keyboard.getPrice();
+		int monitorPrice = monitor.getPrice();
+		return bodyPrice + keyboardPrice + monitorPrice;
 	}
 	public int getPower() {
-		int bodyPower = body.getPower() ;
-		int keyboardPower = keyboard.getPower() ;
-		int monitorPower = monitor.getPower() ;
-		return bodyPower + keyboardPower + monitorPower ;
+		int bodyPower = body.getPower();
+		int keyboardPower = keyboard.getPower();
+		int monitorPower = monitor.getPower();
+		return bodyPower + keyboardPower + monitorPower;
 	}
 }
 ~~~
@@ -72,21 +75,21 @@ public class Computer {
 public class Client {
 	public static void main(String[] args) {
 		// 컴퓨터의 부품으로서 Body, Keyboard, Monitor 객체를 생성함
-		Body body = new Body(100, 70) ;
-		Keyboard keyboard = new Keyboard(5, 2) ;
-		Monitor monitor = new Monitor(20, 30) ;
+		Body body = new Body(100, 70);
+		Keyboard keyboard = new Keyboard(5, 2);
+		Monitor monitor = new Monitor(20, 30);
 		
 		// Computer 객체를 생성하고 부품 객체들을 설정함
-		Computer computer = new Computer() ;
-		computer.addBody(body) ;
-		computer.addKeyboard(keyboard) ;
-		computer.addMonitor(monitor) ;
+		Computer computer = new Computer();
+		computer.addBody(body);
+		computer.addKeyboard(keyboard);
+		computer.addMonitor(monitor);
 		
 		// 컴퓨터의 가격과 전력소비량을 구함
-		int computerPrice = computer.getPrice() ;
-		int computerPower = computer.getPower() ;
-		System.out.println("Computer Power: " + computerPower + " W") ;
-		System.out.println("Computer Price: " + computerPrice + " 만원") ;	
+		int computerPrice = computer.getPrice();
+		int computerPower = computer.getPower();
+		System.out.println("Computer Power: " + computerPower + " W");
+		System.out.println("Computer Price: " + computerPrice + " 만원");	
 	}
 }
 ~~~
@@ -107,21 +110,21 @@ public class Client {
 - 소스 코드
 ~~~
 public abstract class ComputerDevice {
-	public abstract int getPrice() ;
-	public abstract int getPower() ;
+	public abstract int getPrice();
+	public abstract int getPower();
 }
 ~~~
 
 ~~~
 public class Keyboard extends ComputerDevice {
-	private int price ;
+	private int price;
 	private int power;
  
 	public Keyboard(int power, int price) {
-		this.power = power ;
-		this.price = price ;
+		this.power = power;
+		this.price = price;
 	}
-	public int getPrice() { return price ; }
+	public int getPrice() { return price; }
 	public int getPower() { return power; }
 }
 ~~~
@@ -129,26 +132,26 @@ public class Keyboard extends ComputerDevice {
 ~~~
 public class Computer extends ComputerDevice {
 	// 복수 개의 ComputerDevice를 가리킴
-	private List<ComputerDevice> components = new ArrayList<ComputerDevice>() ;
+	private List<ComputerDevice> components = new ArrayList<ComputerDevice>();
 	// ComputerDevice를 Computer에 추가
 	public void addComponent(ComputerDevice component) {
-		components.add(component) ;
+		components.add(component);
 	}
 	// ComputerDevice를 Computer에서 제거
 	public void removeComponent(ComputerDevice component) {
-		components.remove(component) ;
+		components.remove(component);
 	}
 	public int getPrice() {
-		int price = 0 ;	
+		int price = 0;	
 		for ( ComputerDevice component: components )
-			price += component.getPrice() ;
-		return price ;
+			price += component.getPrice();
+		return price;
 	}
 	public int getPower() {
-		int power = 0 ;	
+		int power = 0;	
 		for ( ComputerDevice component: components )
-			power += component.getPower() ;
-		return power ;
+			power += component.getPower();
+		return power;
 	}
 }
 ~~~
@@ -157,20 +160,20 @@ public class Computer extends ComputerDevice {
 public class Client {
 	public static void main(String[] args) {
 		// 컴퓨터의 부품으로서 Body, Keyboard, Monitor 객체를 생성함
-		Body body = new Body(100, 70) ;
-		Keyboard keyboard = new Keyboard(5, 2) ;
-		Monitor monitor = new Monitor(20, 30) ;
+		Body body = new Body(100, 70);
+		Keyboard keyboard = new Keyboard(5, 2);
+		Monitor monitor = new Monitor(20, 30);
 		
 		// Computer 객체를 생성하고 부품 객체들을 설정함
-		Computer computer = new Computer() ;
-		computer.addComponent(body) ;
-		computer.addComponent(keyboard) ;
-		computer.addComponent(monitor) ;
+		Computer computer = new Computer();
+		computer.addComponent(body);
+		computer.addComponent(keyboard);
+		computer.addComponent(monitor);
 		
-		int computerPrice = computer.getPrice() ;
-		int computerPower = computer.getPower() ;
-		System.out.println("Computer Power: " + computerPower + " W") ;
-		System.out.println("Computer Price: " + computerPrice + " 만원") ;	
+		int computerPrice = computer.getPrice();
+		int computerPower = computer.getPower();
+		System.out.println("Computer Power: " + computerPower + " W");
+		System.out.println("Computer Price: " + computerPrice + " 만원");	
 	}
 }
 ~~~
@@ -182,22 +185,22 @@ public class Client {
 public class Client {
 	public static void main(String[] args) {
 		// 컴퓨터의 부품으로서 Body, Keyboard, Monitor, Speaker 객체를 생성함
-		Body body = new Body(100, 70) ;
-		Keyboard keyboard = new Keyboard(5, 2) ;
-		Monitor monitor = new Monitor(20, 30) ;
-		Speaker speaker = new Speaker(10, 10) ;
+		Body body = new Body(100, 70);
+		Keyboard keyboard = new Keyboard(5, 2);
+		Monitor monitor = new Monitor(20, 30);
+		Speaker speaker = new Speaker(10, 10);
  
 		// Computer 객체를 생성하고 부품 객체들을 설정함
-		Computer computer = new Computer() ;
-		computer.addComponent(body) ;
-		computer.addComponent(keyboard) ;
-		computer.addComponent(monitor) ;
-		computer.addComponent(speaker) ;
+		Computer computer = new Computer();
+		computer.addComponent(body);
+		computer.addComponent(keyboard);
+		computer.addComponent(monitor);
+		computer.addComponent(speaker);
 		
-		int computerPrice = computer.getPrice() ;
-		int computerPower = computer.getPower() ;
-		System.out.println("Computer Power: " + computerPower + " W") ;
-		System.out.println("Computer Price: " + computerPrice + " 만원") ;	
+		int computerPrice = computer.getPrice();
+		int computerPower = computer.getPower();
+		System.out.println("Computer Power: " + computerPower + " W");
+		System.out.println("Computer Price: " + computerPrice + " 만원");	
 	}
 }
 ~~~

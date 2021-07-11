@@ -16,27 +16,27 @@ public enum DoorStatus { CLOSED, OPENED }
 public enum MotorStatus { MOVING, STOPPED}
 
 public class Door {
-	private DoorStatus doorStatus ;
+	private DoorStatus doorStatus;
 	public Door() {
-		doorStatus = DoorStatus.CLOSED ;
+		doorStatus = DoorStatus.CLOSED;
 	}
 	public DoorStatus getDoorStatus() {
-		return doorStatus ;
+		return doorStatus;
 	}
 	public void close() {
-		doorStatus = DoorStatus.CLOSED ;
+		doorStatus = DoorStatus.CLOSED;
 	}
 	public void open() {
-		doorStatus = DoorStatus.OPENED ;
+		doorStatus = DoorStatus.OPENED;
 	}
 }
 
 public class HyundaiMotor {
-	private Door door ;
-	private MotorStatus motorStatus ;	
+	private Door door;
+	private MotorStatus motorStatus;	
 	public HyundaiMotor(Door door) {
-		this.door = door ;
-		motorStatus = MotorStatus.STOPPED ;  // 초기에는 멈춘 상태
+		this.door = door;
+		motorStatus = MotorStatus.STOPPED;  // 초기에는 멈춘 상태
 	}	
 	private void moveHyundaiMotor(Direction direction) {
 		// Hyundai Motor를 구동시킨다.
@@ -44,22 +44,22 @@ public class HyundaiMotor {
 	public MotorStatus getMotorStatus() { return motorStatus; }
 	private void setMotorStatus(MotorStatus motorStatus) { this.motorStatus = motorStatus; }
 	public void move(Direction direction) {
-		MotorStatus motorStatus = getMotorStatus() ;
-		if (  motorStatus == MotorStatus.MOVING ) return ;  // 이미 이동 중이면 아무 작업을 하지 않음
+		MotorStatus motorStatus = getMotorStatus();
+		if (  motorStatus == MotorStatus.MOVING ) return;  // 이미 이동 중이면 아무 작업을 하지 않음
 		
-		DoorStatus doorStatus = door.getDoorStatus() ;
-		if ( doorStatus == DoorStatus.OPENED ) door.close() ;  // 만약 문이 열려 있으면 먼저 문을 닫음
+		DoorStatus doorStatus = door.getDoorStatus();
+		if ( doorStatus == DoorStatus.OPENED ) door.close();  // 만약 문이 열려 있으면 먼저 문을 닫음
 		
-		moveHyundaiMotor(direction) ;  // 모터를 주어진 방향으로 이동
-		setMotorStatus(MotorStatus.MOVING) ;  // 모터 상태를 이동 중으로 변경함
+		moveHyundaiMotor(direction);  // 모터를 주어진 방향으로 이동
+		setMotorStatus(MotorStatus.MOVING);  // 모터 상태를 이동 중으로 변경함
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {
-		Door door = new Door() ;
-		HyundaiMotor hyundaiMotor = new HyundaiMotor(door) ;
-		hyundaiMotor.move(Direction.UP) ;
+		Door door = new Door();
+		HyundaiMotor hyundaiMotor = new HyundaiMotor(door);
+		hyundaiMotor.move(Direction.UP);
 	}
 }
 ~~~
@@ -69,10 +69,10 @@ public class Client {
     - <b>=> 내부소스코드 수정 (OCP위반)</b>
 ~~~
 public class LGMotor {
-	private Door door ;
-	private MotorStatus motorStatus ;
+	private Door door;
+	private MotorStatus motorStatus;
 	public LGMotor(Door door) {
-		this.door = door ; motorStatus = MotorStatus.STOPPED ;
+		this.door = door; motorStatus = MotorStatus.STOPPED;
 	}	
 	private void moveLGMotor(Direction direction) {
 		// LG Motor를 구동시킴
@@ -82,12 +82,12 @@ public class LGMotor {
 		this.motorStatus = motorStatus;
 	}
 	public void move(Direction direction) {
-		MotorStatus motorStatus = getMotorStatus() ;
-		if (  motorStatus == MotorStatus.MOVING ) return ;
-		DoorStatus doorStatus = door.getDoorStatus() ;
-		if ( doorStatus == DoorStatus.OPENED ) door.close() ;	
-		moveLGMotor(direction) ;  // move 메서드는 이 문장을 제외하면 HyundaiMotor와 동일함
-		setMotorStatus(MotorStatus.MOVING) ;
+		MotorStatus motorStatus = getMotorStatus();
+		if (  motorStatus == MotorStatus.MOVING ) return;
+		DoorStatus doorStatus = door.getDoorStatus();
+		if ( doorStatus == DoorStatus.OPENED ) door.close();	
+		moveLGMotor(direction);  // move 메서드는 이 문장을 제외하면 HyundaiMotor와 동일함
+		setMotorStatus(MotorStatus.MOVING);
 	}
 }
 ~~~
@@ -95,12 +95,12 @@ public class LGMotor {
 ![image](https://user-images.githubusercontent.com/44339530/111251557-d4c43200-8652-11eb-91ac-331665b86dbc.png)<br>
 ~~~
 public abstract class Motor { // HyundaiMotor와 LGMotor에 공통적인 기능을 구현하는 클래스
-	protected Door door ;
-	private MotorStatus motorStatus ;
+	protected Door door;
+	private MotorStatus motorStatus;
 	
 	public Motor(Door door) {
-		this.door = door ;
-		motorStatus = MotorStatus.STOPPED ;
+		this.door = door;
+		motorStatus = MotorStatus.STOPPED;
 	}	
 	public MotorStatus getMotorStatus() {
 		return motorStatus;
@@ -112,43 +112,43 @@ public abstract class Motor { // HyundaiMotor와 LGMotor에 공통적인 기능�
 
 public class HyundaiMotor extends Motor { // Motor를 상속받아서 HyundaiMotor를 구현함
 	public HyundaiMotor(Door door) {
-		super(door) ;
+		super(door);
 	}	
 	private void moveHyundaiMotor(Direction direction) {
 		// Hyundai Motor를 구동시킨다.
 	}
 	public void move(Direction direction) {
-		MotorStatus motorStatus = getMotorStatus() ;
-		if (  motorStatus == MotorStatus.MOVING ) return ;
+		MotorStatus motorStatus = getMotorStatus();
+		if (  motorStatus == MotorStatus.MOVING ) return;
 		
-		DoorStatus doorStatus = door.getDoorStatus() ;
+		DoorStatus doorStatus = door.getDoorStatus();
 		if ( doorStatus == DoorStatus.OPENED )
-			door.close() ;
+			door.close();
 		
-		moveHyundaiMotor(direction) ;  // move 메서드는 이 구문을 제외하면 LGMotor와 동일함
+		moveHyundaiMotor(direction);  // move 메서드는 이 구문을 제외하면 LGMotor와 동일함
 		
-		setMotorStatus(MotorStatus.MOVING) ;
+		setMotorStatus(MotorStatus.MOVING);
 	}
 }
 
 public class LGMotor extends Motor {
 	public LGMotor(Door door) {
-		super(door) ;
+		super(door);
 	}	
 	private void moveLGMotor(Direction direction) {
 		// LG Motor를 구동시킨다.
 	}
 	public void move(Direction direction) {
-		MotorStatus motorStatus = getMotorStatus() ;
-		if (  motorStatus == MotorStatus.MOVING ) return ;
+		MotorStatus motorStatus = getMotorStatus();
+		if (  motorStatus == MotorStatus.MOVING ) return;
 		
-		DoorStatus doorStatus = door.getDoorStatus() ;
+		DoorStatus doorStatus = door.getDoorStatus();
 		if ( doorStatus == DoorStatus.OPENED )
-			door.close() ;
+			door.close();
 		
-		moveLGMotor(direction) ; // move 메서드는 이 구문을 제외하면 HyundaiMotor와 동일함
+		moveLGMotor(direction); // move 메서드는 이 구문을 제외하면 HyundaiMotor와 동일함
 		
-		setMotorStatus(MotorStatus.MOVING) ;
+		setMotorStatus(MotorStatus.MOVING);
 	}
 }
 ~~~

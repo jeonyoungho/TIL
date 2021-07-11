@@ -12,58 +12,48 @@
 - 소스 코드
 ~~~
 public class ElevatorManager {
-	private List<ElevatorController> controllers ;
-	private ThroughputScheduler scheduler ;
+
+	private List<ElevatorController> controllers;
+
+	private ThroughputScheduler scheduler;
+
 	public ElevatorManager(int controllerCount) {
-		controllers = new ArrayList<ElevatorController>(controllerCount) ;
-		for ( int i = 0 ; i < controllerCount ; i ++ ) {
-			ElevatorController controller = new ElevatorController(i+1) ;
-			controllers.add(controller) ;
+		controllers = new ArrayList<ElevatorController>(controllerCount);
+
+		for ( int i = 0; i < controllerCount; i ++ ) {
+			ElevatorController controller = new ElevatorController(i+1);
+			controllers.add(controller);
 		}
-		scheduler = new ThroughputScheduler() ;
+
+		scheduler = new ThroughputScheduler();
 	}	
+
 	void requestElevator(int destination, Direction direction) {
-	// ThroughputScheduler를 이용해서 엘리베이터를 선택함	
-		int selectedElevator = scheduler.selectElevator(this,
-			destination, direction) ;		
-		controllers.get(selectedElevator).gotoFloor(destination) ;  // 선택된 엘리베이터를 이동 시킴
+		// ThroughputScheduler를 이용해서 엘리베이터를 선택함	
+		int selectedElevator = scheduler.selectElevator(this, destination, direction);		
+		controllers.get(selectedElevator).gotoFloor(destination);  // 선택된 엘리베이터를 이동 시킴
 	}
 }
 
 public class ThroughputScheduler {
-	public int selectElevator(ElevatorManager manager,
-		int destination, Direction direction) {
-		return 0 ; // 임의로 선택한다.
+	public int selectElevator(ElevatorManager manager, int destination, Direction direction) {
+		return 0; // 임의로 선택한다.
 	}
 }
 
 public class ElevatorController {
-	private int id ;
-	private int curFloor ;	
-	public ElevatorController(int id) {
-		this.id = id ;
-		curFloor = 1 ;
-	}
-	public void gotoFloor(int destination) {
-		System.out.print("Elevator [" + id + "] Floor: " + curFloor) ;
-		// 현재 층 갱신, 즉 주어진 목적지 층으로 엘리베이터가 이동함
-		curFloor = destination ;
-		System.out.println(" ==> " + curFloor) ;
-	}
-}
+	private int id;
+	private int curFloor;
 
-public class ElevatorController {
-	private int id ;
-	private int curFloor ;	
 	public ElevatorController(int id) {
-		this.id = id ;
-		curFloor = 1 ;
+		this.id = id;
+		curFloor = 1;
 	}
+
 	public void gotoFloor(int destination) {
-		System.out.print("Elevator [" + id + "] Floor: " + curFloor) ;
-		// 현재 층 갱신, 즉 주어진 목적지 층으로 엘리베이터가 이동함
-		curFloor = destination ;
-		System.out.println(" ==> " + curFloor) ;
+		System.out.print("Elevator [" + id + "] Floor: " + curFloor); // 현재 층 갱신, 즉 주어진 목적지 층으로 엘리베이터가 이동함
+		curFloor = destination;
+		System.out.println(" ==> " + curFloor);
 	}
 }
 ~~~
@@ -83,61 +73,68 @@ public class ElevatorController {
 public enum SchedulingStrategyID { RESPONSE_TIME, THROUGHPUT, DYNAMIC }
  
 public class SchedulerFactory {
-	public static ElevatorScheduler getScheduler(
-		SchedulingStrategyID strategyID) {
-		ElevatorScheduler scheduler = null ;
-		switch ( strategyID ) {
-			case RESPONSE_TIME : scheduler = new ResponseTimeScheduler() ;
-				 break ;
-			case THROUGHPUT : scheduler = new ThroughputScheduler() ; break ;
+	public static ElevatorScheduler getScheduler(SchedulingStrategyID strategyID) {
+		ElevatorScheduler scheduler = null;
+
+		switch (strategyID) {
+			case RESPONSE_TIME : scheduler = new ResponseTimeScheduler();
+				 break;
+			case THROUGHPUT : scheduler = new ThroughputScheduler(); break;
 			case DYNAMIC : {  // 오전에는 대기 시간 최소화 전략, 오후에는 처리량 최대화 전략
-				int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) ;
+				int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 				if ( hour < 12 ) // 오전
-					scheduler = new ResponseTimeScheduler() ;
+					scheduler = new ResponseTimeScheduler();
 				else // 오후
-					scheduler = new ThroughputScheduler() ;
-				break ;
+					scheduler = new ThroughputScheduler();
+				break;
 			}
-		} 
-		return scheduler ;
+		}
+
+		return scheduler;
 	}
 }
 
 public class ElevatorManager {
-	private List<ElevatorController> controllers ;
-	private SchedulingStrategyID strategyID ;
-	public ElevatorManager(int controllerCount,
-		SchedulingStrategyID strategyID) {
-		controllers = new ArrayList<ElevatorController>(controllerCount) ;
-		for ( int i = 0 ; i < controllerCount ; i ++ ) {
-			ElevatorController controller = new ElevatorController(i+1) ;
-			controllers.add(controller) ;
+	private List<ElevatorController> controllers;
+	private SchedulingStrategyID strategyID;
+
+	public ElevatorManager(int controllerCount, SchedulingStrategyID strategyID) {
+		controllers = new ArrayList<ElevatorController>(controllerCount);
+
+		for ( int i = 0; i < controllerCount; i ++ ) {
+			ElevatorController controller = new ElevatorController(i+1);
+			controllers.add(controller);
 		}
-		this.strategyID = strategyID ;  // 스케줄링 전략을 설정함
+
+		this.strategyID = strategyID;  // 스케줄링 전략을 설정함
 	}
-	public void setStrategyID(SchedulingStrategyID strategyID) { this.strategyID = strategyID; }
+	
+	public void setStrategyID(SchedulingStrategyID strategyID) { 
+		this.strategyID = strategyID; 
+	}
+	
 	void requestElevator(int destination, Direction direction) {
 		// 주어진 전략 ID에 해당되는 ElevatorScheduler를 사용함	
-		ElevatorScheduler scheduler = SchedulerFactory.getScheduler(strategyID) ;
-		System.out.println(scheduler) ;
-		int selectedElevator = scheduler.selectElevator(this, destination, direction) ;
-		controllers.get(selectedElevator).gotoFloor(destination) ;
+		ElevatorScheduler scheduler = SchedulerFactory.getScheduler(strategyID);
+		System.out.println(scheduler);
+		int selectedElevator = scheduler.selectElevator(this, destination, direction);
+		controllers.get(selectedElevator).gotoFloor(destination);
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {
 		ElevatorManager emWithResponseTimerScheduler =
-			new ElevatorManager(2, SchedulingStrategyID.RESPONSE_TIME) ;
-		emWithResponseTimerScheduler.requestElevator(10, Direction.UP) ;
+			new ElevatorManager(2, SchedulingStrategyID.RESPONSE_TIME);
+		emWithResponseTimerScheduler.requestElevator(10, Direction.UP);
 		
 		ElevatorManager emWithThroughputScheduler =
-			new ElevatorManager(2, SchedulingStrategyID.THROUGHPUT) ;
-		emWithThroughputScheduler.requestElevator(10, Direction.UP) ;
+			new ElevatorManager(2, SchedulingStrategyID.THROUGHPUT);
+		emWithThroughputScheduler.requestElevator(10, Direction.UP);
 	
 		ElevatorManager emWithDynamicScheduler =
-			new ElevatorManager(2, SchedulingStrategyID.DYNAMIC) ;
-		emWithDynamicScheduler.requestElevator(10, Direction.UP) ;
+			new ElevatorManager(2, SchedulingStrategyID.DYNAMIC);
+		emWithDynamicScheduler.requestElevator(10, Direction.UP);
 	}
 }
 ~~~
@@ -150,66 +147,73 @@ public class Client {
 
 ~~~
 public class SchedulerFactory {
-	public static ElevatorScheduler getScheduler(
-		SchedulingStrategyID strategyID) {
-		ElevatorScheduler scheduler = null ;
+
+	public static ElevatorScheduler getScheduler(SchedulingStrategyID strategyID) {
+		ElevatorScheduler scheduler = null;
+
 		switch ( strategyID ) {
 			case RESPONSE_TIME :
-				scheduler = ResponseTimeScheduler.getInstance() ; break ;
+				scheduler = ResponseTimeScheduler.getInstance(); break;
 			case THROUGHPUT :
-				scheduler = ThroughputScheduler.getInstance() ; break ;
+				scheduler = ThroughputScheduler.getInstance(); break;
 			case DYNAMIC : {
-				int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) ;
+				int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 				if ( hour < 12 ) // 오전
-					scheduler = ResponseTimeScheduler.getInstance() ;
+					scheduler = ResponseTimeScheduler.getInstance();
 				else // 오후
-					scheduler = ThroughputScheduler.getInstance() ;
-				break ;
+					scheduler = ThroughputScheduler.getInstance();
+				break;
 			}
-		} 
-		return scheduler ;
+		}
+
+		return scheduler;
 	}
 }
 
 public class ThroughputScheduler implements ElevatorScheduler {
-	private static ElevatorScheduler scheduler ;
+	private static ElevatorScheduler scheduler;
+
 	private ThroughputScheduler() {}
+
 	public static ElevatorScheduler getInstance() {
-		if ( scheduler == null ) scheduler = new ThroughputScheduler() ;
-		return scheduler ;
+		if ( scheduler == null ) scheduler = new ThroughputScheduler();
+		return scheduler;
 	}
-	public int selectElevator(ElevatorManager manager,
-		int destination, Direction direction) {		
-		return 0 ;	
+
+	public int selectElevator(ElevatorManager manager, int destination, Direction direction) {		
+		return 0;	
 	}
 }
 
 public class ResponseTimeScheduler implements ElevatorScheduler {
-	private static ElevatorScheduler scheduler ;
+	private static ElevatorScheduler scheduler;
+	
 	private ResponseTimeScheduler() {}
+
 	public static ElevatorScheduler getInstance() {
-		if ( scheduler == null ) scheduler = new ResponseTimeScheduler() ;
-		return scheduler ;
+		if ( scheduler == null ) scheduler = new ResponseTimeScheduler();
+		return scheduler;
 	}
+
 	public int selectElevator(ElevatorManager manager,
 		int destination, Direction direction) {	
-		return 1 ;
+		return 1;
 	}
 }
 
 public class Client {
 	public static void main(String[] args) {
 		ElevatorManager emWithResponseTimerScheduler =
-			new ElevatorManager(2, SchedulingStrategyID.RESPONSE_TIME) ;
-		emWithResponseTimerScheduler.requestElevator(10, Direction.UP) ;
+			new ElevatorManager(2, SchedulingStrategyID.RESPONSE_TIME);
+		emWithResponseTimerScheduler.requestElevator(10, Direction.UP);
 		
 		ElevatorManager emWithThroughputScheduler =
-			new ElevatorManager(2, SchedulingStrategyID.THROUGHPUT) ;
-		emWithThroughputScheduler.requestElevator(10, Direction.UP) ;
+			new ElevatorManager(2, SchedulingStrategyID.THROUGHPUT);
+		emWithThroughputScheduler.requestElevator(10, Direction.UP);
 	
 		ElevatorManager emWithDynamicScheduler =
-			new ElevatorManager(2, SchedulingStrategyID.DYNAMIC) ;
-		emWithDynamicScheduler.requestElevator(10, Direction.UP) ;
+			new ElevatorManager(2, SchedulingStrategyID.DYNAMIC);
+		emWithDynamicScheduler.requestElevator(10, Direction.UP);
 	}
 }
 ~~~
@@ -221,58 +225,62 @@ public class Client {
 - 소스 코드
 ~~~
 public abstract class ElevatorManager {
-	private List<ElevatorController> controllers ;	
+	private List<ElevatorController> controllers;
+
 	public ElevatorManager(int controllerCount) {
-		controllers = new ArrayList<ElevatorController>(controllerCount) ;
-		for ( int i = 0 ; i < controllerCount ; i ++ ) {
-			ElevatorController controller = new ElevatorController(i+1) ;
-			controllers.add(controller) ;
+		controllers = new ArrayList<ElevatorController>(controllerCount);
+		for ( int i = 0; i < controllerCount; i ++ ) {
+			ElevatorController controller = new ElevatorController(i+1);
+			controllers.add(controller);
 		}
-	}	
-	protected abstract ElevatorScheduler getScheduler() ;  // primitive 메서드
+	}
+
+	protected abstract ElevatorScheduler getScheduler();  // primitive 메서드
+
 	void requestElevator(int destination, Direction direction) { // 템플릿 메서드
 		// 하위클래스에서 오버라이드한 getScheduler 메서드를 호출
-		ElevatorScheduler scheduler = getScheduler() ; 
+		ElevatorScheduler scheduler = getScheduler(); 
 		int selectedElevator = scheduler.selectElevator(this,
-			destination, direction) ;		
-		controllers.get(selectedElevator).gotoFloor(destination) ;
+			destination, direction);		
+		controllers.get(selectedElevator).gotoFloor(destination);
 	}
 }
 
-public class ElevatorManagerWithThroughputScheduling
-	extends ElevatorManager {	
+public class ElevatorManagerWithThroughputScheduling extends ElevatorManager {	
 	public ElevatorManagerWithThroughputScheduling(int controllerCount) {
-		super(controllerCount) ;
-	}		
+		super(controllerCount);
+	}
+
 	protected ElevatorScheduler getScheduler() {  // 처리량 최대화 전략을 사용함
-		ElevatorScheduler scheduler = ThroughputScheduler.getInstance() ;
-		return scheduler ;
+		ElevatorScheduler scheduler = ThroughputScheduler.getInstance();
+		return scheduler;
 	}
 }
 
-public class ElevatorManagerWithResponseTimeScheduling
-	extends ElevatorManager {
+public class ElevatorManagerWithResponseTimeScheduling extends ElevatorManager {
 	public ElevatorManagerWithResponseTimeScheduling(int controllerCount) {
-		super(controllerCount) ;
-	}		
+		super(controllerCount);
+	}
+	
 	protected ElevatorScheduler getScheduler() {  // 대기 시간 최소화 전략을 사용함
-		ElevatorScheduler scheduler = ResponseTimeScheduler.getInstance() ;
-		return scheduler ;
+		ElevatorScheduler scheduler = ResponseTimeScheduler.getInstance();
+		return scheduler;
 	}
 }
 
 public class ElevatorManagerWithDynamicScheduling extends ElevatorManager {	
 	public ElevatorManagerWithDynamicScheduling(int controllerCount) {
-		super(controllerCount) ;
-	}		
+		super(controllerCount);
+	}
+	
 	protected ElevatorScheduler getScheduler() {  // 동적 스케줄링을 사용함
-		ElevatorScheduler scheduler = null ;
-		int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) ;
+		ElevatorScheduler scheduler = null;
+		int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 		if ( hour < 12 ) // 오전
-			scheduler = ResponseTimeScheduler.getInstance() ;
+			scheduler = ResponseTimeScheduler.getInstance();
 		else // 오후
-			scheduler = ThroughputScheduler.getInstance() ;
-		return scheduler ;
+			scheduler = ThroughputScheduler.getInstance();
+		return scheduler;
 	}
 }
 ~~~
